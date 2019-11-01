@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-transition": "vant-weapp/transition"
+  },
+  "navigationBarTitleText": "我的收藏"
+}

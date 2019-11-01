@@ -1,0 +1,11 @@
+<view class='meng'  hidden='{{isshow}}'  >
+ <!-- <van-transition name="fade-up" />
+ </van-transition> -->
+  <view class='mengbox'  >
+   <view class="tishi">提示</view>
+    <view class='mengtitle'>{{title}}</view>
+    <view class='mengbom'>
+      <view class='sub' bind:tap="onCancle" >我知道了</view>
+    </view>
+  </view>
+</view>

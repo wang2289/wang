@@ -1,0 +1,83 @@
+// components/mengceng/mengceng.js
+import {
+  requestsend,
+  requestsendtoken
+} from '../../utils/util.js'
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    title: String,
+    money: String,
+    postid: {
+      type: String,
+      value: ''
+    },
+    isshow: Boolean,
+    aomid: String,
+    isios: Boolean
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    title: '',
+    isios: null
+  },
+  pageLifetimes: {
+    show: function(){
+      this.setData({
+        isios: this.data.isios
+      })
+    }
+  },
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    onCancle: function (event) {
+      this.setData({
+        isshow: !this.data.isshow,
+      })
+      var token = wx.getStorageSync("token")
+      var param = {
+        aomid: this.properties.aomid,
+        typeid: 1
+      }
+      let postId = this.data.postid;
+      // console.log(param)
+      requestsendtoken('api/UserShopping/AddUserShopping', "GET", param, function (e) {
+        wx.navigateTo({
+          url: '/pages/cart/cart'
+        })
+      })
+    },
+    onSubmit: function (event) {
+      this.setData({
+        isshow: !this.data.isshow,
+      })
+      var token = wx.getStorageSync("token")
+      var param = {
+        aomid: this.properties.aomid,
+        typeid:1
+      }
+      let postId = this.data.postid;
+      // console.log(param)
+      requestsendtoken('api/UserShopping/AddUserShopping', "GET", param, function (e) {
+        wx.showToast({
+          icon: "none",
+          title: e.msg
+        })
+      })
+    },
+    Onclose: function () {
+      this.setData({
+        isshow: true
+      })
+    },
+    Onclose2: function () {
+    },
+  }
+})

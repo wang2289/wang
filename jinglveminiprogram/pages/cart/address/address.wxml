@@ -1,0 +1,44 @@
+<view class="title">
+  当前地址</view>
+<view class="address" wx:if="{{defaultaddres!=''}}">
+  <image class="addressicon" src="/images/icon_adr@2x.png"></image>
+  <view>
+    <view class="address-detail">{{defaultaddres.receiveaddress}}</view>
+    <view class="conact">
+      <text>{{defaultaddres.receivetname}}</text>
+      <span>{{defaultaddres.tel}}</span>
+    </view>
+  </view>
+  <image class="addressmor" src="/images/icon_list_more@2x.png"></image>
+</view>
+<view class="title">更多地址</view>
+<view style="margin-bottom:100rpx;">
+<van-swipe-cell id="swipe-cell" right-width="{{ 60 }}" async-close  bind:close="onDel" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{alladdress}}">
+
+  <van-cell-group>
+    <view class="address divider" bindtap="onclicknavito" data-id="{{item.id}}">
+      <image class="addressicon" src="/images/icon_adr@2x.png"></image>
+      <view>
+        <view class="address-detail">{{item.receiveaddress}}</view>
+        <view class="conact">
+          <text>{{item.receivetname}}</text>
+          <span>{{item.tel}}</span>
+        </view>
+      </view>
+      <image class="addressmor" src="/images/icon_list_more@2x.png"></image>
+    </view>
+  </van-cell-group>
+  <view slot="right">
+    <view class="delete-addres">
+
+      <van-icon size="45rpx" color="#FFF" name="delete" />
+
+    </view>
+  </view>
+</van-swipe-cell>
+</view>
+
+<view class="foot" bindtap="addaddress">
+ <image src="/images/icon_add@2x.png"></image><text>新增地址</text>
+</view>
+ <van-dialog id="van-dialog" />

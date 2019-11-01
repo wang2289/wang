@@ -1,0 +1,109 @@
+.container {
+  width: 690rpx;
+  height: auto;
+  background: rgba(247, 247, 249, 1);
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 25rpx 21rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.question-box {
+  display: flex;
+  flex-direction: column;
+}
+.answer-box{
+  display: flex;
+  flex-direction: column;
+}
+.ans-name{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:  wrap;
+}
+.ans-tit{
+  width: 570rpx;
+  display: inline-block;
+  padding-left: 9rpx;
+}
+.ques-name{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:  wrap;
+}
+.ques-tit{
+  width: 570rpx;
+  display: inline-block;
+  padding-left: 9rpx;
+}
+.ques-icon {
+  width: 44rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  background: linear-gradient(0deg, rgba(254, 42, 42, 1), rgba(253, 115, 41, 1));
+  border-radius: 50%;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.ans-icon {
+  width: 44rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  background: linear-gradient(180deg, rgba(251, 168, 47, 1), rgba(254, 136, 64, 1));
+  border-radius: 50%;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.ques-from {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  text-align: right;
+  margin-top: 18rpx;
+}
+
+.ques-tit, .ans-tit {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: rgba(221, 221, 221, 1);
+  margin-top: 20rpx;
+  margin-bottom: 19rpx;
+}
+
+.ans-from {
+  text-align: right;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:  flex-end ;
+  margin-top: 18rpx;
+}
+
+.ans-from image {
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 50%;
+  margin-left: 9rpx;
+}

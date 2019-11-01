@@ -1,0 +1,16 @@
+    <view class="card-list">
+    <block wx:for="{{newsList}}">
+      <view class="card-item" bindtap="bindnavtopackage" data-id="{{item.id}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.pname}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span class="isbuy" wx:if="{{item.isbuy}}">已购买</span>
+            <span class="money" wx:else><text wx:if="{{!isIos}}" class="money">￥{{item.money}}</text></span>
+
+          </view>
+        </view>
+      </view>
+    </block>
+    </view>

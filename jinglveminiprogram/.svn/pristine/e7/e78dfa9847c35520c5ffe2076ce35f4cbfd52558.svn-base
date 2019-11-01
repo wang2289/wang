@@ -1,0 +1,72 @@
+<view class="main">
+  <view class="address" wx:if="{{addresflag}}" bindtap="onclicknavigto">
+    <image class="addressicon" src="/images/icon_adr@2x.png"></image>
+    <view >
+      <view class="address-detail">{{defaultaddress.receiveaddress}}</view>
+      <view class="conact">
+        <text>{{defaultaddress.receivetname}}</text>
+        <span>{{defaultaddress.tel}}</span>
+      </view>
+    </view>
+    <image class="addressmor" src="/images/icon_list_more@2x.png"></image>
+  </view>
+  <view wx:if="{{hasList}}">
+
+    <view class="cart-box">
+      <view class="cart-title">商品信息</view>
+      <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}" data-index="{{index}}">
+
+        <image class="cart-thumb" src="{{item.imageurl}}"></image>
+
+        <text class="cart-pro-name">{{item.name}}</text>
+        <text class="cart-pro-price">￥{{item.money}}</text>
+        <text class="cart-del">×1</text>
+
+      </view>
+
+    </view>
+
+
+  </view>
+  <view wx:else>
+    <view class="cart-no-data">订单没有商品哦~</view>
+  </view>
+
+  <view class="cart-bottom">
+    <!-- <text class="cart-pay">微信去支付</text> -->
+    <view class="cart-footer">
+      <text>合计：</text>
+      <text class="money">￥{{totalPrice}}</text>
+
+      <span class="cart-jiesuan" bindtap="payclick">确认支付</span>
+
+    </view>
+  </view>
+
+  <view wx:if="{{isshowdatelist}}" class='mask'>
+    <scroll-view scroll-y class='data-content'>
+      <view class='data-title'>
+        <text>课程时间选择</text>
+      </view>
+      <view class='data-list' wx:for="{{datelist}}">
+        <view class='data-list-type'>
+          <text>{{item.name}}</text>
+          <text>类别：{{item.type}}</text>
+        </view>
+        <view class='data-list-select'>
+          <text></text>
+          <radio-group bindchange="radioChange" data-index="{{index}}" class="radio-group">
+            <label class="radio" wx:for="{{item.date}}" wx:for-item="xuanxiangitem" wx:for-index="xuanxiangindex">
+              {{xuanxiangindex==0?"本期":"下期"}}： {{xuanxiangitem.year}}
+              <radio value="{{xuanxiangitem.year}}" color="red" checked="{{xuanxiangitem.checked}}" />
+            </label>
+
+          </radio-group>
+        </view>
+      </view>
+      <view class='data-foot'>
+        <button bindtap='dateentity'> 确认</button>
+      </view>
+    </scroll-view>
+  </view>
+</view>

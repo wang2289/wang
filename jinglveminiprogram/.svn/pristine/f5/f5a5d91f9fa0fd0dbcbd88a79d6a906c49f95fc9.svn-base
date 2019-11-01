@@ -1,0 +1,222 @@
+<!--index.wxml-->
+<view class="main-container">
+
+  <view class="container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item class="slide-item">
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="nav-bar">
+    <view bindtap="toTransList" class="navbar-item" data-id="110">
+      <view>
+        <image class="navbarimg" src="../../images/icon_shixun@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">实训</span>
+      </view>
+    </view>
+    <view class="navbar-item">
+      <view>
+        <image class="navbarimg" src="../../images/icon_guanli@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">管理</span>
+      </view>
+    </view>
+    <view class="navbar-item">
+      <view>
+        <image class="navbarimg" src="../../images/icon_feicai@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">非才</span>
+      </view>
+    </view>
+    <view class="navbar-item">
+      <view>
+        <image class="navbarimg" src="../../images/icon_zheng@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">考证</span>
+      </view>
+    </view>
+    <view class="navbar-item">
+      <view>
+        <image class="navbarimg" src="../../images/icon_class@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">公开课</span>
+      </view>
+    </view>
+
+
+  </view>
+  <view class="open-class">
+    <view class="open-classtext">
+      <span>公开课</span>
+    </view>
+    <scroll-view class="openclass-scroll" scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
+      <view class="scroll-x">
+        <view class="item-container">
+          <view class="openclass-item">
+            <view class="openclass-detail">
+              <view class="teacherpic-contaienr">
+                <image src="../../images/nologin.png"></image>
+              </view>
+              <view class="openclassdetail-text">
+                <view class="classname">
+                  <span>初级会计考试必考指导</span>
+                </view>
+                <view class="teachername">
+                  <image src="../../images/icon_shi@2x.png"></image>
+                  <span>吴建明</span>
+                </view>
+              </view>
+            </view>
+            <view class="openclass-time">
+              <view class="opentime-container">
+                <view class="open-time">
+                  <image src="../../images/icon_guankan@2x.png"></image>
+                  <span>245人正在观看</span>
+                </view>
+              </view>
+              <view class="watch-now">
+                <van-button type="danger" id="233" bindtap="goToWatch" round size="mini">前往观看</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="item-container">
+          <view class="openclass-item">
+            <view class="openclass-detail">
+              <view class="teacherpic-contaienr">
+                <image src="../../images/nologin.png"></image>
+              </view>
+              <view class="openclassdetail-text">
+                <view class="classname">
+                  <span>初级会计考试必考指导</span>
+                </view>
+                <view class="teachername">
+                  <image src="../../images/icon_shi@2x.png"></image>
+                  <span>吴建明</span>
+                </view>
+              </view>
+            </view>
+            <view class="openclass-time">
+              <view class="opentime-container">
+                <view class="open-time">
+                  <image src="../../images/icon_guankan@2x.png"></image>
+                  <span>245人正在观看</span>
+                </view>
+              </view>
+              <view class="watch-now">
+                <van-button type="danger" round size="mini">前往观看</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="item-container">
+          <view class="openclass-item">
+            <view class="openclass-detail">
+              <view class="teacherpic-contaienr">
+                <image src="../../images/nologin.png"></image>
+              </view>
+              <view class="openclassdetail-text">
+                <view class="classname">
+                  <span>初级会计考试必考指导</span>
+                </view>
+                <view class="teachername">
+                  <image src="../../images/icon_shi@2x.png"></image>
+                  <span>吴建明</span>
+                </view>
+              </view>
+            </view>
+            <view class="openclass-time">
+              <view class="opentime-container">
+                <view class="open-time">
+                  <image src="../../images/icon_guankan@2x.png"></image>
+                  <span>245人正在观看</span>
+                </view>
+              </view>
+              <view class="watch-now">
+                <van-button type="danger" round size="mini">前往观看</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="item-container">
+          <view class="openclass-item">
+            <view class="openclass-detail">
+              <view class="teacherpic-contaienr">
+                <image src="../../images/nologin.png"></image>
+              </view>
+              <view class="openclassdetail-text">
+                <view class="classname">
+                  <span>初级会计考试必考指导</span>
+                </view>
+                <view class="teachername">
+                  <image src="../../images/icon_shi@2x.png"></image>
+                  <span>吴建明</span>
+                </view>
+              </view>
+            </view>
+            <view class="openclass-time">
+              <view class="opentime-container">
+                <view class="open-time">
+                  <image src="../../images/icon_guankan@2x.png"></image>
+                  <span>245人正在观看</span>
+                </view>
+              </view>
+              <view class="watch-now">
+                <van-button type="danger" round size="mini">前往观看</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="item-container">
+          <view class="openclass-item">
+            <view class="openclass-detail">
+              <view class="teacherpic-contaienr">
+                <image src="../../images/nologin.png"></image>
+              </view>
+              <view class="openclassdetail-text">
+                <view class="classname">
+                  <span>初级会计考试必考指导</span>
+                </view>
+                <view class="teachername">
+                  <image src="../../images/icon_shi@2x.png"></image>
+                  <span>吴建明</span>
+                </view>
+              </view>
+            </view>
+            <view class="openclass-time">
+              <view class="opentime-container">
+                <view class="open-time">
+                  <image src="../../images/icon_guankan@2x.png"></image>
+                  <span>245人正在观看</span>
+                </view>
+              </view>
+              <view class="watch-now">
+                <van-button type="danger" round size="mini">前往观看</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- <view wx:for-items="{{scrolls}}" wx:key="name">
+          <view id="{{item.tag}}" class="{{item.tag}}">{{item.name}}</view>
+        </view> -->
+      </view>
+    </scroll-view>
+  </view>
+  
+</view>
+<wxs module="getAdd">
+  module.exports = {
+    getAdd: function(num) {
+      return num + 1
+    }
+  }
+</wxs>

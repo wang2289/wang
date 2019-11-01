@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "timu-cmp": "/components/timu/index",
+    "meng-cmp": "/components/mengceng/index"
+  },
+  "navigationBarTitleText": ""
+}

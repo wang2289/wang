@@ -1,0 +1,362 @@
+import {
+  requestsend,
+  requestsendtoken
+} from '../../utils/util.js'
+import {
+  Config
+} from '../../utils/config';
+import {
+  Token
+} from '../../utils/token.js'
+var intt;
+var optionsbid;
+var alldatas = []
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    id: '',
+    title: "题库1",
+    timus: Object,
+    newindex: 1,
+    allnum: 0,
+    minute: 0,
+    second: 0,
+    millisecond: 0,
+    timecount: '00:00',
+    indicatorDots: false,
+    autoplay: false,
+    hasUserInfo: true,
+    interval: 100, // 自动切换时间间隔
+    duration: 100, // 滑动动画时长
+    tihsi: "",
+    showif: true,
+    questionid: '',
+    typeid: '',
+    biaoji: false,
+    current: 0,
+    coursesort: '',
+    paper_time: '',
+    paperfenshu: '',
+    psortid: '',
+    submittime: ''
+  },
+  //切换题目
+  intervalChange: function(e) {
+    alldatas = [];
+    var value = wx.getStorageSync(this.data.id)
+    // console.log(value)
+    for (var i = 0; i < value.length; i++) {
+      alldatas = alldatas.concat(value[i].items)
+    }
+    this.setData({
+      newindex: e.detail.current + 1,
+      questionid: alldatas[e.detail.current].id,
+      typeid: alldatas[e.detail.current].typeid,
+      biaoji: alldatas[e.detail.current].sign
+    })
+    if (e.detail.source == 'autoplay') {
+      this.setData({
+        autoplay: false
+      })
+    }
+    // wx.setStorageSync(this.data.id, value)
+  },
+  getAddInfo(e) {
+    if (e.detail) {
+      this.nextPage()
+    }
+  },
+  nextPage() {
+    // 跳转下一题
+    this.setData({
+      autoplay: true
+    })
+  },
+  //切换到答题卡
+  onAnswerCard: function() {
+    wx.navigateTo({
+      url: '/pages/answercard/answercard?pager=' + this.data.id
+    })
+  },
+
+  timer: function() {
+    var that = this;
+    that.setData({
+      millisecond: that.data.millisecond + 5
+    })
+    if (that.data.millisecond >= 100) {
+      that.setData({
+        millisecond: 0,
+        second: that.data.second + 1
+      })
+    }
+    if (that.data.second >= 60) {
+      that.setData({
+        second: 0,
+        minute: that.data.minute + 1
+      })
+    }
+    that.setData({
+      timecount: this.zeroFill('' + parseInt(that.data.minute), 2) + ":" + this.zeroFill('' + parseInt(that.data.second), 2)
+    })
+  },
+  zeroFill(str, n) {
+    //补零方法，str为数字字符串 n为需要的位数，不够补零
+    if (str.length < n) {
+      str = '0' + str
+    }
+    return str
+  },
+  //停止
+  Reset: function() {
+    var that = this
+    clearInterval(intt);
+    that.setData({
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+      timecount: '00:00',
+    })
+  },
+  //交卷
+  Finish: function() {
+    var value = wx.getStorageSync(this.data.id)
+    var num = 0;
+    for (var i = 0; i < value.length; i++) {
+      for (var j = 0; j < value[i].items.length; j++) {
+        if (value[i].items[j].mychoice == "") {
+          num += 1
+        }
+      }
+    }
+    if (num == 0) {
+      this.setanswer(value)
+    } else {
+      this.setData({
+        tihsi: '您还有题目未做完，如继续提交将影响您的实际分数，并且会消耗一次做题机会，确认继续提交吗？',
+        showif: false
+      })
+    }
+    // console.log(this.data.showif);
+  },
+  getAddInfo2(e) {
+    console.log(e.detail.tijiao);
+    var value = wx.getStorageSync(this.data.id)
+    if (e.detail.tijiao){
+      this.setanswer(value)
+    }
+  },
+  setanswer: function (value) {
+    var pageid = this.data.id
+    var token = new Token();
+    var paper_time = this.data.timecount
+    var parms = {
+      coursesort: this.data.coursesort,
+      paper_time: this.data.paper_time,
+      submittime: paper_time,
+      paperfenshu: this.data.paperfenshu,
+      paperid: this.data.id,
+      papername: this.data.title,
+      psortid: this.data.psortid,
+      data: value
+    };
+    var obj1 = JSON.stringify(parms);
+    var param = {
+      result: obj1
+    }
+    console.log(parms)
+    token.verify((tokenres) => {
+      wx.request({
+        url: Config.apiUrl + '/api/QX/TiJiaoPaper',
+        data: param,
+        method: 'POST',
+        header: {
+          "content-type": "application/x-www-form-urlencoded",
+          'authorization': 'Bearer ' + tokenres + ''
+        },
+        success: function(res) {
+          // console.log(res)
+          wx.redirectTo({
+            url: '../../pages/result/result?id=' + res.data.data.answerpaperguid + '&pageid=' + pageid,
+          })
+        },
+        fail: function(error) {
+          wx.showToast({
+            icon: "none",
+            title: '服务器异常，清稍候再试'
+          })
+        }
+      })
+    });
+  },
+  onBiaoji: function(e) {
+    var pagerid = e.currentTarget.dataset.pagerid;
+    var questionid = e.currentTarget.dataset.questionid;
+    var typeid = e.currentTarget.dataset.typeid;
+    var param = {
+      PaperId: pagerid,
+      Question_ID: questionid,
+      Type_Info_ID: typeid
+    }
+    if (this.data.biaoji) {
+      var that = this;
+      this.setData({
+        biaoji: !this.data.biaoji
+      })
+      requestsendtoken('api/QX/UseQuestionCancleSign', "GET", param, function(e) {
+        wx.showToast({
+          title: e.msg,
+          icon: 'none'
+        });
+        if (e.code == 0) {
+          var value = wx.getStorageSync(that.data.id)
+          for (var m = 0; m < value.length; m++) {
+            if (typeid == value[m].typeid) {
+              for (var i = 0; i < value[m].items.length; i++) {
+                if (questionid == value[m].items[i].id) {
+                  value[m].items[i].sign = that.data.biaoji
+                }
+              }
+            }
+          }
+          // console.log(value);
+          wx.setStorageSync(that.data.id, value)
+        }
+      })
+    } else {
+      var that = this;
+      that.setData({
+        biaoji: !that.data.biaoji
+      })
+      requestsendtoken('api/QX/UseQuestionSign', "GET", param, function(e) {
+        wx.showToast({
+          title: e.msg,
+          icon: 'none'
+        });
+        if (e.code == 0) {
+          var value = wx.getStorageSync(that.data.id)
+          for (var m = 0; m < value.length; m++) {
+            if (typeid == value[m].typeid) {
+              for (var i = 0; i < value[m].items.length; i++) {
+                if (questionid == value[m].items[i].id) {
+                  value[m].items[i].sign = that.data.biaoji
+                }
+              }
+            }
+          }
+          // console.log(value);
+          wx.setStorageSync(that.data.id, value)
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    optionsbid = options.bid
+    var all = 0
+    // var param = {
+    //   paperid:options.pid
+    // }
+    var param = {
+      paperid: '0058e459df8a482aad792d4dffd6e9ff'
+    }
+    // var value = wx.getStorageSync('0058e459df8a482aad792d4dffd6e9ff')
+    console.log(param);
+    requestsend('api/TiKu/GetPaperTiMuData', "GET", param, function(e) {
+      console.log(e);
+      for (var i = 0; i < e.data.data.length; i++) {
+        all += e.data.data[i].count
+        alldatas = alldatas.concat(e.data.data[i].items)
+      }
+      console.log(alldatas);
+      wx.setStorageSync(e.data.paperid, e.data.data)
+      that.setData({
+        allnum: all,
+        id: e.data.paperid,
+        title: e.data.papername,
+        timus: e.data.data,
+        questionid: alldatas[0].id,
+        typeid: alldatas[0].typeid,
+        biaoji: alldatas[0].sign,
+        coursesort: e.data.coursesort,
+        paper_time: e.data.paper_time,
+        paperfenshu: e.data.paperfenshu,
+        psortid: e.data.psortid,
+        submittime: e.data.submittime
+      })
+      wx.setNavigationBarTitle({
+        title: e.data.papername
+      })
+    })
+    var that = this;
+    //停止（暂停）
+    clearInterval(intt);
+    //时间重置
+    that.setData({
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    })
+    intt = setInterval(function() {
+      that.timer()
+    }, 50);
+  },
+  Biaoji: function() {
+
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    console.log(optionsbid)
+    this.setData({
+      current: optionsbid
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

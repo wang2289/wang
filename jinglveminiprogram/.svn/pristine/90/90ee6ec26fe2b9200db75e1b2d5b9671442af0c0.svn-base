@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="timu-title"><text>{{title}}</text><van-icon bindtap='onCollect' custom-class="{{isCollect?'active':''}}" name="{{isCollect?'star':'star-o'}}"/></view>
+  <view class="timutab">
+    <block wx:for="{{timutab}}" wx:key="*this">
+      <text class="timu-tab {{isActive == index+1 ? 'active':'' }}" data-tab="{{index+1}}" data-id='{{item.id}}' bind:tap="onActive">{{item.title}}</text>
+    </block>
+  </view>
+  <scroll-view scroll-y="true" style="height:1000rpx">
+  <view class="course-box">
+    <course-cmp wx:if="{{courses}}" isios="{{isIos}}" title='{{title}}' money='{{money}}' course="{{tilist}}"></course-cmp>
+    <courses-cmp wx:if="{{!courses}}" isios="{{isIos}}" title='{{title}}' money='{{money}}' course="{{tilist}}"></courses-cmp>
+  </view>
+  </scroll-view>
+</view>
+
+  <van-dialog catchtouchmove="true" show-confirm-button="{{false}}" customStyle="width: 640rpx;height: 408rpx; " use-slot title="提示" show="{{ show }}" close-on-click-overlay="{{false}}" confirm-button-text="去绑定">
+    <view class="dialogmess">
+      <text>该微信还未注册精略网校或未绑定精略网校账号。</text>
+    </view>
+    <view class="gologin-btn" bindtap="gotologin">
+      <text>去绑定</text>
+    </view>
+  </van-dialog>
+  <van-toast id="van-toast" />

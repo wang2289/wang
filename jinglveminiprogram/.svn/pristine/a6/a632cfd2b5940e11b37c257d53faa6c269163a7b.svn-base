@@ -1,0 +1,86 @@
+/**index.wxss**/
+page{
+  background: rgb(247,247,249,1)
+}
+.swiper-item{
+  width: 690rpx;
+  height: 305rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  background: white;
+}
+.myorder-item{
+  width: 690rpx;
+  height: 305rpx;
+  /* margin-left: 30rpx; */
+  /* margin-top: 30rpx; */
+  background: white;
+}
+.order-img image{
+  width: 180rpx;
+  height: 140rpx;
+}
+.order-num{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-left: 24rpx;
+  margin-right: 23rpx;
+}
+.order-main{
+  display: flex;
+  margin-left: 22rpx;
+  margin-top: 23rpx;
+  position: relative;
+}
+.order-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 17rpx;
+}
+.order-title{
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.order-price{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(254,54,71,1);
+}
+.buy-num{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  position: absolute;
+  right: 66rpx;
+  bottom: 100rpx;
+}
+.total-money{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1); 
+  position: absolute;
+  right: 66rpx;
+  bottom: 30rpx;
+}
+.total-money text{
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(254,54,71,1);
+}
+.delete-order{
+  width: 127rpx;
+  height: 306rpx;
+  background: #FE3F36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,13 @@
+<view class='container'>
+  <view class="tiku-img">
+    <image class="" src="{{tiku.imageurl}}"></image>
+  </view>
+  <view class="tiku-detail">
+    <view class="tiku-title">{{tiku.sort_name}}</view>
+    <view class="tiku-bottom">
+        <view class="see"><image class="seeicon" src="/images/icon_bofangliang@2x.png"></image><text>{{tiku.personnum}}</text></view>
+        <view wx:if="{{!isios}}"><view class="money"  wx-if="{{!tiku.isbuy}}">￥{{tiku.money}}</view></view>
+        <view class="isbuy" wx-if="{{tiku.isbuy}}">已购买</view>
+    </view>
+  </view>
+</view>

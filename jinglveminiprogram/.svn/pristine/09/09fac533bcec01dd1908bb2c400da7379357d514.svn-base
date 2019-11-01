@@ -1,0 +1,75 @@
+.meng {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.mengbox {
+  width: 610rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -305rpx;
+  margin-top: -220rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 65rpx 48rpx;
+  padding-top: 42rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tishi {
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  margin-bottom: 32rpx;
+}
+
+.mengtitle {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+}
+
+.mengbom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  width: 100%;
+  bottom: 0rpx;
+  left: 0rpx; */
+}
+
+.sub {
+  width:446rpx;
+  height: 78rpx;
+  background: linear-gradient(0deg, rgba(254, 42, 42, 1), rgba(253, 115, 41, 1));
+  border-radius: 39rpx;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 57rpx;
+  margin-bottom: 28rpx;
+}
+
+.cancle {
+  width:446rpx;
+  height: 78rpx;
+  border: 1px solid rgba(153, 153, 153, 1);
+  border-radius: 39rpx;
+  text-align: center;
+  line-height: 78rpx;
+  color: #666;
+  font-size: 28rpx;
+}

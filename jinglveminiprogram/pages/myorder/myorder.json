@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-transition": "vant-weapp/transition",
+    "van-swipe-cell": "vant-weapp/swipe-cell",
+    "van-dialog": "vant-weapp/dialog",
+    "van-icon": "vant-weapp/icon",
+    "van-toast": "vant-weapp/toast"
+  },
+  "navigationBarTitleText": "我的订单"
+}

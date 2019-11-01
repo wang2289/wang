@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="title"><p>绑定精略网校账号</p></view>
+<view class="main-container">
+  <view class="usernameinput">
+    <image class="usericon" src="../../images/login_num@2x.png"></image>
+    <input type="text" value="{{username}}" bindinput="bindusername" placeholder="账号" name="username" id="username" />
+  </view>
+  <view class="usernameinput">
+    <image class="usericon" src="../../images/login_password@2x.png"></image>
+    <input type="text" value="{{password}}" password="{{ispassword}}" placeholder="密码" bindinput="checkinput" maxlength="16" name="password" id="password" />
+    <!-- <input wx:else type="text" value="{{password}}" placeholder="密码" type="{{inputtype}}" bindinput="checkinput" name="password" id="password" /> -->
+    <view bindtap="changeeye" class="eyeiconcontainer"><image class="eyeicon" src="{{eyeimgurl}}"></image></view>
+  </view>
+  <view class="btn-container">
+    <van-button bindtap="loginin" size="litterlarge" type="litterdanger" round >绑定账号</van-button>
+  </view>
+  <view class="join-now" bindtap="gotojoinnow"><span>立即注册</span></view>
+  <!-- <view class="join-now" bindtap="gotojoinnowbyup"><span>立即注册账密</span></view> -->
+  <van-toast id="van-toast" />
+</view>
+<!-- <view class="container">
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <van-button type="primary">按钮</van-button>
+  <van-transition show="{{ true }}" custom-class="block">
+  内容
+  </van-transition>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->

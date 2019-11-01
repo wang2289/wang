@@ -1,0 +1,147 @@
+import {
+  requestsend
+} from '../../utils/util.js'
+import {
+  TikuModel
+} from '../../models/tiku.js'
+let tikuModel = new TikuModel()
+// let requestsends = new requestsend()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    activeNames: ['1'],
+    tilist: Object,
+    isActive: 1,
+    tihsi:'',
+    courses:true,
+    title: '',
+    money:'',
+    timutab: []
+  },
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail
+    });
+  },
+  onActive: function(e) {
+    var index = e.currentTarget.dataset.tab;
+    var id = e.currentTarget.dataset.id; //获取当前点击的元素下标
+    // console.log(e.currentTarget);
+    this.setData({
+      isActive: index,
+    })
+    if (id == 1) {
+      this.setData({
+        courses: true
+      })
+    } else {
+      this.setData({
+        courses: false
+      })
+    }
+    var that = this;
+    var param = {
+      psortid: id,
+      coursesortid: 11,
+      classid: 5000,
+      aomid: 1005
+    }
+    requestsend('api/TiKu/GetPaper', "GET", param, function (e) {
+      that.setData({
+        tilist: e.data.data,
+        money: e.data.money
+      })
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    var param = {
+      classid: 5000,
+      aomid: 1005
+    }
+    var param2 = {
+      psortid: 1,
+      coursesortid: 11,
+      classid: 5000,
+      aomid: 1005
+    }
+    var that = this;
+    requestsend('api/TiKu/GetTikuType', "GET", param, function(e) {
+      param2.psortid = e.data.timutab[0].id
+      wx.setNavigationBarTitle({
+        title: e.data.title
+      })
+      that.setData({
+        title: e.data.title,
+        timutab: e.data.timutab
+      })
+    })
+    requestsend('api/TiKu/GetPaper', "GET", param2, function (e) {
+      that.setData({
+        tilist: e.data.data,
+        money: e.data.money
+      })
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    // this.getTikuTab()
+  },
+  // getTikuTab() {
+  //   tikuModel.getTikutab(data => {
+  //     console.log(data)
+  //     // this.setData({
+  //     //   tikutab: data
+  //     // })
+  //   })
+  // },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

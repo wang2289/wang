@@ -1,0 +1,38 @@
+<view class='container'>
+  <view class="result-bg">
+    <image class="result-img" src="/images/bg_results@2x.png"></image>
+  </view>
+  <view class="result-r">
+    <view class="result-box">
+      <image class="result-titimg" src="/images/title_bg@2x.png"></image>
+      <view class="result-tit">{{title}}</view>
+      <view class="time">
+        <image src="/images/icon_time@2x.png"></image>
+        <text class="timeji">{{minute}} 分 {{second}} 秒</text>
+      </view>
+      <view class="fen">
+        <view class="score">{{score}}</view>
+        <text class="zongscore">总分</text>
+      </view>
+      <view class="bottom-box">
+        <view class="bom-tips"> <image src="/images/icon_results_ti@2x.png"></image>总题数<text>{{total}}</text></view>
+        <view class="bom-tips"> <image src="/images/icon_results_shu@2x.png"></image>答对数<text>{{right}}</text></view>
+        <view class="bom-tips"> <image src="/images/icon_results_biaoji@2x.png"></image>标记数<text>{{sign}}</text></view>
+      </view>
+    </view>
+  </view>
+  <mp-loading type="circle" show="{{showl}}"></mp-loading>
+  <block wx:for="{{timulist}}" wx:key="*this">
+    <view class="card-box">
+      <view class="card-title">
+        <text class="card-name">{{item.title}}</text>
+        <text class="card-num">{{item.istry}}/{{item.all}}</text>
+      </view>
+      <view class="card-body">
+        <block wx:for="{{item.number}}" wx:key="*this" wx:for-item="items">
+          <answer-cmp text="{{index+1}}" data-postid="{{items.id}}" data-index="{{items.num}}" card-class="{{items.right?'right':'error'}}" bind:tap="onLook" ></answer-cmp>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

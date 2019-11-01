@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "answer-cmp": "/components/answer-card/index"
+  },
+  "navigationBarTitleText": "答题卡"
+}

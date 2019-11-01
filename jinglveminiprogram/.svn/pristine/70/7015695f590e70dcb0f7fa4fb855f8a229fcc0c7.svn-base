@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="head-container">
+  <view wx:if="{{nologin}}" class="userinfo">
+    <view class="head-image">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </view>
+    <view class="nickname">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block> -->
+  </view>
+  <view wx:else class="userinfoshow">
+    <view class="userinfo-avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view>
+      <open-data class="userinfo-nickname" type="userNickName"></open-data>
+    </view>
+  </view>
+  <view class="my-container">
+    <view class="my-item" bindtap="gotomycourse">
+      <view>
+        <image src="../../images/icon_kecheng@2x.png"></image>
+      </view>
+      <view class="my-text">
+        <text>我的课程</text>
+      </view>
+    </view>
+    <view class="my-item" bindtap="gotomyquestionbank">
+      <view>
+        <image src="../../images/icon_tiku@2x.png"></image>
+      </view>
+      <view class="my-text">
+        <text>我的题库</text>
+      </view>
+    </view>
+    <view class="my-item" bindtap="gotomycollect">
+      <view>
+        <image src="../../images/icon_shoucang_sel@2x.png"></image>
+      </view>
+      <view class="my-text">
+        <text>我的收藏</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="paddin"></view>
+<view class="main-container">
+  <van-cell-group>
+    <!-- <van-cell title="我的通知" icon="volume-o" size="large" is-link link-type="navigateTo" url="/pages/dashboard/index" /> -->
+    <van-cell title="购物车" bindtap="gotodashboard" icon="shopping-cart-o" size="large" is-link link-type="navigateTo" />
+    <van-cell title="我的订单" icon="notes-o" bindtap="gotomyorder" size="large" is-link link-type="navigateTo"  />
+    <van-cell title="在线客服" icon="service-o" bindtap="gotoonlineserver" size="large" is-link link-type="navigateTo"  />
+  </van-cell-group>
+</view>
+<view class="beforeremove"></view>
+<view wx:if="{{removelogin}}" bindtap="removelogin" class="removeloagin">
+  <text>解绑账号</text>
+</view>
+<van-dialog show-confirm-button="{{false}}" customStyle="width: 640rpx;height: 408rpx; " use-slot title="提示" show="{{ show }}" close-on-click-overlay="true" confirm-button-text="去绑定">
+  <view class="dialogmess">
+    <text>该微信还未注册精略网校或未绑定精略网校账号。</text>
+  </view>
+  <view class="gologin-btn" bindtap="gotologin">
+    <text>去绑定</text>
+  </view>
+</van-dialog>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

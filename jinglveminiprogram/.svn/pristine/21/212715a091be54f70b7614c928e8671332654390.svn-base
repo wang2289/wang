@@ -1,0 +1,15 @@
+<view class="addpanel">
+  <van-cell-group>
+    <van-field value="{{ReceivetName}}"  placeholder="请输入收件人" border="{{ true }}" bind:blur="onChangeName"   />
+    <van-field value="{{Tel}}" placeholder="请输入收件人电话" border="{{ true }}" bind:blur="onChangeMobile" />
+    <van-field value="{{ province }}/{{city}}/{{county}}"  disabled placeholder="所属地区选择省/市/区" border="{{ true }}" arrow-direction="left" right-icon="arrow" bind:focus="oncity" bind:click-icon="oncity" />
+    <van-field  type="textarea" autosize   value="{{ReceiveAddress}}" placeholder="详细地址" border="{{ true }}" bind:blur="onChangeaddressdetail" />
+    <view class="selectdefault"><text>设为默认地址</text> <van-switch checked="{{ checked}}" bind:change="onSwitchChange" /></view>
+  </van-cell-group>
+</view>
+<van-popup show="{{ show }}" overlay="{{true}}" bind:close="onClose" position="bottom" custom-style="height: 50%">
+  <van-area area-list="{{ areaList }}"  title="选择地区" bind:cancel="oncancel" bind:confirm="confirm"/></van-popup>
+
+  <view class="foot" bindtap="onsave" ><span class="btnsave" >保存修改</span></view>
+
+

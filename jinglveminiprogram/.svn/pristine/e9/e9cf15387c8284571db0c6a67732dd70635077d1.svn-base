@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "timu-cmp": "/components/timu/index",
+    "tag-cmp": "/components/tag/index",
+    "course-cmp": "/components/course-list/index",
+    "ques-cmp": "/components/question-list/index",
+    "van-action-sheet": "vant-weapp/action-sheet",
+    "van-field": "vant-weapp/field"
+  },
+  "disableScroll": true,
+  "navigationBarTitleText": ""
+}

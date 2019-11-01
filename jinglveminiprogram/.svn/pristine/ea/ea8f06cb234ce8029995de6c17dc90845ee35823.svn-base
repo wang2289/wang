@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-row": "vant-weapp/row",
+    "van-col": "vant-weapp/col"
+  
+  },
+  "enablePullDownRefresh":true
+}

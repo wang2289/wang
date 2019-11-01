@@ -1,0 +1,177 @@
+import {
+  requestsend,
+  requestsendtoken
+} from '../../utils/util.js'
+var intt;
+var alldatas = [];
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    id:'',
+    pageid:'',
+    title: "",
+    timus: Object,
+    questions: Object,
+    biaoji: false,
+    newindex: 1,
+    allindex: 0,
+    active: 0,
+    current:0,
+    tihsi: "",
+    showif: true,
+    alldata: [],
+    indicatorDots: false,
+    autoplay: false,
+    hasUserInfo: true,
+    interval: 100, // 自动切换时间间隔
+    duration: 100, // 滑动动画时长
+    show: false,
+    mapUrl: '',
+    value: ''
+  },
+  //交卷
+  Online: function() {
+    this.setData({
+      show: true
+    })
+  },
+  onClose() {
+    this.setData({
+      show: false
+    });
+  },
+  onChange(event) {
+    // event.detail 为当前输入的值
+    console.log(event.detail);
+  },
+  //切换题目
+  intervalChange: function (e) {
+    this.setData({
+      newindex: e.detail.current + 1,
+      questionid: alldatas[e.detail.current].id,
+      typeid: alldatas[e.detail.current].typeid,
+      biaoji: alldatas[e.detail.current].sign
+    })
+    if (e.detail.source == 'autoplay') {
+      this.setData({
+        autoplay: false
+      })
+    }
+    // wx.setStorageSync(this.data.id, value)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    // var data2 = [{
+    //   ques: '双方都同意还是滥用代理权吗',
+    //   quesfrom:'qz370782198610030219学员',
+    //   answer: '你好，如果双方都同意，行为有效，不属于滥用代理权了。祝学习快乐，考试顺利通过！',
+    //   answerfrom: '张老师',
+    //   imageurl:'/images/icon_datika@2x.png'
+    // }, {
+    //     ques: '双方都同意还是滥用代理权吗',
+    //     quesfrom: 'qz370782198610030219学员',
+    //     answer: '你好，如果双方都同意，行为有效，不属于滥用代理权了。祝学习快乐，考试顺利通过！',
+    //     answerfrom: '张老师',
+    //     imageurl: '/images/icon_datika@2x.png'
+    //   }]
+    alldatas = [];
+    var id = options.id
+    var pageid = options.pageid
+    var index = parseInt(options.index)
+    var param = {
+      AnswerPaperGuid: id
+    }
+    var that = this;
+   
+    requestsendtoken('api/QX/GetJiXiResult', "GET", param, function(e) {
+      console.log(e);
+      for (var i = 0; i < e.data.result.length; i++) {
+        for (var j = 0; j < e.data.result[i].data.length; j++) {
+          e.data.result[i].data[j].num = e.data.result[i].num
+          e.data.result[i].data[j].title = e.data.result[i].title
+          // if (e.data.result[i].data[j].title == '判断题') {
+          //   var body = [{
+          //     choice: false,
+          //     classname: "",
+          //     correct: false,
+          //     name: "",
+          //     tips: "A"
+          //   }]
+          //   if (e.data.result[i].data[j].youran == ''){
+
+          //   }
+          // }
+          alldatas = alldatas.concat(e.data.result[i].data[j])
+        }
+      }
+      wx.setNavigationBarTitle({
+        title: e.data.papername
+      })
+      console.log(alldatas);
+      that.setData({
+        id: id,
+        pageid: pageid,
+        allindex: alldatas.length,
+        current: index,
+        newindex: index+1,
+        alldata: alldatas,
+        questionid: alldatas[index].id,
+        typeid: alldatas[index].typeid,
+        biaoji: alldatas[index].sign
+      })
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

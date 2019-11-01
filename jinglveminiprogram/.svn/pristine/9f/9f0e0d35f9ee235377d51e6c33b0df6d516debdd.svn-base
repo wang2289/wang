@@ -1,0 +1,277 @@
+ <import src="../../wxParse/wxParse.wxml"/>
+<view class='analysis-container no-scroll'>
+  <mp-loading type="circle" show="{{showl}}"></mp-loading>
+  <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+  <swiper indicator-dots="{{indicatorDots}}" bindchange="intervalChange" interval="{{interval}}" autoplay="{{autoplay}}" duration="{{duration}}" circular="true" current="{{current}}">
+    <block wx:for="{{alldata}}" wx:for-item="log" wx:key="*this">
+      <swiper-item>
+        <scroll-view scroll-y="true" style="height: 1111rpx">
+          <view class='container' wx:if="{{log.title == '单选题'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+                <view class="timuchoise">
+                  <block wx:for="{{log.timus.body}}" wx:key="*this">
+                    <view class=" {{item.classname}}">
+                      <text class="choisenum">{{item.tips}}</text>
+                      <text class="choisename">{{item.name}}</text>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video>
+              </view>
+            </view>
+          </view>
+
+          <view class='container' wx:if="{{log.title == '多选题'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+                <view class="timuchoise">
+                  <block wx:for="{{log.timus.body}}" wx:key="*this">
+                    <view class=" {{item.classname}}">
+                      <text class="choisenum">{{item.tips}}</text>
+                      <text class="choisename">{{item.name}}</text>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video>
+              </view>
+            </view>
+          </view>
+          <view class='container' wx:if="{{log.title == '判断题'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+                <view class="timuchoise">
+                    <block wx:for="{{log.timus.body}}" wx:key="*this">
+                    <view class=" {{item.classname}}">
+                      <text class="choisenum">{{item.tips}}</text>
+                      <text class="choisename">{{item.name}}</text>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <!-- <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video> -->
+                <video id="myVideo"style="height:100%;width:100%;" src="{{log.mapUrl}}" binderror="videoErrorCallback"  enable-danmu danmu-btn controls></video>
+              </view>
+            </view>
+          </view>
+          <view class='container' wx:if="{{log.title == '简答题'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video>
+              </view>
+            </view>
+          </view>
+          <view class='container' wx:if="{{log.title == '综合题'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video>
+              </view>
+            </view>
+          </view>
+          <view class='container' wx:if="{{log.title == '计算题分析中级'}}">
+            <view class='sw-con'>
+              <view class='ti-container'>
+                <view class="timuname">
+                  <text class='timuclass'>{{log.title}}</text>
+                  <text class="timubody">{{log.timus.title}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="timucard">
+              <view class="rightanswer">正确答案：
+                <text>{{log.rightan}}</text>
+              </view>
+              <view class="youranswer">你的答案：
+                <text>{{log.youran}}</text>
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">考点</view>
+              <view class="tips">
+                <tag-cmp wx:for="{{log.hotkeys}}" wx:key="*this" text="{{item}}" />
+              </view>
+            </view>
+            <view class="kaodian">
+              <view class="title">解析</view>
+              <view class="jiexi">
+                {{log.jiexi}}
+              </view>
+              <view class="view-box">
+                <video style="height:100%;width:100%;" src="{{log.mapUrl}}"> </video>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="timu-buttom">
+    <view class="timu-num">
+      <image src="/images/icon_datika@2x.png"></image>
+      <text class="old">{{newindex}}</text>
+      <text class="xie">/</text>
+      <text class="all">{{allindex}}</text>
+    </view>
+    <view class="biaoji">
+      <view class="biaobox" bindtap='onBiaoji'>
+      <image src="{{biaoji ? '/images/icon_results_biaoji@2x.png':'/images/icon_biaoji@2x.png'}}"></image>
+      <text class="biaoji {{biaoji?'active':''}}" data-pagerid='{{id}}' data-questionid='{{questionid}}' data-biji='{{}}'>标记题</text>
+      </view>
+      <view class="jiaojuan" bindtap='Online'> 在线答疑 </view>
+    </view>
+  </view>
+  <van-action-sheet  show="{{ show }}" title="本题相关提问" bind:close="onClose">
+    <view class="tiwen-box">
+      <view class="tiwen-boxs">
+        <scroll-view scroll-y="true" bindscrolltolower="upper"  style="height: 900rpx">
+        <block wx:for="{{questions}}" wx:key="*this">
+          <ques-cmp ques="{{item}}"></ques-cmp>
+        </block>
+        <view class="more">{{more}}</view>
+        </scroll-view>
+      </view>
+      <view class="ques-btn">
+        <view class="ques-box">
+          <textarea maxlength='400' bindinput='onChange'placeholder="请输入您的问题"value='{{value}}' auto-height='true'></textarea>
+        </view>
+        <view class="ques-btns {{defaults ? 'default':''}}" bindtap='onQues'>提问</view>
+      </view>
+    </view>
+  </van-action-sheet>
+</view>

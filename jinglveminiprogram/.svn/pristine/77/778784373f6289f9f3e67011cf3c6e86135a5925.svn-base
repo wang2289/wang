@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-toast": "vant-weapp/toast"
+  },
+  "navigationBarTitleText": "订单详情"
+}

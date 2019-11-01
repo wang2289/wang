@@ -1,0 +1,286 @@
+import { requestsend,requestsendtoken } from '../../utils/util.js'
+import { Config } from '../../utils/config';
+var info={}
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    numid:0,
+    tikus: [],
+    isActive: 0,
+    isActive2: 1,
+    isActive3: 0,
+    isActive4: 0,
+    mainActiveIndex: 0,
+    activeId: null,
+    show: false,
+    isshow: true,
+    show2: false,
+    isshow2: true,
+    nodata:false,
+    showl: true,
+    items: [{
+      // 导航名称
+      text: '暂无分类',
+      disabled: true,
+       children: [{
+        text: '暂无分类',
+        disabled: true,
+        id: 0,
+      }]
+      // 该导航下所有的可选项
+    }],
+  },
+  onActive: function (e) {
+    var alldata = this.data.tikutab
+    var index = e.currentTarget.dataset.tab; //获取当前点击的元素下标
+    var id = e.currentTarget.dataset.id;
+    // console.log(id);
+    for (var i = 0; i < alldata.length;i++){
+      if (id == alldata[i].id){
+        this.setData({
+          items: alldata[i].children
+        })
+        // console.log(alldata[i].children);
+        if (alldata[i].ishaveChild){
+          this.setData({
+             items: alldata[i].children
+          })
+        }else{
+          var items =[{
+            text: '暂无分类',
+            disabled: true,
+            children: [{
+              text: '暂无分类',
+              disabled: true,
+              id: 0,
+            }]
+            // 该导航下所有的可选项
+          }]
+          this.setData({
+            items: items
+          })
+        }
+      }
+    }
+    this.setData({
+      showl: true,
+      isActive: index,
+      numid: id,
+      nodata:false
+    })
+    var param = {
+      classid: Config.classid,
+      id: id,
+      sorttype:1
+    }
+    info.id = id
+    this.getdatas(info)
+  },
+  onActive2: function (e) {
+    var index = e.currentTarget.dataset.tab; //获取当前点击的元素下标
+    this.setData({
+      isActive2: index,
+    })
+    info.sorttype = index
+    this.getdatas(info)
+    this.setData({
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+  },
+  onOpenlei: function () {
+    var num = this.data.isActive3 == 1 ? 0 : 1
+    this.setData({
+      show: !this.data.show,
+      isshow: !this.data.isshow,
+      show2: false,
+      isshow2: true,
+      isActive3: num,
+      isActive4: 0
+    })
+  },
+  onOpenzong: function () {
+    var num = this.data.isActive4 == 1 ? 0 : 1
+    this.setData({
+      show2: !this.data.show2,
+      isshow2: !this.data.isshow2,
+      show: false,
+      isshow: true,
+      isActive4: num,
+      isActive3: 0
+    })
+  },
+  Onclose: function () {
+    this.setData({
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+  },
+  onTap: function (event) {
+    let postId = event.currentTarget.dataset.aomid;
+    let id = event.currentTarget.dataset.id;
+    console.log(postId)
+    wx.navigateTo({
+      url: '../../pages/tidetail/tidetail?aomid=' + postId + '&sortid=' + id,
+    })
+  },
+  onClickNav(event) {
+    // console.log(event)
+    this.setData({
+      mainActiveIndex: event.detail.index || 0
+    });
+    var alldata = this.data.tikutab
+    var id = this.data.numid
+    var ids;
+    for (var i = 0; i < alldata.length; i++) {
+      if (id == alldata[i].id) {
+        // console.log(alldata[i].children);
+        if (alldata[i].ishaveChild) {
+          ids = alldata[i].children[event.detail.index].id
+        } 
+      }
+    }
+    // console.log(ids);
+    info.id = ids
+    this.getdatas(info)
+  },
+
+  onClickItem(event) {
+    const activeId = this.data.activeId === event.detail.id ? null : event.detail.id;
+    this.setData({
+      activeId
+    });
+    this.setData({
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+    // console.log(event.detail.id)
+    info.id = event.detail.id
+    this.getdatas(info)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var param = {
+      classid: Config.classid
+    }
+    info.classid = Config.classid
+    info.id = 0
+    info.sorttype = 1
+    var that = this;
+    requestsend('api/OrgCourseMoney/GetTikuMoreType', "GET", param, function (e) {
+      console.log(e);
+      that.setData({
+        showl: !that.data.showl,
+        tikutab:e.data
+      })
+      that.getdatas(info)
+    })
+  },
+  getdatas(param) {
+    var that = this;
+    var token = wx.getStorageSync("token")
+    console.log(token);
+    if (token == '') {
+      requestsend('api/OrgCourseMoney/GetTikuMoreNologin', "GET", param, function (e) {
+        // console.log(e);
+        if (e.data.length == 0) {
+          that.setData({
+            showl: false,
+            tikus: e.data,
+            nodata: true
+          })
+        } else {
+          that.setData({
+            showl: false,
+            tikus: e.data,
+            nodata: false
+          })
+        }
+      })
+    }else{
+      requestsendtoken('api/QX/GetTikuMorelogin', "GET", param, function (e) {
+        // console.log(e);
+        if (e.data.length == 0) {
+          that.setData({
+            showl: false,
+            tikus: e.data,
+            nodata: true
+          })
+        } else {
+          that.setData({
+            showl: false,
+            tikus: e.data,
+            nodata: false
+          })
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getTikuTab()
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    // this.getTikuTab()
+  },
+  getTikuTab() {
+  },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

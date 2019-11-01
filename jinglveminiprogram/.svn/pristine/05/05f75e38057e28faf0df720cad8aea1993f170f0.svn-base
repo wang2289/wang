@@ -1,0 +1,66 @@
+/* pages/packagemore/packagemore.wxss */
+.card-list{
+  display: flex;
+  flex-direction: column;
+padding-bottom: 30rpx;
+}
+.card-item {
+  padding-top: 30rpx;
+    padding-bottom: 30rpx;
+margin-left: 31rpx;
+margin-right: 31rpx;
+  display:flex;
+  flex-direction: row;
+  border-top: 1px solid #ddd;
+}
+.card-list :first-child{
+  border: 0px;
+}
+.card-item image {
+  width:268rpx;
+height:150rpx;
+border-radius:8rpx;
+
+}
+.card-item-text{
+position:  relative;
+  display: flex;
+   flex-direction: column;
+   margin-left: 17rpx;
+ width: 100%;
+
+}
+.card-item-text text{
+color: #333;
+font-size: 32rpx;
+text-align: left;
+
+
+}
+.text-foot{
+  width: 100%;
+  position: absolute;
+    display: flex;
+      flex-direction: row;
+bottom: 0px;
+justify-content:  space-between;
+ height: 30rpx;
+ line-height: 30rpx;
+
+}
+.study-num {
+ color: #999;
+ font-size: 22rpx;
+align-items:  baseline;
+}
+.money {
+color: #fe3647;
+font-size: 36rpx;
+
+}
+.isbuy{
+  font-size:28rpx;
+
+font-weight:400;
+color:rgba(153,153,153,1);
+}

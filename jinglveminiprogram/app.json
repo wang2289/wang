@@ -1,0 +1,67 @@
+{
+  "pages": [
+   
+    "pages/home/home",
+    "pages/analysis/analysis",
+    "pages/dotidetail/dotidetail",
+    "pages/tidetail/tidetail",
+     "pages/tilist/tilist",
+    "pages/mystudy/mystudy",
+    "pages/result/result",
+    "pages/answercard/answercard",
+  "pages/onetidetail/onetidetail",
+    "pages/cart/cart",
+    "pages/cart/address/address",
+    "pages/cart/addressmodif/addressmodif",
+    "pages/cart/addressadd/addressadd",
+    "pages/myorder/myorder",
+    "pages/cart/orderpay/orderpay",
+    "pages/coursedetail/coursedetail",
+    "pages/packagedetail/packagedetail",
+    "pages/packagemore/packagemore",
+    "pages/broadcast/broadcast",
+    "pages/broadcastplay/broadcastplay",
+    "pages/questionbank/questionbank",
+    "pages/personal/personal",
+    "pages/register/register",
+    "pages/logs/logs",
+    "pages/joinnow/joinnow",
+    "pages/smscode/smscode",
+    "pages/mycollect/mycollect",
+    "pages/joinnowbyup/joinnowbyup"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "精略网校",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home_nor@2x.png",
+        "selectedIconPath": "images/home_hig@2x.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mystudy/mystudy",
+        "iconPath": "images/class_nor@2x.png",
+        "selectedIconPath": "images/class_hig@2x.png",
+        "text": "我的学习"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "images/wode_nor@2x.png",
+        "selectedIconPath": "images/wode_hig@2x.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

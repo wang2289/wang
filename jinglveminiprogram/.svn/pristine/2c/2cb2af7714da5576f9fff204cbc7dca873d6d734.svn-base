@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="nav">
+    <block wx:for="{{tikutab}}" wx:key="*this">
+      <text class="nav-tab {{isActive == index ? 'active':'' }}" data-tab="{{index}}" data-id="{{item.id}}" bind:tap="onActive">{{item.text}}</text>
+    </block>
+  </view>
+  <view class="changetab">
+    <view class="changetit {{isActive3 == 1 ? 'active':''}}" bind:tap="onOpenlei">全部类型
+      <image class="awor" src="{{isActive3 == 1 ? '/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+    </view>
+    <view class="changetit  {{isActive4 == 1 ? 'active':''}}" bind:tap="onOpenzong">综合排序
+      <image class="awor" src="{{isActive4 == 1 ? '/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+    </view>
+  </view>
+  <view class="tikulist">
+    
+    <scroll-view scroll-y="true" bindscrolltolower="upper" style="height:1060rpx">
+      <view hidden="{{showl}}">
+        <block wx:for="{{tikus}}" wx:key="*this">
+          <tiku-cmp tiku='{{item}}' isios="{{isios}}" data-aomid="{{item.aomid}}" data-id='{{item.sort_id}}' bind:tap="onTap"></tiku-cmp>
+        </block>
+      </view>
+      <mp-loading type="circle" show="{{showl}}"></mp-loading>
+      <view class="nodata" wx:if="{{nodata}}">暂无数据</view>
+      
+      <view class="more">{{more}}</view>
+      <view class="cheng"></view>
+    </scroll-view>
+    
+  </view>
+</view>
+
+<view class='meng' hidden="{{ isshow }}" catchtap="Onclose">
+  <!-- <van-transition show="{{ show }}" name="fade-down"> -->
+    <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
+  <!-- </van-transition> -->
+</view>
+
+<view class='meng' hidden="{{ isshow2 }}" catchtap="Onclose">
+  <!-- <van-transition show="{{ show2 }}" name="fade-down"> -->
+    <view class="zonghe">
+     <view class="zongtab {{isActive2 == 5 ||isActive2 == 6 ? 'active':'' }}" catchtap="onActive2" data-tab="{{datatab1}}">热度<van-icon name="{{ascending1}}" size='32rpx' />
+        <view class="line"></view>
+      </view>
+      <view class="zongtab {{isActive2 == 1 ||isActive2 == 2 ? 'active':'' }}" catchtap="onActive3" data-tab="{{datatab2}}">时间<van-icon name="{{ascending2}}" size='32rpx' />
+        <view class="line"></view>
+      </view>
+      <!-- <view class="zongtab {{isActive2 == 2 ? 'active':'' }}" catchtap="onActive2" data-tab="2">日期从低到高
+        <view class="line"></view>
+      </view> -->
+      <view class="zongtab {{isActive2 == 3 ||isActive2 == 4 ? 'active':'' }}" catchtap="onActive4" data-tab="{{datatab3}}">价格<van-icon name="{{ascending3}}" size='32rpx' />
+        <view class="line"></view>
+      </view>
+      <!-- <view class="zongtab {{isActive2 == 4 ? 'active':'' }}" catchtap="onActive2" data-tab="4">价格从低到高
+        <view class="line"></view>
+      </view> -->
+      <!-- <view class="zongtab {{isActive2 == 6 ? 'active':'' }}" catchtap="onActive2" data-tab="6">销量从低到高
+        <view class="line"></view>
+      </view> -->
+    </view>
+  <!-- </van-transition> -->
+</view>

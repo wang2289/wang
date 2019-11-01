@@ -1,0 +1,79 @@
+<view class="main">
+  <view wx:if="{{hasList}}">
+    <view class="cart-box">
+      <view class="row" wx:for="{{carts}}" wx:key="{{index}}" bindtap="bindselect" data-index="{{index}}">
+        <van-swipe-cell id="swipe-cell" data-index="{{index}}" right-width="{{ 60 }}" async-close bind:close="onClose">
+          <van-cell-group>
+            <view class="cart-list" >
+              <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" class="cart-pro-select" bindtap="selectList" />
+              <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
+              <image class="cart-thumb" src="{{item.imageurl}}"></image>
+              <text class="cart-pro-name">{{item.name}}</text>
+              <text class="cart-pro-price">￥{{item.money}}</text>
+                <text class="cart-num">×1</text>
+            </view>
+          </van-cell-group>
+          <view slot="right">
+            <view class="cart-del" >
+              <image src="/images/icon_del@2x.png"></image>
+
+            </view>
+          </view>
+        </van-swipe-cell>
+      </view>
+    </view>
+
+
+  </view>
+  <view wx:else>
+    <view class="cart-no-data">购物车是空的哦~</view>
+  </view>
+  <van-dialog id="van-dialog" />
+  <view class="cart-bottom">
+    <!-- <text class="cart-pay">微信去支付</text> -->
+    <view class="cart-footer">
+      <icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
+      <icon wx:else type="circle" color="red" class="total-select" bindtap="selectAll" />
+      <text>全选</text>
+      <!-- 测试起 -->
+      <icon wx:if="{{noneSelectAllStatus}}" type="success" color="red" class="total-noselect" bindtap="selectAllNone" />
+      <icon wx:else type="circle" color="red" class="total-noselect" bindtap="selectAllNone" />
+      <text class="noselect-text">全不选</text>
+      <!-- 测试结束 -->
+      <view class="cart-toatl-price">
+        <text>合计：</text>
+        <text class="money">￥{{totalPrice}}</text>
+        <span class="cart-jiesuan" bindtap="payclick">去结算</span>
+      </view>
+
+
+    </view>
+  </view>
+
+  <view wx:if="{{isshowdatelist}}" class='mask'>
+    <scroll-view scroll-y class='data-content'>
+      <view class='data-title'>
+        <text>课程时间选择</text>
+      </view>
+      <view class='data-list' wx:for="{{datelist}}">
+        <view class='data-list-type'>
+          <text>{{item.name}}</text>
+          <text>类别：{{item.type}}</text>
+        </view>
+        <view class='data-list-select'>
+          <text></text>
+          <radio-group bindchange="radioChange" data-index="{{index}}" class="radio-group">
+            <label class="radio" wx:for="{{item.date}}" wx:for-item="xuanxiangitem" wx:for-index="xuanxiangindex">
+              {{xuanxiangindex==0?"本期":"下期"}}： {{xuanxiangitem.year}}
+              <radio value="{{xuanxiangitem.year}}" color="red" checked="{{xuanxiangitem.checked}}" />
+            </label>
+
+          </radio-group>
+        </view>
+      </view>
+      <view class='data-foot'>
+        <button bindtap='dateentity'> 确认</button>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "tiku-cmp": "/components/tiku/index",
+    "mp-loading": "/components/loading/loading",
+    "van-tree-select": "vant-weapp/tree-select",
+    "van-transition": "vant-weapp/transition",
+    "van-icon": "vant-weapp/icon"
+  },
+  "navigationBarTitleText": "题库",
+  "disableScroll": true
+}

@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="timu-title">{{title}}</view>
+  <view class="timutab">
+    <block wx:for="{{timutab}}" wx:key="*this">
+      <text class="timu-tab {{isActive == index+1 ? 'active':'' }}" data-tab="{{index+1}}" data-id='{{item.id}}' bind:tap="onActive">{{item.title}}</text>
+    </block>
+  </view>
+  <view class="course-box">
+    <course-cmp wx:if="{{courses}}" title='{{title}}' money='{{money}}' course="{{tilist}}"></course-cmp>
+    <courses-cmp wx:if="{{!courses}}" title='{{title}}' money='{{money}}' course="{{tilist}}"></courses-cmp>
+  </view>
+</view>

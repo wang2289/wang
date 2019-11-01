@@ -1,0 +1,166 @@
+/**index.wxss**/
+
+.title {
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 32rpx;
+  margin-top: 44rpx;
+}
+
+.main-container {
+  margin-top: 142rpx;
+}
+
+.text-container {
+  width:566rpx;
+  height:77rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height: 60rpx;
+  text-align: center;
+  margin-left: 87rpx;
+}
+
+
+#phonenumber, #password {
+  border-bottom: rgba(204, 204, 204, 1) 1px solid;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  width: 629rpx;
+  margin-left: 30rpx;
+  padding-left: 61rpx;
+}
+.usernameinput{
+  margin-top: 30rpx;
+}
+
+
+
+
+
+
+
+.verCodeView{
+	padding: 164rpx 40rpx 32rpx 40rpx;
+}
+.verCodeSendView{
+	padding: 0 40rpx 74rpx 40rpx;
+}
+.sendTime{
+	text-align: center;
+	padding-top: 54rpx;
+}
+.verCodeInputView{
+	display: -webkit-flex;
+	padding: 0 40rpx 0 40rpx;
+}
+.verCodeInput{
+  margin: 0 58rpx 0 0;
+	height: 150rpx;
+  width: 124rpx;
+	background-color: #fff;
+	border:#DFDFDF solid 1rpx;
+	font-size: 60rpx;
+	text-align: center;
+  justify-content: space-between;
+}
+
+
+/* 新验证码输入框样式 */
+.code{
+  margin-top: 75rpx;
+}
+page .code .input-content-wrap .input-code-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center1;
+  height: 150rpx;
+}
+page .code .input-content-wrap .input-code-wrap .code_dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 124rpx;
+  height: 150rpx;
+  border: #dfdfdf solid 1rpx;
+  border-left: none 0;
+  font-size: 60rpx;
+}
+page .code .input-content-wrap .input-code-wrap .code_dot:nth-child(1) {
+  border-left: 2rpx solid #ddd;
+}
+page .code .input-content-wrap .input-code-wrap .code_dot i {
+  /* background: #000; */
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+  display: flex;
+  align-items: center;
+}
+page .code .input-content {
+  position: absolute;
+  opacity: 0;
+  left: -100%;
+  top: 600rpx;
+  background: #f56;
+  z-index: -999;
+  text-align: center;
+}
+page .code .input-content.active {
+  z-index: -99;
+}
+.input {
+  height: 100rpx;
+  width: 80rpx;
+	flex: 1;
+  background-color: #fff;
+  color: #262626;
+  font-size: 64rpx;
+	margin: 0 29rpx 0 29rpx;
+	border-bottom: 1rpx #4287ff solid;
+	position: relative;
+}
+.input_none{
+  height: 100rpx;
+  width: 80rpx;
+	flex: 1;
+  background-color: #fff;
+  color: #262626;
+  font-size: 64rpx;
+	margin: 0 29rpx 0 29rpx;
+	border-bottom: 1rpx #dfdfdf solid;
+	position: relative;
+}
+.input text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.input_none text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+

@@ -1,0 +1,15 @@
+<view class='container'>
+  <block wx:for="{{timulist}}" wx:key="*this">
+    <view class="card-box">
+      <view class="card-title">
+        <text class="card-name">{{item.title}}</text>
+        <text class="card-num">{{item.istry}}/{{item.all}}</text>
+      </view>
+      <view class="card-body">
+        <block wx:for="{{item.number}}" wx:key="*this" wx:for-item="items">
+          <answer-cmp text="{{index+1}}"  data-postid="{{items.indexnew}}" card-class="{{items.isdone?'active':'default'}}"  bind:tap='onTab' ></answer-cmp>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,189 @@
+const util = require('../../utils/util.js')
+//获取应用实例
+const app = getApp()
+
+Page({
+  data: {
+
+    imgUrls: [
+      // 'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      // 'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      // 'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 2000,
+    duration: 1000,
+    number: 5,
+    toView: 'yellow',
+    scrollLeft: 0,
+    isIos: null,
+    //滚动的数组
+    scrolls: [{
+        name: '黄色',
+        tag: 'yellow',
+      },
+      {
+        name: '绿色',
+        tag: 'green',
+      },
+      {
+        name: '红色',
+        tag: 'red',
+      },
+      {
+        name: '黄色',
+        tag: 'yellow',
+      },
+      {
+        name: '绿色',
+        tag: 'green',
+      },
+      {
+        name: '红色',
+        tag: 'red',
+      },
+    ],
+    publiccourse: [], //公开课
+    tujianvideo: [], //精品课程
+    tujiantiku: [], // 精品题库
+    tujianzuhe: [], //精品组合
+  },
+  //事件处理函数
+
+  toTransList: function(e) {
+    console.log(e.currentTarget)
+    wx.navigateTo({
+      url: "/pages/broadcast/broadcast?id=" + e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.name
+    })
+  },
+  bindpackedgmore: function() {
+    wx.navigateTo({
+      url: '/pages/packagemore/packagemore',
+    })
+  },
+  bindtikumore: function() {
+    wx.navigateTo({
+      url: '/pages/tilist/tilist',
+    })
+  },
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  onLoad: function() {
+    this.setData({
+      isIos: app.globalData.isIos
+    })
+    util.requestsend("api/OrgCourseMoney/GetIndexImage?", null, {}, res => {
+
+      this.setData({
+        imgUrls: res.data
+
+      })
+    });
+
+    util.requestsend("api/OrgCourseMoney/GetZhiBo?", null, {}, res => {
+
+      this.setData({
+        publiccourse: res.data
+
+      })
+    }); //公开课
+    util.requestsend("api/OrgCourseMoney/GetShiPing?", null, {}, res => {
+
+      this.setData({
+        tujianvideo: res.data
+
+      })
+    }); //精品课
+    util.requestsend("api/OrgCourseMoney/GetTiku?", null, {}, res => {
+
+      this.setData({
+        tujiantiku: res.data
+
+      })
+    }); //精品题库
+    util.requestsend("api/OrgCourseMoney/GetTaoCan?", null, {}, res => {
+      console.log(res.data);
+      this.setData({
+        tujianzuhe: res.data
+
+      })
+    }); //精品组合课
+
+    // if (app.globalData.userInfo) {
+    //   this.setData({
+    //     userInfo: app.globalData.userInfo,
+    //     hasUserInfo: true
+    //   })
+    // } else if (this.data.canIUse) {
+    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+    //   // 所以此处加入 callback 以防止这种情况
+    //   app.userInfoReadyCallback = res => {
+    //     this.setData({
+    //       userInfo: res.userInfo,
+    //       hasUserInfo: true
+    //     })
+    //   }
+    // } else {
+    //   // 在没有 open-type=getUserInfo 版本的兼容处理
+    //   wx.getUserInfo({
+    //     success: res => {
+    //       app.globalData.userInfo = res.userInfo
+    //       this.setData({
+    //         userInfo: res.userInfo,
+    //         hasUserInfo: true
+    //       })
+    //     }
+    //   })
+    // }
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+  bindnavtovider: function(e) {
+    console.log(e);
+    let aomid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/coursedetail/coursedetail?aomid=' + aomid,
+    })
+
+  },
+  bindnavtotiku: function(e) {
+    console.log(e);
+    let aomid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/tidetail/tidetail?aomid=' + aomid,
+    })
+
+  },
+  bindnavtopackage: function(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/packagedetail/packagedetail?id=' + id,
+    })
+
+  },
+  upper: function(e) {
+    console.log('滚动到顶部')
+  },
+  lower: function(e) {
+    console.log('滚动到底部')
+  },
+  goToWatch: function(e) {
+    let id = e.currentTarget.dataset.zhiboid;
+    console.log(e.currentTarget.dataset.zhiboid)
+    wx.navigateTo({
+      url: '../broadcastplay/broadcastplay?id=' + id,
+
+    })
+  }
+
+})

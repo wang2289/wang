@@ -1,0 +1,77 @@
+// components/course-list/index.js
+var num = 1;
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    course: Object,
+    title: String,
+    money: String,
+    activeName:String
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    isOn:'',
+    activeNames: ['1'],
+    isActive:true,
+    islink:false,
+    clickable:true,
+    showif: true,
+    tihsi:'',
+    money:'',
+    iconimg:'/images/icon_list_down@2x.png',
+    downimg:'/images/icon_list_down@2x.png',
+    upimg: '/images/icon_list_up@2x.png'
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    onChange(event) {
+      console.log(event.detail)
+      num += 1;
+      this.setData({
+        activeNames: event.detail,
+        isActive: !this.data.isActive,
+        isOn: event.detail
+      });
+      if (this.data.isActive) {
+        this.setData({
+          iconimg: this.data.downimg,
+        })
+      } else {
+        this.setData({
+          iconimg: this.data.upimg,
+        })
+      }
+    },
+    onTap(event){
+      let postId = event.currentTarget.dataset.id;
+      let isfree = event.currentTarget.dataset.free;
+      let buy = event.currentTarget.dataset.buy;
+      console.log(postId)
+      if (buy){
+        wx.navigateTo({
+          url: '/pages/dotidetail/dotidetail?bid=' + postId,
+        })
+      }else{
+        if (isfree) {
+          wx.navigateTo({
+            url: '/pages/dotidetail/dotidetail?bid=' + postId,
+          })
+        } else {
+          this.setData({
+            tihsi: '您还未购买《' + this.properties.title + '》题库，购买后开启整套题库的使用。',
+            money: this.properties.money,
+            showif: false
+          })
+        }
+      }
+    },
+  }
+})

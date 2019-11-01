@@ -1,0 +1,4 @@
+<view  class='container card-class'>
+  <text>{{text}}</text>
+  <slot class="after" name="after"></slot>
+</view>

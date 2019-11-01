@@ -1,0 +1,12 @@
+<view class='meng'  hidden='{{isshow}}'>
+ <!-- <van-transition name="fade-up" />
+ </van-transition> -->
+  <view class='mengbox'>
+   <view class="tishi">解锁题库</view>
+    <view class='mengtitle'>{{title}}</view>
+    <view wx:if="{{!isios}}" class='mengbom'>
+      <view class='sub' bind:tap="onCancle" >￥{{money}} 立即解锁</view>
+      <view class='cancle' bind:tap="onSubmit">加入购物车</view>
+    </view>
+  </view>
+</view>

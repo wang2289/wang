@@ -1,0 +1,123 @@
+/* pages/tidetail/tidetail.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timutitle {
+  width: 690rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+  padding: 20rpx 0rpx;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.time image {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.timu-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timu-num image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.timeji {
+  color: #fe3f36;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+
+.old {
+  font-size: 28rpx;
+  color: #666;
+  padding-left: 10rpx;
+}
+
+.xie, .all {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.timu-buttom {
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0rpx;
+  border-top: 1px solid rgba(221, 221, 221, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  z-index: 999;
+}
+cover-view{
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+.biaoji {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 22rpx;
+  color: #333;
+  margin-left: 27rpx;
+}
+.biaoji.active text{
+  color: #FD7329;
+}
+.biaoji image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 5rpx;
+}
+
+.jiaojuan {
+  width: 200rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  background: linear-gradient(0deg, rgba(254, 42, 42, 1), rgba(253, 115, 41, 1));
+  border-radius: 39rpx;
+  text-align: center;
+  color: #fff;
+  margin-right: 30rpx;
+}
+
+.sw-con {
+  width: 100%;
+}
+
+swiper {
+  height: 1011rpx;
+}
+scroll-view{
+  height: 1000rpx;
+}
+swiper-item {
+  width: 100%;
+}
+.van-tabs--line {
+  padding-top: 0px !important; 
+}

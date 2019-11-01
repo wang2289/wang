@@ -1,0 +1,171 @@
+<!--index.wxml-->
+<view class="main-container">
+
+  <view class="container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item class="slide-item">
+          <image src="{{item.image}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="nav-bar">
+    <view bindtap="toTransList" class="navbar-item" data-id="0" data-name="实训">
+      <view>
+        <image class="navbarimg" src="../../images/icon_shixun@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">实训</span>
+      </view>
+    </view>
+    <view bindtap="toTransList" class="navbar-item" data-id="1" data-name="管理">
+      <view>
+        <image class="navbarimg" src="../../images/icon_guanli@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">管理</span>
+      </view>
+    </view>
+    <view bindtap="toTransList" class="navbar-item" data-id="2" data-name="非才">
+      <view>
+        <image class="navbarimg" src="../../images/icon_feicai@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">非才</span>
+      </view>
+    </view>
+    <view bindtap="toTransList" class="navbar-item" data-id="3" data-name="考证">
+      <view>
+        <image class="navbarimg" src="../../images/icon_zheng@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">考证</span>
+      </view>
+    </view>
+    <view bindtap="toTransList" class="navbar-item" data-id="4" data-name="公开课">
+      <view>
+        <image class="navbarimg" src="../../images/icon_class@2x.png"></image>
+      </view>
+      <view class="text-container">
+        <span class="item-text">公开课</span>
+      </view>
+    </view>
+
+
+  </view>
+  <view class="open-class">
+    <view class="open-classtext">
+      <span>公开课</span>
+    </view>
+    <scroll-view class="openclass-scroll" scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower"  scroll-left="0">
+      <view class="scroll-x">
+        <block wx:for="{{publiccourse}}">
+          <view class="item-container">
+            <view class="openclass-item">
+              <view class="openclass-detail">
+                <view class="teacherpic-contaienr">
+                  <image src="{{item.teacherpic}}"></image>
+                </view>
+                <view class="openclassdetail-text">
+                  <view class="classname">
+                    <span>{{item.name}}</span>
+                  </view>
+                  <view class="teachername">
+                    <image src="../../images/icon_shi@2x.png"></image>
+                    <span>{{item.teachername}}</span>
+                  </view>
+                </view>
+              </view>
+              <view class="openclass-time">
+                <view class="opentime-container">
+                  <view class="open-time">
+                    <image src="../../images/icon_guankan@2x.png"></image>
+                    <span>{{item.personcount}}人正在观看</span>
+                  </view>
+                </view>
+                <view class="watch-now">
+                  <van-button type="danger" id="233" bindtap="goToWatch" data-zhiboId="{{item.zhiboId}}" round size="mini">前往观看</van-button>
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      
+        <!-- <view wx:for-items="{{scrolls}}" wx:key="name">
+          <view id="{{item.tag}}" class="{{item.tag}}">{{item.name}}</view>
+        </view> -->
+      </view>
+    </scroll-view>
+  </view>
+  <view class="open-class">
+    <view class="open-classtext">
+      <span>精品课程</span>
+      <span class="more" bindtap="toTransList" data-id="0">更多></span>
+    </view>
+    <view class="card-list">
+      <block wx:for="{{tujianvideo}}">
+        <view class="card-item" bindtap="bindnavtovider" data-id="{{item.aomid}}">
+          <image src="{{item.imageurl}}"></image>
+          <view class="card-item-text">
+            <text>{{item.sort_name}}</text>
+            <view class="text-foot">
+              <span class="study-num">{{item.personnum}}人在学</span>
+              <span wx:if="{{!isIos}}" class="money">￥{{item.money}}</span>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="open-class">
+    <view class="open-classtext">
+      <span>精品题库</span>
+      <span class="more" bindtap="bindtikumore">更多></span>
+    </view>
+    <view class="tiku-list">
+    <block wx:for="{{tujiantiku}}">
+      <view class="tiku-item" bindtap="bindnavtotiku" data-id="{{item.aomid}}">
+        <image src='{{item.imageurl}}'></image>
+        <text>{{item.sort_name}}</text>
+        <view class=" tiku-foot">
+          <view class="tiku-left">
+            <image src="/images/icon_bofangliang@2x.png"></image>
+            <text>{{item.personnum}}</text>
+          </view>
+          <span wx:if="{{!isIos}}" class="money">￥{{item.money}}</span>
+        </view>
+      </view>
+</block>
+    </view>
+  </view>
+  <view class="open-class">
+    <view class="open-classtext">
+      <span>精品组合课</span>
+      <span class="more" bindtap="bindpackedgmore">更多></span>
+    </view>
+    <view class="card-list">
+    <block wx:for="{{tujianzuhe}}">
+      <view class="card-item" bindtap="bindnavtopackage" data-id="{{item.id}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.pname}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span wx:if="{{!isIos}}" class="money">￥{{item.money}}</span>
+          </view>
+        </view>
+      </view>
+    </block>
+    </view>
+  </view>
+
+</view>
+<wxs module="getAdd">
+  module.exports = {
+    getAdd: function(num) {
+      return num + 1
+    }
+  }
+</wxs>

@@ -1,0 +1,34 @@
+<view class='container'>
+  <view class="timutitle">
+    <view class="time">
+      <image src="/images/icon_time@2x.png"></image>
+      <text class="timeji">{{timecount}}</text>
+    </view>
+    <view class="timu-num">
+      <image bind:tap="onAnswerCard" src="/images/icon_datika@2x.png"></image>
+      <text class="old">{{newindex}}</text>
+      <text class="xie">/</text>
+      <text class="all">{{allnum}}</text>
+    </view>
+  </view>
+  <view class='sw-con'>
+    <swiper indicator-dots="{{indicatorDots}}" bindchange="intervalChange" interval="{{interval}}" autoplay="{{autoplay}}" duration="{{duration}}" circular="true" current="{{current}}">
+      <block wx:for="{{timus}}" wx:key="{{id}}">
+        <block wx:for="{{item.items}}" wx:key="{{id}}">
+          <swiper-item>
+            <timu-cmp paperid='{{id}}' bind:addInfo="getAddInfo" timu="{{item}}"></timu-cmp>
+          </swiper-item>
+        </block>
+      </block>
+    </swiper>
+  </view>
+  <view class="timu-buttom">
+    <view class="biaoji {{biaoji?'active':''}}" bindtap='onBiaoji' data-pagerid='{{id}}' data-questionid='{{questionid}}' data-typeid='{{typeid}}'>
+      <image src="{{biaoji ? '/images/icon_results_biaoji@2x.png':'/images/icon_biaoji@2x.png'}}"></image>
+      <text>标记题</text>
+    </view>
+    <view class="jiaojuan" bindtap='Finish'> 交卷 </view>
+  </view>
+</view>
+
+<meng-cmp title="{{tihsi}}" postid='{{id}}'  bind:addInfo2="getAddInfo2"  isshow='{{showif}}' />

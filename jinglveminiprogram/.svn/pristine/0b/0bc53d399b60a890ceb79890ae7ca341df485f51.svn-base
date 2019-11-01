@@ -1,0 +1,23 @@
+<view class='container'>
+  <view class="chapter">
+    <!-- <van-collapse value="{{ activeNames }}" bind:change="onChange" accordion> -->
+      <block wx:for="{{course}}" wx:key="*this">
+
+          <view class="section2">
+            <!-- <block wx:for="{{item.chapter}}" wx:key="*this"> -->
+              <view class="title" data-id='{{item.id}}' data-free='{{item.isfree}}'data-buy='{{item.isbuy}}' bindtap="onTap">{{item.name}}
+                <view class="line"></view>
+                <view wx:if="{{item.isbuy}}" class="tag">{{item.num}}次</view>
+                <view  wx:elif="{{!item.isbuy}}">
+                  <image  wx:if="{{!item.isfree}}" class="lock" src="/images/icon_suo@2x.png"></image>
+                </view>
+              </view>
+            <!-- </block> -->
+          </view>
+
+      </block>
+    <!-- </van-collapse> -->
+  </view>
+</view>
+
+<mengl-cmp  title="{{tihsi}}" money='{{money}}' isios="{{isios}}"   isshow='{{showif}}' />

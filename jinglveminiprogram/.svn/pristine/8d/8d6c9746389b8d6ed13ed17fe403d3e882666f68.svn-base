@@ -1,0 +1,360 @@
+/* pages/tidetail/tidetail.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container.hide {
+  overflow-y: hidden;
+}
+
+.biaoji.active {
+  color: #fd7329;
+}
+
+.timutitle {
+  width: 690rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+  padding: 20rpx 0rpx;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.time image {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.timu-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timu-num image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 33rpx;
+}
+
+.timeji {
+  color: #fe3f36;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+
+.old {
+  font-size: 28rpx;
+  color: #666;
+  padding-left: 10rpx;
+}
+
+.xie, .all {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.timu-buttom {
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0rpx;
+  border-top: 1px solid rgba(221, 221, 221, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.biaoji {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 22rpx;
+  color: #333;
+  margin-right: 27rpx;
+}
+
+.biaoti {
+  padding-right: 18rpx;
+}
+.biaobox{
+  display: flex;
+  flex-direction: row;
+}
+.biaoji image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 5rpx;
+}
+
+.jiaojuan {
+  width: 200rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  background: linear-gradient(0deg, rgba(254, 42, 42, 1), rgba(253, 115, 41, 1));
+  border-radius: 39rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.sw-con {
+  width: 100%;
+}
+
+swiper {
+  height: 1111rpx;
+}
+
+swiper-item {
+  width: 100%;
+}
+
+.ti-container {
+  display: flex;
+  flex-direction: column;
+  padding: 35rpx;
+}
+
+.timuname {
+  /* display:flex;
+  flex-direction: row; */
+  line-height: 1.4;
+  color: #666;
+}
+
+.timuclass {
+  padding: 5rpx 10rpx;
+  background: #fff;
+  color: #fe3f36;
+  border-radius: 25rpx;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  border: 1px solid #fe3f36;
+  margin: 0rpx 20rpx 0rpx 0rpx;
+}
+
+.timubody {
+  color: #666;
+  font-size: 30rpx;
+}
+
+.timuchoise {
+  margin-top: 20rpx;
+}
+
+.timuchoise view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+
+.choisenum {
+  width: 68rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  display: inline-block;
+  border: 1px solid rgba(221, 221, 221, 1);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #666;
+  align-self: flex-start;
+}
+
+.choisename {
+  color: #333;
+  font-size: 30rpx;
+  padding-left: 15rpx;
+  width: 595rpx;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.right .choisenum {
+  background: rgba(249, 255, 235, 1);
+  border: 1px solid rgba(83, 162, 18, 1);
+  color: #53a212;
+}
+
+.right .choisename {
+  color: #53a212;
+}
+
+.error .choisenum {
+  background: rgba(255, 240, 240, 1);
+  border: 1px solid rgba(254, 63, 54, 1);
+  color: #fe3f36;
+}
+
+.error .choisename {
+  color: #fe3f36;
+}
+
+.line {
+  width: 690rpx;
+  height: 1px;
+  background: rgba(221, 221, 221, 1);
+  margin-top: 16rpx;
+}
+
+.timucard {
+  width: 692rpx;
+  padding: 20rpx 0rpx;
+  background: rgba(247, 247, 249, 1);
+  border-radius: 8rpx;
+  margin-top: 29rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timucard text {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.rightanswer, .youranswer {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  padding-left: 24rpx;
+  padding-right: 18rpx;
+}
+
+.youranswer text {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(254, 63, 54, 1);
+}
+
+.kaodian {
+  width: 692rpx;
+  margin-top: 42rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.tips {
+  margin-top: 20rpx;
+}
+
+.jiexi {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 42rpx;
+  margin-top: 20rpx;
+  margin-bottom: 22rpx;
+}
+
+.view-box {
+  width: 690rpx;
+  height: 335rpx;
+  background: rgba(238, 238, 238, 1);
+  margin-bottom: 137rpx;
+}
+van-action-sheet{
+   overflow-y: hidden !important;
+}
+.tiwen-box {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 960rpx;
+  overflow-y: hidden !important;
+}
+.no-scroll{height: 100%; overflow: hidden;}
+
+.tiwen-boxs {
+  position: relative;
+}
+
+.ques-btn {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0rpx;
+  border-top: 1px solid rgba(221, 221, 221, 1);
+  padding: 14rpx 31rpx 14rpx 31rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.ques-box {
+  width: 497rpx;
+  height: auto;
+  border: 1px solid rgba(221, 221, 221, 1);
+  border-radius: 8rpx;
+}
+
+.ques-box textarea {
+  padding: 12rpx 10rpx;
+  width: 497rpx;
+  min-height: 70rpx !important;
+  max-height: 130rpx !important;
+  box-sizing: border-box;
+}
+
+.ques-btns {
+  width: 173rpx;
+  height: 70rpx;
+  background: linear-gradient(0deg, rgba(254, 42, 42, 1), rgba(253, 115, 41, 1));
+  border-radius: 35rpx;
+  margin-left: 21rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 70rpx;
+}
+.ques-btns.default{
+  background: rgb(145, 145, 146);
+}
+.van-cell {
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  padding: 5.5px 5.5px !important;
+}
+.more{
+  text-align: center;
+  color: #dcdcdc;
+  padding: 10rpx;
+  font-size: 20rpx;
+  margin-bottom: 50rpx;
+}

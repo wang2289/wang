@@ -1,0 +1,45 @@
+/* pages/cart/addressadd/addressadd.wxss */
+page{
+  font-size:30rpx;
+  background:rgba(247,247,249,1);
+}
+.addpanel{
+
+
+}
+.selectdefault {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  font-size:30rpx;
+font-weight:500;
+color:rgba(51,51,51,1);
+height: 100rpx;
+margin-top: 20rpx;
+padding-left: 30rpx;
+background-color: #fff;
+}
+.foot {
+  position: fixed;
+width: 100%;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.btnsave {
+  width:570rpx;
+  height:78rpx;
+background:linear-gradient(0deg,rgba(254,42,42,1),rgba(253,115,41,1));
+border-radius:39rpx;
+font-size:28rpx;
+line-height: 78rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+align-items: center;
+}

@@ -1,0 +1,94 @@
+/**index.wxss**/
+
+.van-tabs__wrap:after {
+  border: 0 !important;
+}
+
+.line {
+  margin-top: 22rpx;
+  width: 100%;
+  height: 1rpx;
+  background: #ddd;
+}
+
+.watch-title {
+  margin-top: 42rpx;
+  margin-left: 29rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.course-item {
+  display: flex;
+  margin-left: 31rpx;
+  margin-top: 29rpx;
+  position: relative;
+}
+
+.item-image image {
+  width: 268rpx;
+  height: 150rpx;
+  border-radius: 8rpx;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 17rpx;
+  padding-right: 5rpx;
+  
+}
+
+.text-title {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.text-detail {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  margin-bottom: 8rpx;
+}
+
+.intprice, .floatprice {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(254, 54, 71, 1);
+}
+
+.buyed {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.price, .buyed {
+  position: absolute;
+  bottom: 0;
+  right: 36rpx;
+}
+
+.floatprice {
+  font-size: 24rpx;
+}
+
+.studynum {
+  width: 400rpx;
+}
+.nonedata{
+  margin-left: 35rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}

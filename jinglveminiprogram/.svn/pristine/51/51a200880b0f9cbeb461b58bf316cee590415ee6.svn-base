@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="dress-container">
+  <view class="dress-icon">
+    <view class="dicon">
+      <van-icon name="location" size="31rpx"  color="#FE2A2A"/>
+    </view>
+  </view>  
+    <view class="text-container">
+      <view class="adress"><text> 宋泽家园9区39号楼505  </text></view>
+      <view class="concactinfo"><text>吴先生    </text><text class="telephone">13487563768</text></view>
+    </view>
+</view>
+<view class="goods-info">
+  <view class="goods-detail"><text>商品信息</text></view>
+  <view class="detail">
+    <view class="detail-img"><image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570622908050&di=0e19bfae967a5c8a90b1d429a4cc27dc&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D3829660535%2C1296974090%26fm%3D214%26gp%3D0.jpg"></image></view>
+    <view class="goods-text">
+      <view class="goods-title"><text>初级会计考试必考指南</text></view>
+      <view class="goods-price"><text>¥</text><text class="price">60.00</text></view>
+      <view class="goods-num"><text>x1</text></view>
+      <view class="totalpri"><text>合计:</text><text class="totalprice">60.00</text></view>
+    </view>
+  </view>
+</view>
+<view class="pay-info">
+  <view class="goods-detail"><text>商品信息</text></view>
+  <view class="pay-allinfo">
+    <view class="pay-detail"><text>订单编号：20190906EYZLTGJTFU</text></view>
+    <view class="pay-detail"><text>创建时间：2019-02-21 14:00:00</text></view>
+    <view class="pay-detail"><text>支付编号：156464645454154444</text></view>
+    <view class="pay-detail"><text>支付时间：2019-02-21 14:00:00</text></view>
+  </view>
+</view>

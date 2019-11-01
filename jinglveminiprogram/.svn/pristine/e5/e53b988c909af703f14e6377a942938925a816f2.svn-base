@@ -1,0 +1,371 @@
+<view class='title'>
+  <view class='titleSel' bindtap='titleClick' data-idx='0' data-name="实训">
+    <view class='titlelogo'>
+
+      <text style="{{0 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666'}}"> 实训</text>
+    </view>
+    <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+  </view>
+
+  <view class='titleSel' bindtap='titleClick' data-idx='1' data-name="管理">
+    <view class='titlelogo'>
+      <text style="{{1 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666'}}">管理</text>
+    </view>
+    <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+  </view>
+  <view class='titleSel' bindtap='titleClick' data-idx='2' data-name="非财">
+    <view class='titlelogo'>
+
+      <text style="{{2 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666'}}">非财</text>
+    </view>
+    <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+  </view>
+  <view class='titleSel' bindtap='titleClick' data-idx='3' data-name="考证">
+    <view class='titlelogo'>
+
+      <text style="{{3 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666'}}">考证</text>
+    </view>
+    <hr class="{{3 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+  </view>
+  <view class='titleSel' bindtap='titleClick' data-idx='4'>
+    <view class='titlelogo'>
+
+      <text style="{{4 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666'}}">公开课</text>
+    </view>
+    <hr class="{{4 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+  </view>
+</view>
+
+
+<swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+  <swiper-item class='swiper-item' item-id="0">
+    <view class="course-content">
+      <!-- 实训类型和综合排序导航_start -->
+      <view class="swiper-tab">
+        <button class="swiper-tab-list" data-current="0" bindtap="tabNav">
+          <text>{{typename}}类型</text>
+          <image class='imgjt' src="{{firstup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+
+        </button>
+
+        <button class="swiper-tab-list " data-current="1" bindtap="tabNav">
+          <text>综合排序</text>
+
+          <image src="{{secondup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+        </button>
+
+
+      </view>
+      <!-- 实训类型和综合排序导航_end -->
+      <!-- 实训类型_start -->
+      <view class="container-course" style='display:{{firstdisplays}}'>
+        <!--左侧栏-->
+        <view class="nav_left">
+          <block wx:for="{{classifyItems}}">
+            <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">
+              {{item.name}}
+            </view>
+          </block>
+        </view>
+        <!--右侧栏-->
+        <view class="nav_right">
+          <!--如果有数据，才遍历项-->
+          <view wx:if="{{classifyItems[curIndex].ishaveChild}}">
+            <block wx:for="{{classifyItems[curIndex].ClassifyDtoList}}">
+              <view class="nav_right_items">
+                <!--界面跳转 -->
+                <!-- <navigator url="/pages/course/coursedetail/coursedetail?aomid={{item.id}}"> -->
+
+                <view bindtap="bindclickclass" data-id="{{item.id}}">{{item.name}}</view>
+                <!-- </navigator> -->
+              </view>
+            </block>
+          </view>
+          <!--如果无数据，则显示数据-->
+          <view class="nodata_text" wx:else>该分类暂无数据</view>
+        </view>
+      </view>
+      <!-- 实训类型_end -->
+      <!-- 综合排序_start -->
+      <view class="container-sort" style='display:{{seconddisplays}}'>
+        <view class="sort-item" style="{{(1 == seleectsortid|| 2 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{rsort}}" bindtap="bindsort">热度</view>
+        <view class="sort-item" style="{{(3 == seleectsortid|| 4 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{tsort}}" bindtap="bindsort">时间</view>
+        <view class="sort-item" style="{{(5 == seleectsortid|| 6 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{msort}}" bindtap="bindsort">价格</view>
+      </view>
+      <!-- 综合排序_end -->
+    </view>
+    <view class="card-list">
+      <view class="card-item" wx:for="{{newsList}}" bindtap="bindnavtovider" data-id="{{item.aomid}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.sort_name}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span class="isbuy" wx:if="{{item.isbuy}}">已购买</span>
+            <span class="money" wx:else>
+              <text class="money" wx:if="{{!isIos}}">￥{{item.money}}</text>
+            </span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+  <swiper-item class='swiper-item' item-id="1">
+    <view class="course-content">
+      <!-- 实训类型和综合排序导航_start -->
+      <view class="swiper-tab">
+        <button class="swiper-tab-list" data-current="0" bindtap="tabNav">
+          <text>{{typename}}类型</text>
+          <image class='imgjt' src="{{firstup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+
+        </button>
+
+        <button class="swiper-tab-list " data-current="1" bindtap="tabNav">
+          <text>综合排序</text>
+
+          <image src="{{secondup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+        </button>
+
+
+      </view>
+      <!-- 实训类型和综合排序导航_end -->
+      <!-- 实训类型_start -->
+      <view class="container-course" style='display:{{firstdisplays}}'>
+        <!--左侧栏-->
+        <view class="nav_left">
+          <block wx:for="{{classifyItems}}">
+            <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">
+              {{item.name}}
+            </view>
+          </block>
+        </view>
+        <!--右侧栏-->
+        <view class="nav_right">
+          <!--如果有数据，才遍历项-->
+          <view wx:if="{{classifyItems[curIndex].ishaveChild}}">
+            <block wx:for="{{classifyItems[curIndex].ClassifyDtoList}}">
+              <view class="nav_right_items">
+                <!--界面跳转 -->
+                <!-- <navigator url="/pages/course/coursedetail/coursedetail?aomid={{item.id}}"> -->
+
+                <view bindtap="bindclickclass" data-id="{{item.id}}">{{item.name}}</view>
+                <!-- </navigator> -->
+              </view>
+            </block>
+          </view>
+          <!--如果无数据，则显示数据-->
+          <view class="nodata_text" wx:else>该分类暂无数据</view>
+        </view>
+      </view>
+      <!-- 实训类型_end -->
+      <!-- 综合排序_start -->
+      <view class="container-sort" style='display:{{seconddisplays}}'>
+        <view class="sort-item" style="{{(1 == seleectsortid|| 2 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{rsort}}" bindtap="bindsort">热度</view>
+        <view class="sort-item" style="{{(3 == seleectsortid|| 4 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{tsort}}" bindtap="bindsort">时间</view>
+        <view class="sort-item" style="{{(5 == seleectsortid|| 6 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{msort}}" bindtap="bindsort">价格</view>
+      </view>
+      <!-- 综合排序_end -->
+    </view>
+    <view class="card-list">
+      <view class="card-item" wx:for="{{newsList}}" bindtap="bindnavtovider" data-id="{{item.aomid}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.sort_name}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span class="isbuy" wx:if="{{item.isbuy}}">已购买</span>
+            <span class="money" wx:else>￥{{item.money}}</span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+  <swiper-item class='swiper-item' item-id="2">
+    <view class="course-content">
+      <!-- 实训类型和综合排序导航_start -->
+      <view class="swiper-tab">
+        <button class="swiper-tab-list" data-current="0" bindtap="tabNav">
+          <text>{{typename}}类型</text>
+          <image class='imgjt' src="{{firstup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+
+        </button>
+
+        <button class="swiper-tab-list " data-current="1" bindtap="tabNav">
+          <text>综合排序</text>
+
+          <image src="{{secondup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+        </button>
+
+
+      </view>
+      <!-- 实训类型和综合排序导航_end -->
+      <!-- 实训类型_start -->
+      <view class="container-course" style='display:{{firstdisplays}}'>
+        <!--左侧栏-->
+        <view class="nav_left">
+          <block wx:for="{{classifyItems}}">
+            <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">
+              {{item.name}}
+            </view>
+          </block>
+        </view>
+        <!--右侧栏-->
+        <view class="nav_right">
+          <!--如果有数据，才遍历项-->
+          <view wx:if="{{classifyItems[curIndex].ishaveChild}}">
+            <block wx:for="{{classifyItems[curIndex].ClassifyDtoList}}">
+              <view class="nav_right_items">
+                <!--界面跳转 -->
+                <!-- <navigator url="/pages/course/coursedetail/coursedetail?aomid={{item.id}}"> -->
+
+                <view bindtap="bindclickclass" data-id="{{item.id}}">{{item.name}}</view>
+                <!-- </navigator> -->
+              </view>
+            </block>
+          </view>
+          <!--如果无数据，则显示数据-->
+          <view class="nodata_text" wx:else>该分类暂无数据</view>
+        </view>
+      </view>
+      <!-- 实训类型_end -->
+      <!-- 综合排序_start -->
+      <view class="container-sort" style='display:{{seconddisplays}}'>
+        <view class="sort-item" style="{{(1 == seleectsortid|| 2 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{rsort}}" bindtap="bindsort">热度</view>
+        <view class="sort-item" style="{{(3 == seleectsortid|| 4 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{tsort}}" bindtap="bindsort">时间</view>
+        <view class="sort-item" style="{{(5 == seleectsortid|| 6 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{msort}}" bindtap="bindsort">价格</view>
+      </view>
+      <!-- 综合排序_end -->
+    </view>
+    <view class="card-list">
+      <view class="card-item" wx:for="{{newsList}}" bindtap="bindnavtovider" data-id="{{item.aomid}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.sort_name}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span class="isbuy" wx:if="{{item.isbuy}}">已购买</span>
+            <span class="money" wx:else>
+              <text class="money" wx:if="{{!isIos}}">￥{{item.money}}</text>
+            </span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+  <swiper-item class='swiper-item' item-id="3">
+    <view class="course-content">
+      <!-- 实训类型和综合排序导航_start -->
+      <view class="swiper-tab">
+        <button class="swiper-tab-list" data-current="0" bindtap="tabNav">
+          <text>{{typename}}类型</text>
+          <image class='imgjt' src="{{firstup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+
+        </button>
+
+        <button class="swiper-tab-list " data-current="1" bindtap="tabNav">
+          <text>综合排序</text>
+
+          <image src="{{secondup?'/images/icon_down_hig@2x.png':'/images/icon_down_up@2x.png'}}"></image>
+        </button>
+
+
+      </view>
+      <!-- 实训类型和综合排序导航_end -->
+      <!-- 实训类型_start -->
+      <view class="container-course" style='display:{{firstdisplays}}'>
+        <!--左侧栏-->
+        <view class="nav_left">
+          <block wx:for="{{classifyItems}}">
+            <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">
+              {{item.name}}
+            </view>
+          </block>
+        </view>
+        <!--右侧栏-->
+        <view class="nav_right">
+          <!--如果有数据，才遍历项-->
+          <view wx:if="{{classifyItems[curIndex].ishaveChild}}">
+            <block wx:for="{{classifyItems[curIndex].ClassifyDtoList}}">
+              <view class="nav_right_items">
+                <!--界面跳转 -->
+                <!-- <navigator url="/pages/course/coursedetail/coursedetail?aomid={{item.id}}"> -->
+
+                <view bindtap="bindclickclass" data-id="{{item.id}}">{{item.name}}</view>
+                <!-- </navigator> -->
+              </view>
+            </block>
+          </view>
+          <!--如果无数据，则显示数据-->
+          <view class="nodata_text" wx:else>该分类暂无数据</view>
+        </view>
+      </view>
+      <!-- 实训类型_end -->
+      <!-- 综合排序_start -->
+      <view class="container-sort" style='display:{{seconddisplays}}'>
+        <view class="sort-item" style="{{(1 == seleectsortid|| 2 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{rsort}}" bindtap="bindsort">热度</view>
+        <view class="sort-item" style="{{(3 == seleectsortid|| 4 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{tsort}}" bindtap="bindsort">时间</view>
+        <view class="sort-item" style="{{(5 == seleectsortid|| 6 == seleectsortid)? 'font-weight:bold;' : ''}}" data-sortid="{{msort}}" bindtap="bindsort">价格</view>
+      </view>
+      <!-- 综合排序_end -->
+    </view>
+    <view class="card-list">
+      <view class="card-item" wx:for="{{newsList}}" bindtap="bindnavtovider" data-id="{{item.aomid}}">
+        <image src="{{item.imageurl}}"></image>
+        <view class="card-item-text">
+          <text>{{item.sort_name}}</text>
+          <view class="text-foot">
+            <span class="study-num">{{item.personnum}}人在学</span>
+            <span class="isbuy" wx:if="{{item.isbuy}}">已购买</span>
+            <span class="money" wx:else>
+              <text class="money" wx:if="{{!isIos}}">￥{{item.money}}</text>
+            </span>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+  <swiper-item class='swiper-item' item-id="4">
+    <view class="broadcast-nav">
+      <span bindtap="broadcastclick" data-id="0" class="{{0==broadcasttype?'active':'noactive'}}">推荐公开课</span>
+      <span bindtap="broadcastclick" data-id="1" class="{{1==broadcasttype?'active':'noactive'}}">往期公开课</span>
+    </view>
+    <view class="tuijian-content" wx:if="{{broadcasttype==0}}">
+      <view class="content-item" wx:for="{{zhibolist}}">
+        <image class="productimage" src="{{item.imageurl}}"></image>
+        <view class="broadcast-title">
+          <view class="title-left">
+            <text>{{item.name}}</text>
+            <view class="teacher">
+              <image src="{{item.teacherpic}}"></image>
+              <text>{{item.teachername}}</text>
+            </view>
+          </view>
+          <span class="btnvisited " data-zhiboId="{{item.zhiboId}}" bindtap="goToWatch">前去观看</span>
+        </view>
+      </view>
+
+    </view>
+
+    <view wx:else class="tuijian-content">
+      <view class="content-item" wx:for="{{zhibolist}}">
+        <image class="productimage" src="{{item.imageurl}}"></image>
+        <view class="broadcast-title">
+          <view class="title-left">
+            <text>{{item.name}}</text>
+            <view class="teacher">
+              <image src="{{item.teacherpic}}"></image>
+              <text>{{item.teachername}}</text>
+            </view>
+          </view>
+          <span class="btnvisited " data-zhiboId="{{item.zhiboId}}" bindtap="goToWatch">前去观看</span>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+
+</swiper>

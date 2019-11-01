@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="title"><p>注册精略网校账号</p></view>
+<view class="main-container">
+  <view class="usernameinput">
+    <image class="usericon" src="../../images/input_phone@2x.png"></image>
+    <input type="number" value="{{phonenumber}}" maxlength="11" bindinput="bindphonenumber" placeholder="手机号" name="phonenumber" id="phonenumber" />
+  </view>
+  <!-- <view class="usernameinput">
+    <image class="usericon" src="../../images/login_password@2x.png"></image>
+    <input type="text" value="{{password}}" placeholder="密码" type="{{inputtype}}" bindinput="checkinput" name="password" id="password" />
+    <view bindtap="changeeye" class="eyeiconcontainer"><image class="eyeicon" src="{{eyeimgurl}}"></image></view>
+  </view> -->
+  <view class="btn-container">
+    <van-button bind:click="nextstep" disabled="{{disabled}}" size="litterlarge" type="litterdanger" round >下一步</van-button>
+  </view>
+  <van-toast id="van-toast" />
+</view>
+

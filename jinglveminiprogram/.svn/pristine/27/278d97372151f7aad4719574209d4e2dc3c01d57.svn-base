@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "show-html": "/components/showhtml/index",
+    "van-field": "vant-weapp/field"
+  }
+}

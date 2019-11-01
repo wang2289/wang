@@ -1,0 +1,13 @@
+class Config {
+  constructor() {
+
+  }
+}
+
+// Config.apiUrl =  'http://192.168.1.72:5001'; 
+Config.apiUrl = 'https://xiaochengxuapi.kjcytk.com/';
+Config.tokenUrl ='https://identityservercenter.kjcytk.com';
+Config.classid=5000;
+Config.client_id= 'weixin';
+ Config.client_secret='secret';
+export { Config };

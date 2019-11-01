@@ -1,0 +1,78 @@
+<view class='container'>
+  <scroll-view scroll-y='{{true}}'>
+    <view class="danxuanshow" wx:if="{{timu.typeid == 29}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <block wx:for="{{timu.body}}" wx:key="{{id}}">
+          <view class=" {{isActive == index ? 'active':'' }}" data-typeid='{{timu.typeid}}' data-tab="{{index}}" data-id='{{timu.id}}' data-tips='{{item.tips}}' bind:tap="onActive">
+            <text class="choisenum">{{item.tips}}</text>
+            <text class="choisename">{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="duoxuanshow" wx:if="{{timu.typeid == 31}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <block wx:for="{{timu.body}}" wx:key="{{id}}">
+          <view class="{{item.status == 1 ? 'active':''}}" data-typeid='{{timu.typeid}}' data-id='{{timu.id}}' data-tips='{{item.tips}}' data-index="{{index}}" bind:tap="onChange">
+            <text class="choisenum">{{item.tips}}</text>
+            <text class="choisename">{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="panshow" wx:if="{{timu.typeid == 32}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <view class=" {{isActive3 == 1 ? 'active':'' }}" data-typeid='{{timu.typeid}}' data-id='{{timu.id}}' data-tab="1" bind:tap="onActive3">
+          <text class="choisenum">A</text>
+          <text class="choisename">对</text>
+        </view>
+        <view class=" {{isActive3 == 0 ? 'active':'' }}" data-typeid='{{timu.typeid}}' data-id='{{timu.id}}' data-tab="0" bind:tap="onActive3">
+          <text class="choisenum">B</text>
+          <text class="choisename">错</text>
+        </view>
+      </view>
+    </view>
+    <view class="jiandashow" wx:if="{{timu.typeid == 46}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <textarea hidden='{{showmodle}}' maxlength='-1' bindinput='Oninput' data-typeid='{{timu.typeid}}' data-id='{{timu.id}}'></textarea>
+        <text class="textarea" wx:if='{{showmodle}}'>{{values}}</text>
+      </view>
+    </view>
+    <view class="zongheshow" wx:if="{{timu.typeid == 41}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <textarea maxlength='-1' bindinput='Oninput' data-typeid='{{timu.typeid}}' data-id='{{timu.id}}' auto-height='true'></textarea>
+        <text class="textarea" wx:if='{{showmodle}}'>{{values}}</text>
+      </view>
+    </view>
+    <view class="jisuanshow" wx:if="{{timu.typeid == 40}}">
+      <view class="timuname">
+        <text class='timuclass'>{{timu.type}}</text>
+        <text class="timubody">{{timu.title}}</text>
+      </view>
+      <view class="timuchoise">
+        <textarea maxlength='-1' bindinput='Oninput' data-typeid='{{timu.typeid}}' data-id='{{timu.id}}' auto-height='true'></textarea>
+        <text class="textarea" wx:if='{{showmodle}}'>{{values}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

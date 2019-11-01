@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="dress-container">
+  <view class="dress-icon">
+    <view class="dicon">
+      <van-icon name="location" size="31rpx"  color="#FE2A2A"/>
+    </view>
+  </view>  
+    <view class="text-container">
+      <view class="adress"><text> {{address}}  </text></view>
+      <view class="concactinfo"><text>{{username}}    </text><text class="telephone">{{Tel}}</text></view>
+    </view>
+</view>
+<view class="goods-info">
+  <view class="goods-detail"><text>商品信息</text></view>
+  <view wx:for="{{goodslist}}" wx:key="{{item.orderno}}" class="detail">
+    <view class="detail-img"><image src="{{item.imageurl}}"></image></view>
+    <view class="goods-text">
+      <view class="goods-title"><text>{{item.name}}</text></view>
+      <view class="goods-price"><text>¥</text><text class="price">{{item.money}}</text></view>
+      <view class="goods-num"><text>x{{item.num}}</text></view>
+    </view>
+  </view>
+  <view class="totalpri"><text>合计:</text><text class="totalprice">{{allmoney}}</text></view>
+</view>
+<view class="pay-info">
+  <view class="goods-detail"><text>商品信息</text></view>
+  <view class="pay-allinfo">
+    <view class="pay-detail"><text>订单编号：{{orderno}}</text></view>
+    <view class="pay-detail"><text>创建时间：{{createtime}}</text></view>
+    <view class="pay-detail"><text>支付编号：{{payNo}}</text></view>
+    <view class="pay-detail"><text>支付时间：{{paytime}}</text></view>
+  </view>
+</view>
+<van-toast id="van-toast" />

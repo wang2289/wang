@@ -1,0 +1,497 @@
+import { requestsend,requestsendtoken } from '../../utils/util.js'
+import { Config } from '../../utils/config';
+const app = getApp()
+var pageindexs=1;
+var data2 = [];
+var info={}
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    numid:0,
+    tikus: [],
+    isActive: 0,
+    isActive2:5,
+    isActive3: 0,
+    isActive4: 0,
+    mainActiveIndex: 0,
+    activeId: null,
+    show: false,
+    isshow: true,
+    show2: false,
+    isshow2: true,
+    nodata:false,
+    showl: true,
+    ascending1:'descending',
+    ascending2: 'descending',
+    ascending3: 'descending',
+    datatab1:5,
+    datatab2:1,
+    datatab3:3,
+    items: [{
+      // 导航名称
+      text: '暂无分类',
+      disabled: true,
+       children: [{
+        text: '暂无分类',
+        disabled: true,
+        id: 0,
+      }]
+      // 该导航下所有的可选项
+    }],
+    isios: null
+  },
+  onActive: function (e) {
+    var alldata = this.data.tikutab
+    var index = e.currentTarget.dataset.tab; //获取当前点击的元素下标
+    var id = e.currentTarget.dataset.id;
+    data2 = [];
+    pageindexs = 1;
+    // console.log(id);
+    for (var i = 0; i < alldata.length;i++){
+      if (id == alldata[i].id){
+        this.setData({
+          items: alldata[i].children
+        })
+        // console.log(alldata[i])
+        // console.log(alldata[i].children);
+        if (alldata[i].ishaveChild){
+          for (var m = 0; m < alldata[i].children.length;m++){
+            if (alldata[i].children[m].ishaveChild){
+
+            }else{
+              alldata[i].children[m].children = [{
+                text: '暂无分类',
+                disabled: true,
+                id: 0,
+              }]
+            }
+          }
+          // console.log(alldata[i].children[0].id)
+          this.setData({
+            mainActiveIndex: 0,
+            items: alldata[i].children
+          })
+        }else{
+          var items =[{
+            text: '暂无分类',
+            disabled: true,
+            children: [{
+              text: '暂无分类',
+              disabled: true,
+              id: 0,
+            }]
+            // 该导航下所有的可选项
+          }]
+          this.setData({
+            items: items
+          })
+        }
+      }
+    }
+    this.setData({
+      more: '',
+      showl: true,
+      isActive: index,
+      numid: id,
+      nodata:false
+    })
+    var param = {
+      classid: Config.classid,
+      id: id,
+      sorttype: info.sorttype
+    }
+    info.id = id
+    info.pageindex = 1
+    this.getdatas(info)
+  },
+  onActive2: function (e) {
+    // var index = this.data.isActive2; //获取当前点击的元素下标
+    var index = e.currentTarget.dataset.tab;
+    var isActive2 = this.data.isActive2
+    info.pageindex = 1
+    data2 = [];
+    pageindexs = 1;
+    this.setData({
+      more: '',
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+    if (isActive2 != 5 && isActive2 != 6) {
+      this.setData({
+        datatab1: index,
+        isActive2: index,
+        ascending1: this.data.ascending1
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if(index == 5){
+      index = 6;
+      this.setData({
+        datatab1:index,
+        isActive2: index,
+        ascending1: 'ascending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if (index == 6) {
+      index = 5;
+      this.setData({
+        datatab1: index,
+        isActive2: index,
+        ascending1: 'descending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+  },
+  onActive3: function (e) {
+    var index = e.currentTarget.dataset.tab; //获取当前点击的元素下标
+    var isActive2 = this.data.isActive2
+    data2 = [];
+    pageindexs = 1;
+    info.pageindex = 1
+    console.log(isActive2)
+    this.setData({
+      more: '',
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+    if (isActive2 != 1 && isActive2 != 2) {
+      // index = 1
+      this.setData({
+        datatab2:index,
+        isActive2: index,
+        ascending2: this.data.ascending2
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if (index == 1) {
+      index = 2;
+      this.setData({
+        datatab2: index,
+        isActive2: index,
+        ascending2: 'ascending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if (index == 2) {
+      index = 1;
+      this.setData({
+        datatab2: index,
+        isActive2: index,
+        ascending2: 'descending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+  },
+  onActive4: function (e) {
+    var index = e.currentTarget.dataset.tab; //获取当前点击的元素下标
+    var isActive2 = this.data.isActive2
+    data2 = [];
+    pageindexs = 1;
+    info.pageindex = 1
+    this.setData({
+      more: '',
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+    if (isActive2 != 3 && isActive2 != 4) {
+      this.setData({
+        datatab3: index,
+        isActive2: index,
+        ascending3: this.data.ascending3
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if (index == 3) {
+      index = 4;
+      this.setData({
+        datatab3: index,
+        isActive2: index,
+        ascending3: 'ascending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+    if (index == 4) {
+      index = 3;
+      this.setData({
+        datatab3: index,
+        isActive2: index,
+        ascending3: 'descending'
+      })
+      info.sorttype = index
+      this.getdatas(info)
+      return;
+    }
+  },
+  onOpenlei: function () {
+    var num = this.data.isActive3 == 1 ? 0 : 1
+    this.setData({
+      show: !this.data.show,
+      isshow: !this.data.isshow,
+      show2: false,
+      isshow2: true,
+      isActive3: num,
+      isActive4: 0
+    })
+  },
+  onOpenzong: function () {
+    var num = this.data.isActive4 == 1 ? 0 : 1
+    this.setData({
+      show2: !this.data.show2,
+      isshow2: !this.data.isshow2,
+      show: false,
+      isshow: true,
+      isActive4: num,
+      isActive3: 0
+    })
+  },
+  Onclose: function () {
+    this.setData({
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+  },
+  onTap: function (event) {
+    let postId = event.currentTarget.dataset.aomid;
+    let id = event.currentTarget.dataset.id;
+    let begin = event.currentTarget.dataset.begin;
+    let isbuy = event.currentTarget.dataset.isbuy;
+    console.log(postId)
+    if (isbuy){
+      if (begin) {
+        wx.navigateTo({
+          url: '../../pages/tidetail/tidetail?aomid=' + postId + '&sortid=' + id,
+        })
+      } else {
+        wx.showToast({
+          title: `课程暂未开始`,
+          icon: "none",
+          duration: 2000
+        })
+      }
+    }else{
+      wx.navigateTo({
+        url: '../../pages/tidetail/tidetail?aomid=' + postId + '&sortid=' + id,
+      })
+    }
+    
+   
+  },
+  onClickNav(event) {
+    console.log(event)
+    this.setData({
+      mainActiveIndex: event.detail.index || 0
+    });
+    var alldata = this.data.tikutab
+    var id = this.data.numid
+    var ids;
+    for (var i = 0; i < alldata.length; i++) {
+      if (id == alldata[i].id) {
+        // console.log(alldata[i].children);
+        if (alldata[i].ishaveChild) {
+          ids = alldata[i].children[event.detail.index].id
+        } 
+      }
+    }
+    console.log(ids);
+    info.id = ids
+    data2 = [];
+    pageindexs = 1;
+    info.pageindex = 1
+    this.getdatas(info)
+  },
+
+  onClickItem(event) {
+    const activeId = this.data.activeId === event.detail.id ? null : event.detail.id;
+    this.setData({
+      activeId
+    });
+    this.setData({
+      showl: true,
+      show2: false,
+      isshow2: true,
+      show: false,
+      isshow: true,
+      isActive3: 0,
+      isActive4: 0
+    })
+    console.log(event.detail.id)
+    info.id = event.detail.id
+    data2 = [];
+    pageindexs = 1;
+    info.pageindex = 1
+    this.getdatas(info)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      isios: app.globalData.isIos
+    })
+    var param = {
+      classid: Config.classid
+    }
+    pageindexs = 1;
+    data2 = [];
+    info.classid = Config.classid
+    info.id = 0
+    info.sorttype = 5
+    info.pageindex = 1
+    var that = this;
+    requestsend('api/OrgCourseMoney/GetTikuMoreType', "GET", param, function (e) {
+      console.log(e);
+      that.setData({
+        showl: !that.data.showl,
+        tikutab: e.data
+      })
+      that.getdatas(info)
+    })
+  },
+  getdatas(param) {
+    var that = this;
+    var token = wx.getStorageSync("userName")
+    // wx.getStorageSync("token")
+    console.log(token);
+    if (token == '') {
+      requestsend('api/OrgCourseMoney/GetTikuMoreNologin', "GET", param, function (e) {
+        // console.log(e);
+        data2 = data2.concat(e.data.list)
+        that.setData({
+          showl: false,
+          tikus: data2,
+          nodata: false
+        })
+        if (pageindexs < e.data.sumpage) {
+          that.setData({
+            more: '下拉加载更多...'
+          });
+        } else {
+          that.setData({
+            more: '暂无更多数据'
+          });
+          // data2 = [];
+          // pageindexs = 1;
+        }
+      })
+    }else{
+      requestsendtoken('api/QX/GetTikuMorelogin', "GET", param, function (e) {
+        // console.log(e);
+        data2 = data2.concat(e.data.list)
+        that.setData({
+          showl: false,
+          tikus: data2,
+          nodata: false
+        })
+        if (pageindexs < e.data.sumpage) {
+          that.setData({
+            more: '下拉加载更多...'
+          });
+        } else {
+          that.setData({
+            more: '暂无更多数据'
+          });
+          // data2 = [];
+          // pageindexs = 1;
+        }
+      })
+    }
+  },
+  upper(e) {
+    console.log(e)
+    info.pageindex = pageindexs+1
+    pageindexs = pageindexs + 1
+    // console.log(this.data.more);
+    if (this.data.more != '暂无更多数据') {
+      this.getdatas(info);
+    }else{
+      data2 = [];
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+   
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    // this.getTikuTab()
+  },
+  getTikuTab() {
+  },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

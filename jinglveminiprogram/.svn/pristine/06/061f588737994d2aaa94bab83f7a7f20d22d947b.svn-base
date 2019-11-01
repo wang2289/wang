@@ -1,0 +1,130 @@
+//index.js
+//获取应用实例
+
+const app = getApp()
+const WXApi = require('../../wxapi/main')
+import Dialog from 'vant-weapp/dialog/dialog';
+
+Page({
+  data: {
+    motto: 'Hello 微信小程序',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isIos: null,
+    myOrderList: [
+      {
+        ordernum: "20190906EYZLTGJFU",
+        orderTitle: "初级会计考试必考指南",
+        orderImgUrl:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+        orderPrice: "60.00",
+        buyednum: 1,
+        totalPrice: 60,
+        id:1
+      },
+      {
+        ordernum: "20190906EYZLTGJFU",
+        orderTitle: "初级会计考试必考指南",
+        orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+        orderPrice: "60.00",
+        buyednum: 2,
+        totalPrice: 60,
+        id: 2
+      },
+      {
+        ordernum: "20190906EYZLTGJFU",
+        orderTitle: "初级会计考试必考指南",
+        orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+        orderPrice: "60.00",
+        buyednum: 3,
+        totalPrice: 60,
+        id:3
+      },
+      {
+        ordernum: "20190906EYZLTGJFU",
+        orderTitle: "初级会计考试必考指南",
+        orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+        orderPrice: "60.00",
+        buyednum: 4,
+        totalPrice: 60,
+        id: 4
+      }
+    ]
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  onLoad: function () {
+    this.setData({
+      isIos: app.globalData.isIos
+    })
+  },
+  onClose(event) {
+    const { position, instance } = event.detail;
+    console.log(event)
+    switch (position) {
+      case 'left':
+      case 'cell':
+        instance.close();
+        break;
+      case 'right':
+        Dialog.confirm({
+          message: '确定删除吗？'
+        }).then(() => {
+          instance.close();
+          this.setData({
+            myOrderList: [
+              // {
+              //   ordernum: "20190906EYZLTGJFU",
+              //   orderTitle: "初级会计考试必考指南",
+              //   orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+              //   orderPrice: "60.00",
+              //   buyednum: 1,
+              //   totalPrice: 60,
+              //   id: 1
+              // },
+              {
+                ordernum: "20190906EYZLTGJFU",
+                orderTitle: "初级会计考试必考指南",
+                orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+                orderPrice: "60.00",
+                buyednum: 2,
+                totalPrice: 60,
+                id: 2
+              },
+              {
+                ordernum: "20190906EYZLTGJFU",
+                orderTitle: "初级会计考试必考指南",
+                orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+                orderPrice: "60.00",
+                buyednum: 3,
+                totalPrice: 60,
+                id: 3
+              },
+              {
+                ordernum: "20190906EYZLTGJFU",
+                orderTitle: "初级会计考试必考指南",
+                orderImgUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4086949766,808648332&fm=26&gp=0.jpg",
+                orderPrice: "60.00",
+                buyednum: 4,
+                totalPrice: 60,
+                id: 4
+              }
+            ]
+          })
+        });
+        break;
+    }
+  },
+  gotoMyOrderDetail: function(e){
+    console.log(e)
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/myorderdetail/myorderdetail?id=' + id
+    })
+  }
+
+})

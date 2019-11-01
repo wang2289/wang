@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="main-container">
+  <view class="swiper-item" wx:for="{{orderList}}" wx:key="{{item.id}}">
+
+    <!-- <van-swipe-cell id="swipe-cell" right-width="{{ 65 }}" left-width="{{ 5 }}" async-close bind:close="onClose"> -->
+      <!-- <view slot="left">选择</view> -->
+
+      <!-- <van-cell-group> -->
+        <!-- <van-cell title="单元格" value="内容" /> -->
+        <view class="myorderlist">
+          <view class="myorder-item" data-id="{{item.id}}" bindtap="gotoMyOrderDetail">
+            <view class="order-num">
+              <text>订单编号: {{item.orderno}}</text>
+            </view>
+            <view class="order-goods" wx:for="{{item.data}}">
+              <view class="order-main">
+                <view class="order-img">
+                  <image src="{{item.imageurl}}"></image>
+                </view>
+                <view class="order-text">
+                  <view class="order-title">
+                    <text>{{item.name}}</text>
+                  </view>
+                  <view wx:if="{{!isIos}}" class="order-price">
+                    <text>¥{{item.money}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="buy-num">
+                <text>x{{item.num}}</text>
+              </view>
+            </view>
+            <view wx:if="{{!isIos}}" class="total-money">合计:
+              <text> ¥{{item.allmoney}}</text>
+            </view>
+            <view catchtap="deleteOder" data-id="{{item.orderno}}" class="deleteOrder"><text>删除订单</text></view>
+          </view>
+        </view>
+      <!-- </van-cell-group> -->
+      <!-- <view slot="right"> -->
+        <!-- <view class="delete-order">
+          <view class="delete-icon">
+            <van-icon size="45rpx" color="#FFF" name="delete" />
+          </view>
+        </view>
+      </view>
+    </van-swipe-cell> -->
+  </view>
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>

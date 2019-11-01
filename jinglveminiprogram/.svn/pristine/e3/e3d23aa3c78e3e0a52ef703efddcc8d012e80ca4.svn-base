@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-field": "vant-weapp/field/",
+    "van-icon": "vant-weapp/icon",
+    "van-area": "vant-weapp/area",
+    "van-popup": "vant-weapp/popup",
+    "van-switch": "vant-weapp/switch"
+  },
+    "navigationBarTitleText": "新建地址"
+}

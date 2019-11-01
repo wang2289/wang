@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tag-cmp": "/components/tag/index",
+    "ques-cmp": "/components/question-list/index",
+    "mp-loading": "/components/loading/loading",
+    "van-action-sheet": "vant-weapp/action-sheet"
+  },
+  "disableScroll": true,
+  "navigationBarTitleText": ""
+}

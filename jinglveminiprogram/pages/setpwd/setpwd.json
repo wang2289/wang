@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-field": "vant-weapp/field",
+    "van-toast": "vant-weapp/toast"
+  },
+  "navigationBarTitleText": "注册账号"
+  
+}

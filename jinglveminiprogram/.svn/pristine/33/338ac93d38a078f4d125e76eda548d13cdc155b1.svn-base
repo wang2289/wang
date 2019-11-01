@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<view class="watch-title">
+  <text>收藏课程</text>
+</view>
+<view class="courses">
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text class="studynum">5978人在学</text>
+        <view wx:if="{{!alreadybuy}}" class="price">
+          <text class="intprice">¥60.</text>
+          <text class="floatprice">89</text>
+        </view>
+        <view wx:else class="buyed">
+          <text>已购买</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text class="studynum">978人在学</text>
+        <view class="price">
+          <text class="intprice">¥60.</text>
+          <text class="floatprice">89</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text class="studynum">78人在学</text>
+        <view class="price">
+          <text class="intprice">¥60.</text>
+          <text class="floatprice">89</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="watch-title">
+  <text>收藏题库</text>
+</view>
+<view class="courses">
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text>有效期 2019.09.09-2019.09.10</text>
+      </view>
+    </view>
+  </view>
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text>有效期 2019.09.09-2019.09.10</text>
+      </view>
+    </view>
+  </view>
+  <view class="course-item">
+    <view class="item-image">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+    </view>
+    <view class="item-text">
+      <view class="text-title">
+        <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+      </view>
+      <view class="text-detail">
+        <text>有效期 2019.09.09-2019.09.10</text>
+      </view>
+    </view>
+  </view>
+</view>

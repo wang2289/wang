@@ -1,0 +1,2 @@
+/* components/showhtml/index.wxss */
+ @import "../../wxParse/wxParse.wxss";

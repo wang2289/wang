@@ -1,0 +1,257 @@
+<!--index.wxml-->
+<view class="main-container">
+  <van-tabs active="{{ active }}" bind:change="onChange" sticky>
+    <van-tab title="课程">
+      <view class="course-container">
+        <view class="line"></view>
+        <view class="watch-title">
+          <text>上次观看</text>
+        </view>
+        <view wx:if="{{lastlooklist.length !== 0 }}" class="courses">
+          <view wx:for="{{newwatch.list}}" wx:key="{{item.id}}" bindtap="gotoCourseDetail" class="course-item" data-aomid="{{item.aomid}}">
+            <view class="item-image">
+              <image src="{{item.courseImgUrl}}"></image>
+            </view>
+            <view class="item-text">
+              <view class="text-title">
+                <text>{{item.courseTitle}}</text>
+              </view>
+              <view class="text-detail">
+                <text>{{item.progress}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else>
+          <text>暂无上次观看课程</text>
+        </view>
+        <view class="watch-title">
+          <text>我的课程</text>
+        </view>
+        <view class="courses" wx:if="{{myshipinglist.length !== 0}}">
+          <view class="course-item" wx:for="{{myshipinglist}}" wx:key="{{item.aomid}}" bindtap="gotoCourseDetail" data-aomid="{{item.aomid}}">
+            <view class="item-image">
+              <image src="{{item.imageurl}}"></image>
+            </view>
+            <view class="item-text">
+              <view class="text-title">
+                <text>{{item.sortname}}</text>
+              </view>
+              <view class="text-detail">
+                <text>有效期 {{item.youxiaotime}}</text>
+              </view>
+            </view>
+          </view>
+          <!-- <view class="course-item">
+            <view class="item-image">
+              <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+            </view>
+            <view class="item-text">
+              <view class="text-title">
+                <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+              </view>
+              <view class="text-detail">
+                <text>有效期 2019.09.09-2019.09.10</text>
+              </view>
+            </view>
+          </view>
+          <view class="course-item">
+            <view class="item-image">
+              <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+            </view>
+            <view class="item-text">
+              <view class="text-title">
+                <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+              </view>
+              <view class="text-detail">
+                <text>有效期 2019.09.09-2019.09.10</text>
+              </view>
+            </view>
+          </view> -->
+        </view>
+        <view wx:else>
+          <text>暂无数据</text>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="题库">
+      <view class="quesbank-container">
+        <view class="course-container">
+          <view class="line"></view>
+          <view class="tabs">
+            <view bindtap="changequesbank" class="tab-title {{tabsindex == 1 ? 'active' : ''}}">
+              <text>我的题库</text>
+            </view>
+            <view bindtap="changeerrbook" class="tab-title {{tabsindex == 2 ? 'active' : ''}}">
+              <text>错题本</text>
+            </view>
+            <view bindtap="markbook" class="tab-title {{tabsindex == 3 ? 'active' : ''}}">
+              <text>标记题</text>
+            </view>
+          </view>
+          <view class="coursetab {{tabsindex == 1 ? '' : 'none'}}">
+            <view class="watch-title">
+              <text>上次练习</text>
+            </view>
+            <view class="courses">
+              <view class="course-item" wx:for="{{questionbank.newpracticelist}}">
+                <view class="item-image">
+                  <image src="{{item.courseImgUrl}}"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>{{item.courseTitle}}</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>{{item.progress}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="watch-title">
+              <text>我的题库</text>
+            </view>
+            <view class="courses">
+              <view class="course-item" wx:for="{{questionbank.myQuestionBankList}}">
+                <view class="item-image">
+                  <image src="{{item.courseImgUrl}}"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>{{item.courseTitle}}</text>
+                  </view>
+                  <view class="text-detail">
+                    <text>有效期 {{item.startTime}}-{{item.endTime}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="errortab {{tabsindex == 2 ? '' : 'none'}}">
+            <view class="watch-title">
+              <text>上次练习</text>
+            </view>
+            <view class="courses">
+              <view class="course-item" data-id="{{item.id}}" wx:for="{{errorQuestionbank.newpracticelist}}">
+                <view class="item-image">
+                  <image src="{{item.courseImgUrl}}"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>{{item.courseTitle}}</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>{{item.progress}}</text>
+                  </view>
+                </view>
+              </view>
+             
+            </view>
+            <view class="watch-title">
+              <text>我的题库</text>
+            </view>
+            <view class="courses">
+              <view class="course-item" wx:for="{{errorQuestionbank.myErrorQuestionBankList}}" data-id="{{item.id}}">
+                <view class="item-image">
+                  <image src="{{item.courseImgUrl}}"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    
+                    <text>{{item.courseTitle}}</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="notes-o" color="#FE2A2A" />
+                    <text>错题数 {{item.errorNum}}</text>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+          <view class="marktab {{tabsindex == 3 ? '' : 'none'}}">
+            <view class="watch-title">
+              <text>上次练习</text>
+            </view>
+            <view class="courses">
+              <view class="course-item">
+                <view class="item-image">
+                  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>有效期 2019.09.09-2019.09.10</text>
+                  </view>
+                </view>
+              </view>
+              <view class="course-item">
+                <view class="item-image">
+                  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>有效期 2019.09.09-2019.09.10</text>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+            <view class="watch-title">
+              <text>我的题库</text>
+            </view>
+            <view class="courses">
+              <view class="course-item">
+                <view class="item-image">
+                  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>有效期 2019.09.09-2019.09.10</text>
+                  </view>
+                </view>
+              </view>
+              <view class="course-item">
+                <view class="item-image">
+                  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"></image>
+                </view>
+                <view class="item-text">
+                  <view class="text-title">
+                    <text>会计必备基础知识组合 会 计法+操作系统+出纳</text>
+                  </view>
+                  <view class="text-detail">
+                    <van-icon name="flag-o" color="red" />
+                    <text>有效期 2019.09.09-2019.09.10</text>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+  <van-dialog show-confirm-button="{{false}}" customStyle="width: 640rpx;height: 408rpx; " use-slot title="提示" show="{{ show }}" close-on-click-overlay="{{false}}" confirm-button-text="去绑定">
+  <view class="dialogmess">
+    <text>该微信还未注册精略网校或未绑定精略网校账号。</text>
+  </view>
+  <view class="gologin-btn" bindtap="gotologin">
+    <text>去绑定</text>
+  </view>
+</van-dialog>
+<van-toast id="van-toast" />
+</view>

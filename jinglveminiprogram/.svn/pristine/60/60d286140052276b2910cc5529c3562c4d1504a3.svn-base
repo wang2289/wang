@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "course-cmp": "/components/course-list/index",
+    "courses-cmp": "/components/course-lists/index",
+    "van-collapse": "vant-weapp/collapse",
+    "van-icon": "vant-weapp/icon",
+    "van-dialog": "vant-weapp/dialog",
+    "van-toast": "vant-weapp/toast",
+    "van-collapse-item": "vant-weapp/collapse-item"
+  },
+  "disableScroll": true,
+  "navigationBarTitleText": ""
+
+}

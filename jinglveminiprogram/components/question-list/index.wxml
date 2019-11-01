@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="question-box">
+    <view class="ques-name">
+      <view class="ques-icon">问</view>
+      <text class="ques-tit">{{ques.ques}}</text>
+    </view>
+    <view class="ques-from">来自于：{{ques.quesfrom}}</view>
+  </view>
+  <view class="line"></view>
+  <view class="answer-box">
+    <view class="ans-name">
+     <view class="ans-icon">答</view>
+      <text class="ans-tit">{{ques.answer}}
+</text>
+    </view>
+    <view class="ans-from">
+          {{ques.answerfrom}}<image src="{{ques.imageurl}}"></image>
+    </view>
+  </view>
+</view>

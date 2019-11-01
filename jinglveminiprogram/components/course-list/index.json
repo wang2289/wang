@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-collapse": "vant-weapp/collapse",
+    "van-collapse-item": "vant-weapp/collapse-item",
+    "mengl-cmp": "/components/menglock/index"
+  }
+}

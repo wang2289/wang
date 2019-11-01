@@ -1,0 +1,142 @@
+//index.js
+//获取应用实例
+
+const app = getApp()
+const WXApi = require('../../wxapi/main')
+import {
+  Config
+} from '../../utils/config';
+import {
+  Token
+} from '../../utils/token.js'
+import { requestsend, requestsendtoken } from '../../utils/util.js'
+import Toast from 'vant-weapp/toast/toast';
+Page({
+  data: {
+    motto: 'Hello 微信小程序',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    alreadybuy: false,
+    collectCourseList: [],
+    collectQuestionBankList: [],
+    collectPackageList: [],
+    isIos: null
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  goToHome: function(){
+    wx.reLaunch({
+      url: '../home/home'
+    })
+  },
+  onLoad: function () {
+    this.setData({
+      isIos: app.globalData.isIos
+    })
+    Toast.loading({
+      mask: true,
+      message: '加载中...',
+      duration: 0
+    });
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+  onShow: function(){
+    this.getMyCollectList()
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+  //获取收藏列表
+  getMyCollectList: function(){
+    var params = {}
+    requestsendtoken('api/UserCollect/GetUserCollectList', 'GET', params,this.getMyCollectListAjax)
+  },
+  getMyCollectListAjax: function(res){
+    if(res.code == 0) {
+      Toast.clear()
+      console.log(res)
+      var list = res.data.kc
+      var qblist= res.data.tk
+      var pklist = res.data.tc
+      for (var i = 0; i < list.length; i++) {
+        var price = list[i].money.toFixed(2);
+        var priceInt = price.split(".")[0]
+        var priceFloat = price.split(".")[1]
+        list[i].priceInt = priceInt
+        list[i].priceFloat = priceFloat
+      }
+      for (var i = 0; i < qblist.length; i++) {
+        var price = qblist[i].money.toFixed(2);
+        var priceInt = price.split(".")[0]
+        var priceFloat = price.split(".")[1]
+        qblist[i].priceInt = priceInt
+        qblist[i].priceFloat = priceFloat
+      }
+      for (var i = 0; i < pklist.length; i++) {
+        var price = pklist[i].money.toFixed(2);
+        var priceInt = price.split(".")[0]
+        var priceFloat = price.split(".")[1]
+        pklist[i].priceInt = priceInt
+        pklist[i].priceFloat = priceFloat
+      }
+      console.log(list)
+      this.setData({
+        collectCourseList: list,
+        collectQuestionBankList: qblist,
+        collectPackageList: pklist
+      })
+    } else{
+      Toast.clear()
+      Toast.fail("服务器异常")
+    }
+    
+  },
+  gotocollectcourse: function(e){
+    var id = e.currentTarget.dataset.id
+    console.log(id)
+  },
+  gotocollectqbank: function(e){
+    var aomid = e.currentTarget.dataset.id
+    var sortid = e.currentTarget.dataset.sortid
+    console.log(aomid)
+    console.log(sortid)
+    wx.navigateTo({
+      url: '/pages/tidetail/tidetail?aomid=' + aomid + '&sortid=' + sortid,
+    })
+  }
+})

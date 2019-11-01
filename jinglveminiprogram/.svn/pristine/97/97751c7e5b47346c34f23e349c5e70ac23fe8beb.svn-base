@@ -1,0 +1,147 @@
+<import src="../../wxParse/wxParse.wxml" />
+<video id="polyvVideo" class="vp-v" src="{{videoSrc}}" bindtimeupdate="timeUpdate">
+</video>
+
+<view class="cousetitlebody">
+  <text class="coursetitle">{{courseName}}</text>
+  <view class="youxiao">
+    <image src="/images/icon_time_bla@2x.png"></image>
+    <text class='youxiaodate'>有效期：{{useMonths}}个月</text>
+  </view>
+  <view class="money">
+    <text wx:if="{{!isIos}}">￥{{money}}</text>
+    <span>{{personnum}}人已学</span>
+  </view>
+</view>
+<view class="taocan" wx:if="{{taocan.length!=0}}" bindtap="taocanshowclick">
+  <image class="taocanicon" src="/images/icon_taocan@2x.png"></image>
+  <text>套餐最多立减<text style="color:red">1209</text>元，更多套餐有惊喜, <text style="color:red">点击查看</text></text>
+  <image class="taocanmore" src="/images/icon_list_more@2x.png"></image>
+</view>
+<view class='container'>
+  <!--Tab布局-->
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text style="{{0 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666666'}}">课程详情</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text style="{{1 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666666'}}">课程目录</text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='2'>
+      <text style="{{2== currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666666'}}">老师介绍</text>
+      <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+
+  </view>
+
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item>
+
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style="height: 100%;">
+        <view class='list_box' wx:for='{{list}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+          <view class='list'>
+            <view class='list_name_box' catchtap='listTap' data-parentindex='{{parentIndex}}'>
+              <image src='/images/icon_list_up@2x.png' class='icon_down {{parentItem.show&&"icon_down_rotate"}}'></image>
+              <text class='list_item_name'>{{parentItem.listName}}</text>
+
+            </view>
+            <view class='list_item_box' wx:if='{{parentItem.show}}'>
+              <view class='list_item' wx:for='{{parentItem.item}}' wx:key='this' catchtap='listItemTap' data-index='{{index}}' data-parentindex='{{parentIndex}}'>
+                <view class='list_item_name_box' catchtap="onPlay" data-vid="{{item.vid}}" data-video-name="{{item.itemName}}" data-isfree="{{item.isfree}}" data-index="{{parentIndex}}-{{index}}">
+                  <view class='list_item_name'>
+                    <text>{{item.itemName}}</text>
+                    <span wx:if="{{item.isfree}}">试看</span>
+                  </view>
+                  <image wx:if="{{item.vid==vid}}" src='/images/icon_guankan@2x.png'></image>
+                    <image wx:if="{{!isbuy&&!item.isfree}}" src='/images/icon_suo@2x.png'></image>
+                </view>
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+
+      <template is="wxParse" data="{{wxParseData:teacherarticle.nodes}}" />
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+
+
+
+  <view class='collece' bindtap='oncollect' data-Aomid="{{aomId}}">
+    <image src=" {{iscollect ? '/images/toast_shoucang_sel@2x.png' : '/images/icon_shoucang_nor@2x.png'}}"></image>
+    <text>收藏</text>
+  </view>
+  <!-- <view class='home' bindtap='bindshare'>
+    <image src="/images/icon_fenxiang@2x.png"></image>
+    <text>分享</text>
+  </view> -->
+    <button class='kefu' open-type="share">
+    <image src="/images/icon_fenxiang@2x.png"></image>
+    <text>分享</text>
+  </button>
+  <view wx:if="{{!isIos}}" class='cart' bindtap="gouwuche">
+    <view>
+      <image src="/images/icon_gouwuche@2x.png"> </image>
+      <span>{{cartnum}}</span>
+    </view>
+
+    <text>购物车</text>
+  </view>
+  <view class="btngroup" wx:if="{{!isbuy}}">
+    <view wx:if="{{!isIos}}" class="gouwuche" bindtap="addcart">加入购物车</view>
+    <view wx:if="{{!isIos}}" class="goumiai" bindtap="immeBuy">立即购买</view>
+  </view>
+   <view class="havebuy" wx:else>
+    已购买
+    
+  </view>
+  <!-- <button class="button-red" wx:if="{{isbuy}}">已经购买</button>
+  <view class="button-red" wx:else bindtap="immeBuy" formType="submit">立即购买</view> -->
+</view>
+<!-- 套餐层 -->
+<view class="taocanmask" wx:if="{{taocanshow}}" >
+  <view class="taocanpan">
+    <view class="toacan-title">
+      <text>套餐</text>
+      <image src="/images/icon_close@2x.png" bindtap="taocanclose"></image>
+    </view>
+    <view class="taocan-body" wx:for="{{taocan}}">
+      <view class="body-img">
+        <!-- <scroll-view class="scroll-x"  > -->
+          <scroll-view class="img-row" scroll-x="true">
+        
+            <!-- <view class="img-content"> -->
+              <view class="img-item" wx:for="{{item.items}}" wx:for-item="detail">
+               <view><image src="{{detail.imageurl}}"></image></view> 
+               <view> <text>{{detail.name}}</text></view>
+              </view>
+            <!-- </view> -->
+           
+          </scroll-view>
+        <!-- </scroll-view> -->
+      </view>
+      <view class="body-text">
+        <view class="text-item">
+          <text>{{item.packagename}}</text>
+          <span wx:if="{{!isIos}}">￥{{item.money}}</span>
+        </view>
+        <span wx:if="{{!isIos}}"> 立即购买 </span>
+      </view>
+    </view>
+  </view>
+
+</view>

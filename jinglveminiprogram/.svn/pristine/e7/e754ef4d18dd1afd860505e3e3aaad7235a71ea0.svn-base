@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="title"><p>注册精略网校账号</p></view>
+<view class="main-container">
+  <view class="text-container">
+    <span>我们已向 {{phonenum}} 发送验证码短信 请查看短信输入验证码</span>
+  </view>
+  <view class="code">
+    <view class="input-content-wrap">
+      <view catchtap="set_Focus" class="input-code-wrap">
+         <view class="{{length==1||length==0?'input':'input_none'}}">
+          <text>{{code[0]}}</text>
+        </view> 
+        <view class="{{length==2?'input':'input_none'}}">
+          <text>{{code[1]}}</text>
+        </view>
+        <view class="{{length==3?'input':'input_none'}}">
+          <text>{{code[2]}}</text>
+        </view>
+        <view class="{{length==4?'input':'input_none'}}">
+          <text>{{code[3]}}</text>
+        </view> 
+        <view class="{{length==5?'input':'input_none'}}">
+          <text>{{code[4]}}</text>
+        </view> 
+        <view class="{{length==6?'input':'input_none'}}">
+          <text>{{code[5]}}</text>
+        </view> 
+      </view>
+    </view>
+    <input bindinput="get_code" class="input-content" type="number" focus="{{code_isFocus}}" maxlength="6" />
+  </view>
+  <view class='sendTime'>
+    <text wx:if='{{!reget}}' style='font-size:28rpx;color:#9b9b9b'>{{time}}s 后可重新获取</text>
+    <text wx:if='{{reget}}' style='font-size:28rpx;color:#4287ff' bindtap='reGetCode'>重新获取验证码</text>
+  </view>
+
+
+
+
+
+
+
+  <!-- <view class="usernameinput">
+    <input type="number" value="{{phonenumber}}" maxlength="11" bindinput="bindphonenumber" placeholder="手机号" name="phonenumber" id="phonenumber" />
+  </view>
+  
+  <view class="btn-container">
+    <van-button bind:click="nextstep" disabled="{{disabled}}" size="litterlarge" type="litterdanger" round >下一步</van-button>
+  </view>
+  <van-toast id="van-toast" /> -->
+</view>
+

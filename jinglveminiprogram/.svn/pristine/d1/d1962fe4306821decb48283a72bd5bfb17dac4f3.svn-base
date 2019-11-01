@@ -1,0 +1,486 @@
+page{
+  background:rgba(247,247,249,1);
+}
+
+.container {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0px;
+  background-color: #f4f5f7;
+}
+
+.title {
+  width: 100%;
+  height: 100rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+}
+
+.titleSel {
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight:400;
+}
+
+.titlelogo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titleimage {
+  width: 38rpx;
+  height: 38rpx;
+  padding-right: 5px;
+}
+
+.titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.headerLineSel {
+  background: #FE3F36;
+  height: 6rpx;
+  width: 60rpx;
+  position: relative;
+  margin-top: 9rpx;
+  border-radius:3px;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  margin-top: 100rpx;
+  width: 100%;
+  flex: 1;
+height: 100vh;
+
+}
+.swiper-item{
+    width: 100%;
+  
+
+
+}
+.broadcast-nav{
+  width: 100%;
+  height: 116rpx;
+  display: flex;
+padding-left: 31rpx;
+align-items: center;
+
+}
+.broadcast-nav span{
+  display: block;
+width:157rpx;
+border-radius:27px;
+height:54rpx;
+line-height: 54rpx;
+
+text-align: center;
+font-size: 26rpx;
+  
+  margin-right: 20rpx;
+}
+
+.active{
+background:linear-gradient(0deg,rgba(254,42,42,1),rgba(253,115,41,1));
+color: #fff;
+}
+.noactive{
+background:rgba(255,255,255,1);
+color: #666;
+}
+.content-item {
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  background:rgba(255,255,255,1);
+border-radius:8rpx;
+margin: 30rpx 31rpx;
+}
+.productimage {
+width: 689rpx;
+height: 368rpx;
+border-radius:8rpx;
+}
+.teacher image{
+width: 45rpx;
+height: 45rpx;
+border-radius: 50%;
+vertical-align: middle;
+}
+.broadcast-title{
+  display: flex;
+  flex-direction: row;
+justify-content:  space-between;   
+width: 100%;
+padding-left: 51rpx;
+}
+.title-left> text{
+margin-top: 32rpx;
+font-size:32rpx;
+font-weight:bold;
+text-overflow:ellipsis;
+overflow:hidden;
+}
+.teacher {
+display: flex;
+flex-direction: row;
+align-content: center;
+align-items:  center;
+margin-top: 31rpx;
+margin-bottom: 30rpx;
+}
+.teacher text{
+  font-size:26rpx;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  padding-left: 15rpx;
+}
+.btnvisited{
+
+  width:130rpx;
+height:48rpx;
+background:linear-gradient(0deg,rgba(254,42,42,1),rgba(253,115,41,1));
+border-radius:24rpx;
+font-size:24rpx;
+color:rgba(255,255,255,1);
+line-height: 48rpx;
+text-align: center;
+margin-right: 51rpx;
+margin-top: 50rpx;
+}
+
+/* 实训类型和综合排序导航 */
+button {
+  background-color: #fff;
+}
+button::after{
+  border:0px;
+}
+button-hover{
+  background-color: #fff;
+}
+.swiper-tab {
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  border: 1px solid #EFEFEF;
+   position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+  
+.swiper-tab-list {
+ font-size: 32rpx;
+display: flex;
+flex-direction: row;
+ color: #666;
+ justify-content: center;
+align-items: center; 
+text-align: center;
+width: 45%;
+height: 80rpx;
+
+
+}
+ .swiper-tab-list image{
+   margin-left: 16rpx;
+   width: 16rpx;height: 16rpx;
+ }
+.down { 
+
+ margin-right: 10rpx;
+ left: 14%;
+ width: 0px;
+ height: 0px;
+ border: 5px solid #4e4e4e;
+ border-top-color: #4e4e4e;
+ border-bottom-color: transparent;
+ border-left-color: transparent;
+ border-right-color: transparent;
+}
+.up { 
+ margin-left: 10rpx;
+ right: 14%;
+ width: 0px;
+ height: 0px;
+ border: 5px solid #4e4e4e;
+ border-bottom-color: #4e4e4e;
+ border-top-color: transparent;
+ border-left-color: transparent;
+ border-right-color: transparent;
+}
+.course-content{
+  position: relative;
+  margin-top: 100rpx;
+}
+/* 实训类型和综合排序导航end */
+/* 实训类型block */
+/* 课程分类样式 */
+/*总体主盒子*/  
+.container-course {  
+
+  position: relative;  
+  width: 100%;  
+  height: 630rpx;
+  background-color: #F5F5F5;  
+  color: #939393;  
+
+overflow:  scroll;
+}
+ /*左侧栏主盒子*/  
+.nav_left{  
+  /*设置行内块级元素*/  
+  position: absolute;   
+  /* display: inline-block;     */
+  width: 30%;  
+  /* height: 100%;   */
+  /*主盒子设置背景色为灰色*/  
+background:rgba(248,248,248,1);
+  text-align: center;  
+  left: 0;
+  top:0;
+  height: 630rpx;
+overflow:  scroll;
+}  
+/*左侧栏list的item*/  
+.nav_left .nav_left_items{  
+    height: 100rpx;   
+   line-height: 100rpx;   
+   padding: 6px 0;   
+
+   font-size: 14px;   
+background:#f8f8f8;
+   overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+   padding-left: 6rpx;
+}  
+/*左侧栏list的item被选中时*/  
+.nav_left .nav_left_items.active{  
+  /*背景色变成白色*/  
+background:#fff;
+  color: #333;
+  font-weight:bold; 
+  border-left: 3px solid #f0145a;
+}  
+/*右侧栏主盒子*/  
+.nav_right{  
+  /*右侧盒子使用了绝对定位*/  
+  position: absolute;  
+  top: 0;  
+  right: 0;  
+  flex: 1;  
+  background-color: #fff;
+  /*宽度75%，高度占满，并使用百分比布局*/  
+  width: 70%;  
+  /* height: 1000px;   */
+  /* padding: 10px;   */
+  box-sizing: border-box;  
+height: 100%;
+overflow:  scroll;
+}  
+/*右侧栏list的item*/  
+.nav_right .nav_right_items{  
+  /*浮动向左*/  
+color: #666;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  /*每个item设置宽度是33.33%*/  
+  /* width: 33.33%;  
+  height: 120px;   */
+  text-align: center;  
+   height: 100rpx;   
+   line-height: 100rpx;   
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  
+
+font-weight:400;
+
+  background-color: #fff;
+  font-size: 14px;
+  margin: 20rpx;
+
+}  
+
+.nav_right .nav_right_items image{  
+  /*被图片设置宽高*/  
+  width: 60px;  
+  height: 60px;  
+  margin-top: 15px;  
+}  
+.nav_right .nav_right_items text{  
+  /*给text设成块级元素*/  
+  display: block;  
+  margin-top: 15px;  
+  font-size: 14px;  
+  color: black;
+  /*设置文字溢出部分为...*/  
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+} 
+.nodata_text
+{
+  color: black;
+  font-size: 14px;  
+  text-align: center;  
+}
+
+
+
+
+.left_cate {
+  display: flex;  
+  flex-direction: row;  
+
+  /*每个高30px*/  
+  height: 40px;  
+  /*垂直居中*/  
+  line-height: 40px;  
+  /*再设上下padding增加高度，总高42px*/  
+  padding: 6px 0;  
+  /*只设下边线*/  
+  border-bottom: 1px solid #dedede;  
+  /*文字14px*/  
+  font-size: 14px; 
+
+  background: #fff;  
+  color: #f0145a; 
+}
+ .separate {
+  background-color: #f0145a;
+  width: 10rpx;
+  z-index: 10;
+} 
+/* 实训类型blockend */
+
+/* 综合排序block */
+.container-sort{
+ height: 300rpx;
+display: flex;
+flex-direction: column;
+ text-align: center;
+ align-items:  center;
+background-color: #fff;
+}
+.sort-item{
+  width: 90%;
+color: #666;
+font-size: 14px;
+line-height: 42px;
+height: 42px;
+border-bottom: 1px solid rgba(221,221,221,1);
+margin: 0px auto;
+}
+
+/* 综合排序blockend */
+
+/* 课程列表 */
+.card-list{
+  display: flex;
+  flex-direction: column;
+
+background-color: #fff;
+
+height: 90vh;
+overflow:  scroll;
+
+
+}
+.card-item  {
+  padding-top: 30rpx;
+
+margin-left: 31rpx;
+margin-right: 31rpx;
+  display:flex;
+  flex-direction: row;
+  border-top: 1px solid #ddd;
+/* justify-content: space-between; */
+
+margin-top: 33rpx;
+}
+.card-list :first-child{
+  border: 0px;
+}
+.card-item image {
+  width:268rpx;
+height:150rpx;
+border-radius:8rpx;
+
+}
+.card-item-text{
+position:  relative;
+  display: flex;
+   flex-direction: column;
+   margin-left: 17rpx;
+ width: 100%;
+
+}
+.card-item-text text{
+color: #333;
+font-size: 32rpx;
+text-align: left;
+
+
+}
+.text-foot{
+  width: 100%;
+  position: absolute;
+    display: flex;
+      flex-direction: row;
+bottom: 0px;
+justify-content:  space-between;
+ height: 30rpx;
+ line-height: 30rpx;
+
+}
+.study-num {
+ color: #999;
+ font-size: 22rpx;
+align-items:  baseline;
+}
+.money {
+color: #fe3647 !important;
+font-size: 36rpx !important;
+
+}
+.isbuy{
+  font-size:28rpx;
+
+font-weight:400;
+color:rgba(153,153,153,1);
+}
+.tuijian-content {
+  height: 100vh;
+  overflow:  scroll;
+
+}

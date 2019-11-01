@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "course-cmp": "/components/course-list/index",
+    "courses-cmp": "/components/course-lists/index",
+    "van-collapse": "vant-weapp/collapse",
+    "van-collapse-item": "vant-weapp/collapse-item"
+  },
+  "navigationBarTitleText": ""
+
+}

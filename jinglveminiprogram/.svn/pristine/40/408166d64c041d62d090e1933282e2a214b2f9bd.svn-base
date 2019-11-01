@@ -1,0 +1,73 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!-- <video id="polyvVideo" class="vp-v" src="{{videoSrc}}" bindtimeupdate="timeUpdate">
+</video> -->
+<image class="tcimg" src="{{imageurl}}" ></image>
+<view class="cousetitlebody">
+  <text class="coursetitle">{{courseName}}</text>
+
+  <view class="money">
+    <text>￥{{money}}</text>
+
+  </view>
+</view>
+
+<view class='container'>
+  <!--Tab布局-->
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text style="{{0 == currentIndex ? 'color:#333;font-weight:bold;' : 'color:#666666'}}">课程详情</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+
+ 
+
+
+  </view>
+
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item>
+
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </swiper-item>
+
+  </swiper>
+</view>
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+
+
+
+  <view class='collece' bindtap='oncollect' data-id="{{id}}">
+    <image src=" {{iscollect ? '/images/toast_shoucang_sel@2x.png' : '/images/icon_shoucang_nor@2x.png'}}"></image>
+    <text>收藏</text>
+  </view>
+  <!-- <view class='home' bindtap='bindshare'>
+    <image src="/images/icon_fenxiang@2x.png"></image>
+    <text>分享</text>
+  </view> -->
+    <button class='kefu' open-type="share">
+    <image src="/images/icon_fenxiang@2x.png"></image>
+    <text>分享</text>
+  </button>
+  <view class='cart' bindtap="gouwuche">
+    <view>
+      <image src="/images/icon_gouwuche@2x.png"> </image>
+      <span>{{cartnum}}</span>
+    </view>
+
+    <text>购物车</text>
+  </view>
+  <view class="btngroup" wx:if="{{!isbuy}}">
+    <view class="gouwuche" bindtap="addcart">加入购物车</view>
+    <view class="goumiai" bindtap="immeBuy">立即购买</view>
+  </view>
+   <view class="havebuy" wx:else>
+    已购买
+    
+  </view>
+  <!-- <button class="button-red" wx:if="{{isbuy}}">已经购买</button>
+  <view class="button-red" wx:else bindtap="immeBuy" formType="submit">立即购买</view> -->
+</view>
+
