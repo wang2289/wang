@@ -1,0 +1,24 @@
+<template name="grouppeoplelistTemplate">
+  <view class='grouppeople'>
+    <view class='group-people-title'>参与美丽天使的拼团</view>
+    <view class='group-people-text'>仅剩1个名额, 10:03:02后结束</view>
+    <view class='group-people'>
+      <view class='group-people-detail on'>
+        <text>团长</text>
+      </view>
+      <view class='group-people-detail'></view>
+      <view class='group-people-detail'></view>
+       <view class='group-people-detail'></view>
+        <view class='group-people-detail'></view>
+    </view>
+     <view class='group-people'>
+      <view class='group-people-detail'></view>
+      <view class='group-people-detail'></view>
+      <view class='group-people-detail'></view>
+       <view class='group-people-detail'></view>
+        <view class='group-people-detail'></view>
+    </view>
+    <view class='group-people-moretitle'>已隐藏其他成员, 全部成员共99人</view>
+
+  </view>
+</template>

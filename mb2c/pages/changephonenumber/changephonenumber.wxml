@@ -1,0 +1,17 @@
+<!--pages/changephonenumber/changephonenumber.wxml-->
+<view class="input_gather_body">
+  <view class='input_gather'>
+    <view class='text'>短信验证码已发送至:
+      <text style='font-size:30rpx'>{{mobilePhone}}</text>
+    </view>
+  </view>
+  <view class='input_gather'>
+    <view class='input_gather_text'>验证码</view>
+    <input placeholder="请输入验证码" type="number" bindinput='passwordInfo' class='log-pwd' placeholder-style='color: #BDBDBD;'/>
+    <view class="{{showViews?'Captchas':'Captcha'}}" bindtap="{{showViews?'verify':''}}" disabled='{{disabled}}'>
+      {{time}}
+    </view>
+  </view>
+  <button class="btn_Input" bindtap='nextstep'>下一步</button>
+
+</view>

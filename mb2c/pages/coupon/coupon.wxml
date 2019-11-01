@@ -1,0 +1,69 @@
+<wxs module="filter" src="../../utils/format.wxs"></wxs>
+<view class="m-product-all">
+  <view class="m-tab">
+    <view class="m-navbar">
+      <view class="m-navbar-item {{tapindex==1?'m-navbar-item-on':''}}" bindtap="allOrders">
+        待使用
+      </view>
+      <view class="m-navbar-item {{tapindex==2?'m-navbar-item-on':''}}" bindtap="toBePaid">
+        已使用
+      </view>
+      <view class="m-navbar-item {{tapindex==3?'m-navbar-item-on':''}}" bindtap="receiptOfGoods">
+        已过期
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view class='m-ordrelist' wx:if="{{tapindex==1}}" bindscrolltolower="scrollbottom" scroll-y="true">
+  <view class='y-img' wx:for="{{notUseCouponList}}"  wx:key="{{i}}" wx:for-item="item" bindtap='Tousethe'>
+    <image src='../../img/copy1.png'></image>
+    <view class='y-con'>{{item.profitConfig.reliefAmount}}元</view>
+    <view class='y-juan'>
+      <view>{{item.couponName}}</view>
+      <view>有效期至：{{filter.formatDay(item.usefulStart)}}~{{filter.formatDay(item.usefulEnd)}}</view>
+    </view>
+    <!-- <view class='button1' bindtap='Tousethe'>去使用</view> -->
+  </view>
+
+  <view wx:if="{{notUseCouponList.length==0}}">
+    <image src='../../img/nocoupon.png' class='shoppingcart'></image>
+    <view class='text'>暂无优惠券</view>
+  </view>
+</scroll-view>
+
+
+<scroll-view class='m-ordrelist' wx:if="{{tapindex==2}}" bindscrolltolower="scrollbottom" style='height:100%;' scroll-y="true">
+  <view class='y-img' wx:for="{{usedCouponList}}" wx:for-item="item">
+    <image src='../../img/usedCoupon.png'></image>
+    <view class='y-con'>{{item.profitConfig.reliefAmount}}元</view>
+    <view class='y-juan'>
+      <view style='color:black'>{{item.couponName}}</view>
+      <view style='color:#999'>有效期至：{{filter.formatDay(item.usefulEnd)}}</view>
+    </view>
+    <!-- <view class='button'>去逛逛</view> -->
+  </view>
+
+
+  <view wx:if="{{usedCouponList.length==0}}">
+    <image src='../../img/nocoupon.png' class='shoppingcart'></image>
+    <view class='text'>暂无优惠券</view>
+  </view>
+
+</scroll-view>
+<scroll-view class='m-ordrelist' wx:if="{{tapindex==3}}" bindscrolltolower="scrollbottom" style='height:100%;' scroll-y="true">
+  <view class='y-img' wx:for="{{failureCouponList}}" wx:for-item="item">
+    <image src='../../img/usedCoupon.png'></image>
+    <view class='y-con'>{{item.profitConfig.reliefAmount}}元</view>
+    <view class='y-juan'>
+      <view style='color:black'>{{item.couponName}}</view>
+      <view style='color:#999'>有效期至：{{filter.formatDay(item.usefulEnd)}}</view>
+
+    </view>
+    <!-- <view class='button' >去逛逛</view> -->
+  </view>
+
+  <view wx:if="{{failureCouponList.length==0}}">
+    <image src='../../img/nocoupon.png' class='shoppingcart'></image>
+    <view class='text'>暂无优惠券</view>
+  </view>
+</scroll-view>

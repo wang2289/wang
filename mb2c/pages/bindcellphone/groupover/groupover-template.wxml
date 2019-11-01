@@ -1,0 +1,10 @@
+<template name="groupoverTemplate">
+  <view class="groupover-container">
+    <view class='groupover-text'>
+      <text>该拼团已结束</text>
+    </view>
+    <view class='groupover-text'>
+      <text>您的订单会自动取消并自动退款</text>
+    </view>
+  </view>
+</template>

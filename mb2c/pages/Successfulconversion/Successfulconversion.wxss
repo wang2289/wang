@@ -1,0 +1,185 @@
+.m-payment{
+  background: #FFFFFF;
+  height:594rpx;
+}
+image{
+  height: 200rpx;
+  width: 200rpx;
+  padding-top: 74rpx;
+  padding-left: 283rpx;
+}
+.m-price{
+ text-align:center;
+  font-size: 64rpx;
+  margin-top:20rpx;
+
+}
+.m-btn{
+margin-top: 70rpx;
+display: flex;
+font-size: 28rpx;
+}
+.m-btn-1{
+padding-left: 130rpx;
+}
+.s-btn{
+  padding-left: 82rpx;
+  border-right:1rpx solid #dddddd;
+}
+.m-btn-2{
+padding-left:83rpx; 
+}
+.s-done{
+
+}
+.done{
+height: 367rpx;
+font-size: 28rpx;
+background: #FFFFFF;
+
+}
+.detail{
+  display: flex;
+  padding-top: 80rpx;
+}
+.detail image{
+padding-left: 173rpx;
+height: 119rpx;
+width: 120rpx;
+}
+.detail_{
+  padding-left: 279rpx;
+  padding-top: 20rpx;
+  font-size: 28rpx;
+}
+.s-detail_ text{
+  color: #EB291B;
+  padding-top: 18rpx;
+}
+.button{
+  display: flex;
+  padding-left: 28rpx;
+  padding-top: 80rpx;
+  justify-content: space-around;
+}
+.button1{
+  border: 1rpx solid #999999;
+border-radius: 10rpx;
+  height: 58rpx;
+  width: 172rpx;
+  text-align: center;
+line-height: 58rpx;
+
+}
+.button2{
+  border: 1rpx solid #EB291B;
+border-radius: 10rpx;
+  height: 58rpx;
+  width: 228rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: rgb(235, 41, 27);
+
+}
+.recommend{
+  height: 79rpx;
+  font-size: 32rpx;
+color: #999999;
+}
+.r-left{
+border-top: 1rpx solid #CCCCCC;
+position: relative;
+top: 39rpx;
+left: 20rpx;
+width: 250rpx;
+}
+.r-right{
+  border-top: 1rpx solid #CCCCCC;
+position: relative;
+top: -5rpx;
+left: 475rpx;
+width: 250rpx;
+}
+.r-center{
+
+position: relative;
+top: 14rpx;
+left: 308rpx;
+}
+.s-container {
+  background: #f4f5f6;
+  width: 100%;
+  margin-top: 10rpx;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.itemViewStyle {
+  background: #FFFFFF;
+  width: 100%;
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: column;
+  height: 450rpx;
+  background-color: white;
+  align-items: center;
+}
+
+.itemViewStyle {
+  justify-content: space-around;
+}
+
+.nameStyle, .pointStyle, .yishouStyle {
+  margin: 0;
+  padding: 0;
+}
+
+.nameStyle {
+  font-size: 32rpx;
+  color: #333;
+  margin-top: 20rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+.pointStyle {
+  font-size: 28rpx;
+  color: #db384c;
+  margin-top: 0rpx;
+  text-align: left;
+  width: 100%;
+  text-justify: inter-cluster;
+}
+
+.pointStyle-money {
+  padding-bottom: 10rpx;
+  line-height: 30rpx;
+  font-size: 28rpx;
+}
+
+.imageStyle {
+  width: 80%;
+  height: 300rpx;
+}
+
+.navStyle {
+  height: auto;
+  width: 45%;
+  display: inline-block;
+  background-color: white;
+}
+
+.navStyle:nth-child(2n+0) {
+  margin-right: 15rpx;
+}

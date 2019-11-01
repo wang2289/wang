@@ -1,0 +1,119 @@
+/* pages/giftCard/giftCard.wxss */
+.in-card{
+  color:#FEFECD;
+height:380rpx;
+
+}
+.m-orderlist {
+position:absolute;
+box-sizing:border-box;
+width:100%;
+height:1210rpx;
+}
+.cards{
+  text-align: center
+}
+.in-cards{
+  width: 700rpx;
+  height: 350rpx;
+  margin:26rpx 20rpx 0 20rpx;
+border-radius: 10rpx;
+}
+.te-card{
+  width:200rpx;
+  position: relative;
+  top: -350rpx;
+  left: 60rpx;
+  font-size:24rpx; 
+  
+}
+.ca-left{
+  position: relative;
+  top: -319rpx;
+  margin-left: 115rpx;
+  width: 120rpx;
+  height: 3rpx;
+  border-bottom: 1rpx solid #FEFECD;
+  border-top: 1rpx solid #FEFECD;
+}
+.ca-kind{
+  position: relative;
+  width: 289rpx;
+  margin-left: 233rpx;
+  top: -355rpx;
+  font-size:42rpx; 
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.ca-right{
+  position: relative;
+  top: -380rpx;
+  margin-left: 516rpx;
+  width: 120rpx;
+  height: 3rpx;
+  border-bottom: 1rpx solid #FEFECD;
+  border-top: 1rpx solid #FEFECD;
+}
+.ca-rest{
+  width: 280rpx;
+  position: relative;
+  top: -324rpx;
+  margin-left: 123rpx;
+  font-size:32rpx;
+  color:#FFFFFF;
+ 
+}
+.ca-use{
+  width: 300rpx;
+  position: relative;
+  top: -320rpx;
+  margin-left: 122rpx;
+  font-size:24rpx; 
+  color:#FFFFFF;
+
+}
+.ca-detail{
+  position: relative;
+  top: -294rpx;
+  margin-left: 62rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.ca-useless{
+  margin:30rpx 25rpx 0 25rpx;
+border:1rpx solid #999999;
+border-radius:100rpx;
+height:88rpx;
+width:700rpx;
+display:flex;
+background-color:#FFFFFF;
+font-size: 24rpx;
+align-items: center;
+margin-bottom: 118rpx;
+}
+.ca-new{
+ position:fixed;
+display:flex;
+bottom:0;
+width:750rpx;
+height:98rpx;
+background:#FFFFFF;
+align-items: center;
+  font-size: 28rpx;
+
+}
+.shoppingcart {
+  padding-top: 323rpx;
+  padding-left: 225rpx;
+  height: 280rpx;
+  width: 300rpx;
+}
+
+.text {
+  padding-top: 24rpx;
+  padding-left: 280rpx;
+  color: #999999;
+  font-size: 28rpx;
+}

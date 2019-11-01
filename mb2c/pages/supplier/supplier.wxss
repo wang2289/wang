@@ -1,0 +1,195 @@
+/* pages/supplier/supplier.wxss */
+
+.supplier-layout {
+  padding: 30rpx 30rpx 20rpx 30rpx;
+  background: #fff;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 4rpx;
+  margin-right: 30rpx;
+}
+
+.avatar-img {
+  float: left;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 4rpx;
+}
+
+.supplier-name {
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #232323;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.supplier-ad {
+  width: 690rpx;
+  margin-bottom: 30rpx;
+}
+
+.ad-img {
+  float: left;
+  width: 690rpx;
+}
+
+.supploer-introduction {
+}
+
+.introduction {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 35rpx;
+}
+
+.introduction-show {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 70rpx;
+}
+
+.introduction-more {
+  padding-top: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introduction-icon {
+  height: 24rpx;
+  width: 24rpx;
+  transform: rotate(90deg);
+  transition: all 0.3s;
+}
+
+.introduction-icon-active {
+  transform: rotate(-90deg);
+}
+
+.supplier-product {
+  background: #fff;
+}
+
+.category-layout {
+  height: 88rpx;
+  width: 690rpx;
+  margin: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 2rpx 0;
+  white-space: nowrap;
+  border-top: 2rpx solid #eee;
+}
+
+.category-list {
+  white-space: nowrap;
+}
+
+.category-item {
+  width: 230rpx;
+  height: 84rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.category-text {
+  font-size: 28rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  color: #666;
+  display: inline-block;
+  border-bottom: 4rpx solid transparent;
+}
+
+.category-text-active {
+  border-bottom: 4rpx solid #516232;
+  color: #516232;
+}
+
+.product-list {
+  padding: 20rpx 21rpx 0;
+}
+
+.item {
+  width: 336rpx;
+  height: 516rpx;
+  float: left;
+  background: #fff;
+  border-radius: 8rpx;
+  margin: 0 9rpx 20rpx 9rpx;
+}
+
+.item-img {
+  width: 336rpx;
+  height: 336rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.item-img-i {
+  float: left;
+  width: 336rpx;
+  height: 336rpx;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.item-title {
+  line-height: 34rpx;
+  font-size: 24rpx;
+  height: 68rpx;
+  padding: 0 20rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 70rpx;
+}
+
+.item-info {
+  padding: 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 44rpx;
+}
+
+.price {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #ff5000;
+  line-height: 44rpx;
+}
+.price-integer{
+    font-size: 32rpx;
+}
+.sales {
+  font-family: PingFangSC-Regular;
+font-size: 24rpx;
+color: #999999;
+line-height: 44rpx;
+}

@@ -1,0 +1,37 @@
+<!--pages/integral/integral.wxml-->
+<scroll-view scroll-y="true" bindscrolltolower="scrollbottom" class='integral m-orderlist'>
+  <view class='all'>
+    <view class='left'>
+      <view class='current'>当前积分</view>
+      <view class='in-total'>{{PointsInfo}}</view>
+    </view>
+    <view class='right'>
+      <view class='advertising'>更多惊喜，尽在积分商城！</view>
+      <view class='ad-click' bindtap='Clickintegral'>积分兑换礼品</view>
+    </view>
+  </view>
+  <view>
+    <view wx:if="{{transactions.length === 0}}">
+      <image src='../../img/Nopoints.png' class='shoppingcart'></image>
+      <view class='text'>暂无积分明细</view>
+    </view>
+      
+    <view wx:for="{{transactions}}" wx:for-item='item'>
+    <view class='detail'>积分明细</view>
+        <view class='updatetime'>{{item.month}}</view>
+          <view class='orderdetail' wx:for="{{item.list}}" wx:for-item="items">
+            <image src='../../img/integral.png' class='goods'></image>
+            <view class='order'>
+              <view>
+                <view class='number'>{{items.sourceType}}</view>
+                <view class='time'>
+                  <text class='time1'>{{items.date}} </text>
+                  <text class='time2'>{{items.time}}</text>
+                </view>
+              </view>
+              <view class='cost'>{{items.changeAmount}}</view>
+            </view>
+          </view>
+    </view>
+  </view>
+</scroll-view>

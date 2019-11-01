@@ -1,0 +1,146 @@
+/* pages/coupon/coupon.wxss */
+.y-cell {
+  margin:0 2.5%;
+  margin-top: 10rpx;
+  top:100rpx;
+position:relative;
+
+}
+
+.y-img {
+  width: 100%;
+  height: 158rpx;
+  margin-bottom: 20rpx;
+  margin-left:30rpx;
+margin-right:30rpx;
+
+}
+
+.y-img image {
+  width: 693rpx;
+  height: 158rpx;
+}
+
+.y-con {
+  position: relative;
+  top: -126rpx;
+  color: #fff;
+  font-size: 48rpx;
+  text-align:center;
+width:172rpx;
+
+}
+
+.y-juan {
+  position: relative;
+  top: -190rpx;
+  left: 226rpx;
+   color: #fff;
+   
+}
+.y-juan view:nth-child(1) {
+  font-size: 32rpx;
+}
+
+.y-juan view:nth-child(2) {
+  font-size: 24rpx;
+  position:relative;
+  top:2rpx;
+
+}
+
+/*全部商品 end*/
+
+.m-tab {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+.m-navbar {
+  position: fixed;
+  top: 0;
+  height: 94rpx;
+  line-height: 60rpx;
+  width:100%;
+
+}
+
+.m-navbar-item {
+  padding: 20rpx 0;
+  font-size: 24rpx;
+}
+
+.m-navbar-item:after {
+  border: none;
+}
+
+.m-navbar-item.m-navbar-item-on {
+  background-color: #fff;
+  color: #db384c;
+}
+
+.m-navbar-item.m-navbar-item-on::before {
+  content: " ";
+  position: relative;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 6rpx;
+  border-bottom: 6rpx solid #db384c;
+  color: #ccc;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 3;
+}
+
+.button {
+  position: relative;
+  top: -244rpx;
+  left: 555rpx;
+  font-size: 24rpx;
+  width: 122rpx;
+  color: white;
+  border-radius: 4rpx;
+  height: 38rpx;
+  text-align: center;
+ background-image: linear-gradient(89deg, #CCCCCC 0%, #999999 100%);
+}
+
+.button1 {
+  position: relative;
+  top: -244rpx;
+  left: 555rpx;
+  font-size: 24rpx;
+  width: 122rpx;
+  color: white;
+  border-radius: 4rpx;
+  height: 38rpx;
+  line-height:38rpx;
+  text-align: center;
+  background-image: linear-gradient(-269deg, #FF864C 0%, #E6464A 100%);
+}
+.shoppingcart{
+  position: relative;
+  top: 415rpx;
+  left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+.text{
+  position: relative;
+  top: 435rpx;
+  text-align: center;
+ color: #999999;
+  font-size: 28rpx;
+}
+.m-ordrelist{
+  padding-top: 120rpx;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}

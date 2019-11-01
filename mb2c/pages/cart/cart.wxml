@@ -1,0 +1,96 @@
+<view wx:if="{{cardListgetInfo.length>0 && cardListgetInfo[0].cartList.length != 0}}">
+  <view class='m-product-con' bindtap='compile' wx:if="{{flag==false}}">编辑</view>
+  <view class='m-product-con' bindtap='accomplish' wx:else>完成</view>
+  <view class="c-cart">
+    <view class="m-product-list" wx:for="{{cardListgetInfo}}" wx:for-item="item">
+      <view class="m-shop-item">
+        <view class="quan" catchtap="ckitvendor">
+          <icon type="{{item.IsCheck?'success':'circle'}}" color="{{item.IsCheck?'#EA281A':'#d5d5d5'}}" bindtap='_bindStore' data-vid='{{item.id}}' />
+        </view>
+  
+        <view class="title">{{item.name}}</view>
+        <!-- <image class="title_img" src="../../img/right.png"></image> -->
+      </view>
+      <view class='m-cell-content' wx:for="{{item.cartList}}" wx:for-item="items">
+        <view class='m-cell-img'>
+          <!-- 控制选中按钮 -->
+          <view class="m-cart-ck" catchtap="_bindPro" data-id='{{items.id}}' data-item="{{items.itemId}}" data-vid='{{item.id}}' data-quantity="{{items.quantity}}">
+
+            <icon type="{{items.IsCheck?'success':'circle'}} " color="{{items.IsCheck?'#ea281a':'#d5d5d5'}}" />
+          </view>
+          <image src='{{items.pictureUrl}}' class='img'></image>
+          <view class='c-detail'>
+            <view class='introduce'>
+              <text style='overflow: hidden;text-overflow: ellipsis'>{{items.commodityTitle}}</text>
+            </view>
+            <view class='many'>规格:{{items.itemSpec1AttributeName}} {{items.itemSpec1ValueName}}{{item.itemSpec2AttributeName}} {{items.itemSpec2ValueName}}{{items.itemSpec3AttributeName}} {{items.Spec3ValueName}}</view>
+            <view class="c-limit">
+              <text></text>
+            </view>
+            <view class='m-many'>
+              <view class='numberaa'>￥
+                <text>{{items.unitPrice}}</text>
+              </view>
+              <view class="u-cart-num">
+                <view class="u-num-btn" catchtap="sub" data-id="{{items.id}}" data-Price='{{items.amount}}' data-quantity='{{items.quantity}}'>-</view>
+                <input type="number" value="{{items.quantity}}" bindblur="writenum" data-id="{{items.id}}" data-Price='{{items.amount}}' data-quantity='{{items.quantity}}' data-balance="{{items.balance}}" />
+                <view class="u-num-btn" catchtap="add" data-id="{{items.id}}" data-Price='{{items.amount}}' data-quantity='{{items.quantity}}' data-balance="{{items.balance}}">+</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+      <view class='m-cell-cont-bottom'></view>
+    </view>
+    <view class='show'></view>
+  </view>
+  <!-- <view style='margin-bottom:100rpx'></view> -->
+  <!-- 底部btn按钮 -->
+  <view class="m-footer-btn">
+    <view class="m-footer-btn-list" style='display:flex'>
+      <view>
+        <view class="m-cart" bindtap="_bindCart" data-isshow='1' wx:if="{{!IsShow}}">
+          <icon type="{{IsShow?'success':'circle'}}" color="{{IsShow?'#EA281A':'#d5d5d5'}}" />
+        </view>
+        <view class="m-cart" bindtap="_bindCart" data-isshow='2' wx:else>
+          <icon type="{{IsShow?'success':'circle'}}" color="{{IsShow?'#EA281A':'#d5d5d5'}}" />
+        </view>
+      </view>
+      <view class="m-footer-btn-item m-cart-total">
+        <view class='m-footer-btn-item-two'>已选（<label>{{num}}</label>）</view>
+        <view class='m-footer-btn-item-one'>
+          <text wx:if="{{totalpice>0}}">￥{{Piceflag}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="m-footer-btn-main" bindtap="submitorder" wx:if="{{!flag}}">
+      结算
+    </view>
+    <view class="m-footer-btn-main" bindtap="del" wx:else>
+      删除
+    </view>
+  </view>
+
+
+  <!-- <navigator url="../index/index" open-type="switchTab" class="m-nullpage">
+	<view class="m-nullpage-middle">
+		<label class="iconfont icon-konggouwuche"></label>
+		<view class="m-null-tip">
+			<text>登录后查看购物车</text>-
+			<text style='width:188rpx;height:80rpx;line-height:80rpx;background-color: #ea281a;border-radius:10rpx;color:#fff;margin-left:271rpx'>点击登录</text>
+		</view>
+	</view>
+   </navigator> -->
+  <!-- 删除
+		</view>
+	</view>
+      删除
+    </view>
+  </view>-->
+</view>
+<navigator url="../index/index" open-type="switchTab" wx:else>
+  <image src='../../img/cart.png' class='shoppingcart'></image>
+  <view class='text'>购物车无商品</view>
+  <!-- <view class='click-login'>点击登录</view> -->
+</navigator>

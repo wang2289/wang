@@ -1,0 +1,57 @@
+  <view class="m-cells m-cells-form" >
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">纳税人识别号</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="text" maxlength='18' value="{{taxNumber}}" bindinput="taxNumberInput" placeholder='社会信用代码'/>
+    </view>
+  </view>
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">公司名称</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="text" value="{{companyName}}"  bindinput="companyNameInput" placeholder='请输入公司名称'/>
+    </view>
+  </view>
+    <view class="m-cell m-cell-select-before"  bindtap="companyaddress">
+    <view class="m-cell-hd">
+      <view class="u-label">公司地址</view>
+      <image src='../../img/right.png' class='n-img'></image>
+    </view>
+    <view>
+      <!-- <label wx:if="{cityname!=''&&provname!=''&&districtname!=''}}">{{provname}}{{cityname}}{{districtname}}</label> -->
+      <label class='n-address' style="color:{{companyAddress=='省/市/区'?'#777777':'black'}}">{{companyAddress}}</label>
+    </view>
+  </view> 
+  <view class='t-text-are'>
+  <textarea placeholder='请填写详细地址,不少于5个字' value='{{detailAddress}}'  bindinput="companyAddressInput" type="text"></textarea>
+  </view>
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">公司电话</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="number" value="{{companyNumber}}" placeholder="请输入公司电话" bindinput="companyNumberInput" maxlength='11'/>
+    </view>
+  </view>
+     <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">开户银行名称</label>
+    </view>
+    <view class="m-cell-bd">
+    <input class="u-input" type="text" value="{{seladstr}}" placeholder="请输入开户银行名称" bindinput="bankAccountname" />
+    </view>
+  </view> 
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">开户银行账号</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="number" value="{{bankAccount}}" placeholder="请输入开户银行账号" bindinput="bankAccountInput" maxlength='19'/>
+    </view>
+  </view>
+  <view class='b-btn-sty' bindtap='AddressAddClick'><button class='btn'>保存</button></view>
+</view>
+ 

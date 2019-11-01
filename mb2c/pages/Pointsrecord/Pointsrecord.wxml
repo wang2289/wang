@@ -1,0 +1,30 @@
+<view class='m-record'>
+  <block  wx:for="{{exchangeData}}" wx:for-item="item">
+   <view class='m-product'>
+    <image src='{{item.orderLineList[0].pictureUrl}}'></image> 
+    <view class='m-product-message'>
+      <view class='message1'>
+        <view class='title'>{{item.orderLineList[0].commodityTitle}}</view>
+        <view class='status' wx:if="{{item.status == 'UN_PAID'}}">待付款</view>
+        <view class='status' wx:if="{{item.status == 'UN_PAID'}}">待付款</view>
+        <view class='status' wx:if="{{item.status == 'UN_PAID'}}">待付款</view>
+        <view class='status' wx:if="{{item.status == 'UN_SHIPMENT'}}">待发货</view>
+        <view class='status' wx:if="{{item.status == 'UN_SIGNED'}}">待收货</view>
+        <view class='status' wx:if="{{item.status == 'SIGNED'}}">已签收</view>
+        <view class='status' wx:if="{{item.status == 'EVALUATION'}}">已评价</view>
+        <view class='status' wx:if="{{item.status == 'CANCELLED'}}">已取消</view>
+        <view class='status' wx:if="{{item.status == 'WAIT_GROUP'}}">待拼团</view>
+      </view>
+      <view class='message2'>
+        <view class='point'>{{item.orderLineList[0].pointValue}}积分+￥{{item.paidAmount}}</view>
+        <!-- <view class='m-btn'>待发货</view> -->
+      </view>
+    </view>
+  </view>
+   <navigator class="u-link-btn" data-order_id="{{item.id}}" data-row_version="{{item.rowVersion}}" bindtap="confirmReceipt" wx:if="{{item.status == 'UN_SIGNED'}}">确认收货</navigator>
+  </block>
+  <view wx:if="{{exchangeData.length == 0}}">
+    <image src='../../img/exchange.png' class='shoppingcart'></image>
+    <view class='text'>暂无兑换记录</view>
+  </view>
+</view>

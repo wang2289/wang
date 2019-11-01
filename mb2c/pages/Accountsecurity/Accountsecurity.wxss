@@ -1,0 +1,29 @@
+.m-account-list{
+background: #FFFFFF;
+border-top: 1rpx solid rgb(244, 244, 244);
+height: 163rpx;
+}
+.m-title{
+padding: 39rpx 0 40rpx 30rpx;
+
+}
+.m-title1{
+font-size: 32rpx;
+}
+.m-detail{
+padding-top: 4rpx;
+color: #999999;
+font-size: 24rpx;
+}
+.m-btn{
+position: relative;
+top: -97rpx;
+right: -554rpx;
+border: 1rpx solid #999999;
+border-radius: 4rpx;
+height: 52rpx;
+width: 150rpx;
+text-align: center;
+line-height: 52rpx;
+font-size: 28rpx;
+}

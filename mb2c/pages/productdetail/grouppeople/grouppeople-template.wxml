@@ -1,0 +1,18 @@
+<template name="grouppeopleTemplate">
+  <view class='grouplist-people-item'>
+    <view class='grouppeople-avater'>
+      <image src="../../../img/right.png" class='grouplist-img'></image>
+      <view class='grouppeople-time'>
+        <view class='grouppeople-peo'>美丽天使</view>
+        <view class='grouppeople-times'>剩余15:36:56</view>
+      </view>
+     
+    </view>
+    <view class='grouppeople-detail'>
+       <view class='grouppeople-num'>还差1人</view>
+      <view class='grouppeople-btn'>
+        去拼团
+      </view>
+    </view>
+  </view>
+</template>

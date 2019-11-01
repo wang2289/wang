@@ -1,0 +1,90 @@
+@import "bargaingoods/bargaingoods-template.wxss";
+@import "bargaindetail/bargaindetail-template.wxss";
+@import "mybargain/mybargain-template.wxss";
+.bargainprice {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 110rpx;
+}
+
+.bargainprice-banner {
+  width: 100%;
+  height: 260rpx;
+}
+
+.bargainprice-banner image {
+  width: 100%;
+  height: 100%;
+}
+
+.bargainprice-bottomtab {
+  padding: 10rpx 0rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 28rpx;
+  color: #333;
+  z-index: 100;
+  background: #fff;
+}
+
+.bargainprice-tab {
+  height: 87rpx;
+  line-height: 87rpx;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 32rpx;
+  color: #666;
+  background: #fff;
+}
+
+.tabbtn {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.tabbtn.on {
+  color: #ea281a;
+  border-bottom: 2px solid #ea281a;
+}
+
+.tab-goods {
+  width: 100%;
+  text-align: center;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  float: left;
+  justify-content: center;
+}
+
+.tab-my {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tab-my image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-top: 28rpx;
+  margin-right: 16rpx;
+}
+.tab-goods image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-top: 28rpx;
+  margin-right: 16rpx;
+}

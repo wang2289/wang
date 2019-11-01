@@ -1,0 +1,21 @@
+<!--pages/depositBank/depositBank.wxml-->
+<view>
+<view class="m-search-box">
+    <view class="u-input-search" style='margin-bottom:27rpx;'>
+      <label class="iconfont icon-sousuo-sousuo"></label>
+      <input type="text" bindconfirm="search" placeholder="请输入关键字" bindtap='startinput' />
+      <!-- <view class="u-btn" bindtap="search">取消</view> -->
+    </view>
+    <view style='padding-left:20rpx;font-size:26rpx;color:rgb(137,137,137);'>热门银行</view>
+  </view>
+  <view class='Bank'>
+  <image src='{{src}}' class='img-bank'></image>
+  <text class='te-Bank'>{{item.Bank}}中国工商银行</text>
+</view>
+<scroll-view class="wxSortPickerViewTemTags">
+            <block wx:for="{{['热','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']}}" wx:for-item="item" wx:key="">
+                <view bindtap="wxSortPickerViewTemTagTap" data-tag="{{item}}" class="wxSortPickerViewTemTag">{{item}}</view>
+            </block>
+    </scroll-view>
+
+  </view>

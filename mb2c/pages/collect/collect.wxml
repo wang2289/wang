@@ -1,0 +1,42 @@
+<!--pages/collect/collect.wxml-->
+<scroll-view  scroll-y="true" bindscrolltolower="scrollbottom" class='m-orderlist'>
+  <view class='m-panel-access' wx:for="{{Collect}}" wx:for-item="item"  bindtap='prouclick'  data-id="{{item.commodityExtend.id}}" data-clazzType="{{item.commodityExtend.clazzType }}" >
+    <view class='m-cell-content'>
+      <view class='m-cell-img'>
+        <image src='{{item.commodityExtend.pictureUrl}}'  class='img'></image>
+        <view class='p-introduce'>
+          <view class='introduce' style='overflow: hidden;text-overflow: ellipsis' >
+            <text>{{item.commodityExtend.name}}</text>
+          </view>
+          <view class='m-many'>
+            <label class='numberaa'>￥
+              <text>{{item.commodityExtend.showPrice}}</text>
+            </label>
+            <view class="c-link-btn" catchtap='ClickCollectdel' data-id="{{item.id}}">取消收藏</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="m-product-list">
+    <navigator url="../productdetail/productdetail">
+      <view class="m-product-img">
+        <image src="{{item.commodityExtend.pictureUrl}}" mode="aspectFill" />
+      </view>
+      <view class="m-product-info">
+        <view class="m-product-name">{{item.commodityExtend.name}}</view>
+      </view>
+    </navigator>
+    <view class="m-total-info">
+      <view class="m-total-price">￥{{item.commodityExtend.showPrice}}</view>
+      <view class="m-total-btn">
+        <navigator class="u-link-btn" bindtap='ClickCollectdel' data-id="{{item.id}}">取消收藏</navigator>
+      </view>
+    </view>
+  </view> -->
+  </view>
+</scroll-view>
+
+<view wx:if="{{Collect.length<=0}}">
+  <image src='../../img/collect.png' class='shoppingcart'></image>
+  <view class='text'>暂无收藏</view>
+</view>

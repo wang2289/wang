@@ -1,0 +1,41 @@
+<!--pages/Matchpurchase/Matchpurchase.wxml-->
+<scroll-view scroll-y="true" bindscrolltolower="scrollbottom">
+  <view class='m-cell-content' catchtap='prouclick' data-id="{{item.id }}">
+    <view class='m-cell-img'>
+      <image src='../../img/cookerhood.png' mode='aspectFill' class='img'></image>
+      <view class='p-introduce'>
+        <view class='introduce' style='overflow: hidden;text-overflow: ellipsis'>
+          <text>油烟机</text>
+        </view>
+        <view class='m-many'>
+          <label class='numberaa'>￥
+            <text>3900</text>
+          </label>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='m-Buy'>
+    <view class='m-buy'>搭配购买</view>
+    <view class='m-m-buy'>已选中0件</view>
+  </view>
+  <view class='m-cell-content' catchtap='prouclick' data-id="{{item.id }}">
+    <view class='m-cell-img'>
+      <image src='../../img/cookerhood.png' mode='aspectFill' class='img'></image>
+      <view class='p-introduce'>
+        <view class='introduce' style='overflow: hidden;text-overflow: ellipsis'>
+          <text>油烟机</text>
+        </view>
+        <view class='m-many'>
+          <label class='numberaa'>￥
+            <text>3900</text>
+          </label>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='auth-btn-css'>
+  <view class='auth-btn-reset' bindtap='replacementcontrast'>取消</view>
+  <view class='auth-btn-xell' bindtap='ensure'>确定</view>
+</view>

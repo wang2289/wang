@@ -1,0 +1,128 @@
+<view class='userContainer' bindtap='selectaddress' wx:if="{{addressInfo!=''}}">
+  <image src='../../img/striped.png' mode="aspectFill" class='v-cell'></image>
+  <view class='useDesStyle'>
+    <text class='nameStyle2'>{{contactName}}</text>
+    <text class='nameStyle'>{{contactPhone}}</text>
+  </view>
+  <view class='c-address'>
+    <image src='../../img/Page1.png' class='addressSty'></image>
+    <text class='detail-address'>{{provinceName}}{{cityName}}{{districtName}}{{detailedaddress}}</text>
+  </view>
+  <image src='../../img/right.png' class='i-img'></image>
+</view>
+<view class='userContainer user-addre' bindtap='selectaddress' wx:else>
+  <image src='../../img/striped.png' mode="aspectFill" class='v-cell'></image>
+  <view class="m-cell-address">
+    <image class='addressSty' src='../../img/Page1.png' style='padding-right:20rpx;'></image>
+    <text>您还没有添加地址，点击添加地址吧</text>
+  </view>
+</view>
+<!-- wx:for="{{Integracommodity}}" wx:for-item="item" -->
+<view class="m-product-list">
+  <view class="m-product-info">
+    <image src="{{Integracommodity.pictureUrl}}" mode="aspectFill" class="m-product-img" />
+    <view style='border-bottom:1rpx solid #EEEEEE;width:528rpx;'>
+      <view>
+        <view class='m-sty-name'>{{Integracommodity.name}}</view>
+        <!-- <view class='m-sty-name'>规格</view> -->
+      </view>
+      <view class='c-product'>
+        <view class="m-product-price">{{item.showPoint}}积分</view>
+        <view class='m-te'>x1</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 备注 -->
+<view style='font-size:28rpx;margin-top:20rpx;'>
+  <view class="c-cell-bd">
+    <!-- <textarea class="u-textarea" maxlength="45" auto-height value="{{remark}}" bindinput="inputRemark" placeholder='选填：给商家留言(45字以内)' placeholder-style='color:#999;'></textarea> -->
+    <input class="u-textarea" maxlength="45" value="{{inputRemarkInfo}}" bindinput="inputRemark" placeholder='选填：给商家留言(45字以内)'></input>
+  </view>
+</view>
+
+<view>
+  <view class="c-cell" bindtap="suitZhifu">
+    <view class="c-bd">支付方式</view>
+
+    <view style='color: #999999;text-align:right;flex:1;' wx:if="{{Pay == 0}}">请选择</view>
+    <view style='color: #999999;text-align:right;flex:1;' wx:if="{{Pay == 1}}">余额支付</view>
+    <view style='color: #999999;text-align:right;flex:1;' wx:if="{{Pay == 2}}">微信支付</view>
+
+    <image src='../../img/right.png' class='c-pay'></image>
+  </view>
+  <view class="c-cell" style='justify-content:space-between;'>
+    <view class="c-bd">礼品单价</view>
+    <view>
+      <text wx:if="{{Integracommodity.showPrice > 0}}">￥{{Integracommodity.showPrice}}+</text>{{Integracommodity.showPoint}}积分</view>
+  </view>
+  <view class="c-cells">
+    <view class='c-c-bd' style='padding-bottom:25rpx'>
+      <view class='c-freight'>运费</view>
+      <view class='c-total'>￥{{totalFeightFee}}</view>
+    </view>
+    <view class='c-c-bd'>
+      <view class='c-freight'>合计</view>
+      <view class='c-total'>
+        <text wx:if="{{Integracommodity.showPrice + totalFeightFee > 0}}">￥{{Integracommodity.showPrice + totalFeightFee}}+</text> {{Integracommodity.showPoint}}积分</view>
+    </view>
+  </view>
+</view>
+<view class="m-footer-btn" style='line-height:100rpx'>
+  <view class="m-footer-btn-list">实付款:
+    <text>￥{{Integracommodity.showPrice + totalFeightFee}}</text>
+  </view>
+  <view class="m-footer-btn-main m-now" bindtap="orderNewcommit">确认兑换</view>
+</view>
+
+
+<!-- 支付模态框 -->
+<view class="auth-pop" wx:if="{{flagm}}">
+  <view class="auth-box">
+    <view class='auth-box-title'>输入支付密码</view>
+
+    <view class='auth-box-meny'>￥{{Integracommodity.showPrice +totalFeightFee }}</view>
+    <view class="m-panel-bd" style='border-bottom:1rpx solid #DDDDDD;'>
+      <view class="m-media-box m-media-box-small-appmsg">
+        <navigator class="m-cell m-cell-access" style='font-size:28rpx;background:#F4F4FB;'>
+          <view class="m-cell-bd m-cell-primary" style='position:relative;right:154rpx;'>
+            <p>支付方式</p>
+          </view>
+          <view>余额支付</view>
+          <text class="m-cell-ft"></text>
+        </navigator>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class='content'>
+        <block wx:for="{{Length}}" wx:key="item">
+          <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input>
+        </block>
+      </view>
+      <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input>
+
+    </form>
+    <image src="../../img/close.png" class='auth-box-img' catchtap='bindimg'></image>
+  </view>
+</view>
+<!-- 选择支付方式 -->
+<view class="auth-pop" wx:if="{{payment}}">
+  <view class="auth-box" style='background:#FFFFFF;position:relative;top:-40rpx'>
+    <view class='auth-box-zhi'>选择支付方式</view>
+    <view class='a-cell-content' catchtap='balancepaid'>
+      <image src='../../img/yue.png' class='a-cell-con-img'></image>
+      <view class='a-cell-tetx'>
+        <view class='a-cell-title'>余额支付</view>
+        <view class='a-cells-te'>使用你的账号余额支付</view>
+      </view>
+    </view>
+    <view class='a-cell-content' catchtap='WeChatPay'>
+      <image src='../../img/weixin.png' class='a-cell-con-img'></image>
+      <view class='a-cell-tetx' style='margin-top:23rpx;'>
+        <view class='a-cell-title'>微信支付</view>
+        <!-- <view class='a-cells-te'>支持支付余额,快捷支付等多种支付方式</view> -->
+      </view>
+    </view>
+    <image src="../../img/close.png" class='auth-box-imgs' catchtap='bindimgs'></image>
+  </view>
+</view>

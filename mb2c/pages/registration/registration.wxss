@@ -1,0 +1,29 @@
+/* pages/registration/registration.wxss */
+.m-orderlist {
+  padding-top: 90rpx;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+.scroll_box{
+width: 100%;
+height: 307rpx;
+overflow: hidden;
+padding: 20rpx;
+background: #fff;
+white-space: nowrap;
+}
+.item_list{
+width: 160rpx;
+height: auto;
+margin-right: 23rpx;
+display: inline-block;
+}
+.hor {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+/* .tab-class{table-layout: fixed;}
+.td-class{word-wrap: break-word} */

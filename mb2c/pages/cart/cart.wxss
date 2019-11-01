@@ -1,0 +1,283 @@
+/* pages/cart/cart.wxss */
+
+page {
+  font-family: PingFangSC-Regular;
+  
+}
+
+.m-shop-item {
+  border-bottom: 1rpx solid #eee;
+  height: 90rpx;
+  display: flex;
+  background:#FFFFFF;
+border-top:1rpx solid #eee;
+
+}
+
+.title {
+  font-size: 24rpx;
+  position: relative;
+  top: 30rpx;
+}
+
+.title_nav {
+  position: relative;
+  overflow: hidden;
+  height: 74rpx;
+  background-color: #fff;
+  line-height: 68rpx;
+  margin-top: 20rpx;
+  align-items: center;
+}
+
+.title_logo_img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.quan {
+  padding: 25rpx 20rpx 25rpx 30rpx;
+}
+
+.title_img {
+  width: 20rpx;
+  height: 30rpx;
+  padding-left: 10rpx;
+}
+/* .m-cell-content{
+  margin:20rpx 0rpx 20rpx 10rpx;
+} */
+.m-cell-img {
+  /* height: 249rpx; */
+  display: flex;
+  background:#FFFFFF;
+
+}
+
+.m-cell-img .img {
+  width: 178rpx;
+  height: 178rpx;
+margin:11rpx;
+
+}
+
+.m-cell-img .introduce {
+ width:362rpx;
+font-size:28rpx;
+
+}
+.c-detail{
+  padding-left:15rpx;
+border-bottom:1rpx solid #EEEEEE;
+width:368rpx;
+padding-right:20rpx;
+font-size: 24rpx;
+}
+.c-limit{
+  color: #EA281A;
+  margin: 15rpx 0 24rpx 0;
+}
+.many {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.numberaa {
+  font-size: 32rpx;
+  color: #ea281a;
+  padding-top:6rpx;
+
+}
+
+.m-many {
+  display: flex;
+  justify-content: space-between;
+}
+
+.m-cell-img .introduce {
+  width: 447rpx;
+  font-size: 24rpx;
+  margin-bottom:10rpx;
+}
+
+/* .m-cell-img .many{position: relative;top: -63rpx;font-family:PingFang-SC-Regular;font-size: 24rpx;color: #999999;left:10rpx;
+}
+ 
+.m-cell-img .introduce{width:395rpx;
+font-size: 28rpx;padding-top: 10rpx;
+} */
+
+/* .m-cell-img .many{font-size: 24rpx;color: #999999;padding-top:10rpx;
+
+} */
+
+.m-cell-img .introduce text::after {
+  /*content:"...";*/
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0 20px 1px 45px;
+  background: url(http://newimg88.b0.upaiyun.com/newimg88/2014/09/ellipsis_bg.png) repeat-y;
+}
+
+.m-cell-img .number {
+  font-size: 36rpx;
+  color: #ea281a;
+  width: 124rpx;
+}
+.show{
+  width: 100%;
+  height: 80rpx;
+}
+/*商品数量加减*/
+
+.u-cart-num {
+  position: relative;
+  z-index: 2;
+}
+
+.u-cart-num {
+  display: inline-block;
+  border: 1rpx solid #d5d5d5;
+  height: 52rpx;
+  line-height: 52rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  width:240rpx;
+
+}
+
+.u-num-btn {
+  float: left;
+  width: 79rpx;
+  font-size:32rpx;
+}
+
+.u-cart-num input {
+  float: left;
+  width: 80rpx;
+  height: 54rpx;
+  border-left: 1rpx solid #d5d5d5;
+  border-right: 1rpx solid #d5d5d5;
+}
+
+/* 底部结算按钮*/
+
+.m-footer-btn {
+  height: 96rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-top: 1rpx solid #EEEEEE;
+  z-index: 3;
+}
+
+.m-footer-btn-list {
+  width: 523rpx;
+  height: 96rpx;
+  position: relative;
+  float: left;
+}
+.m-cart{
+  padding:25rpx;
+}
+.m-footer-btn-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #888;
+  height: 100%;
+  padding: 27rpx 23rpx;
+  width:424rpx;
+  line-height:46rpx;
+
+}
+
+.m-footer-btn-main {
+  width: 226rpx;
+  height: 100%;
+  float: left;
+  background-color: #EA281A;
+  color: #fff;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* .m-cart-total {
+  text-align: right;
+  padding-right: 20rpx;
+} */
+
+/* .m-cart-total text {
+  font-size: 28rpx;
+  color: #db384c;
+} */
+
+.m-cart-del {
+  line-height: 70rpx;
+  font-size: 32rpx;
+}
+
+.m-footer-btn-item-one {
+ color: #EA281A;
+}
+
+.m-footer-btn-item-two {
+  color: #999;
+}
+
+.m-product-con {
+  font-size: 32rpx;
+  padding: 20rpx 0rpx 20rpx 666rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index:9;
+width:100%;
+
+}
+
+.c-detail {
+  padding:10rpx 30rpx 15rpx 10rpx;
+  width: 421rpx;
+  /* height: 248rpx; */
+  border-bottom: 1rpx solid #eee;
+}
+
+.shoppingcart {
+  padding-top: 400rpx;
+  padding-left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+
+.text {
+  padding-top: 25rpx;
+  text-align: center;
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.click-login {
+  width: 220rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  background-color: #ea281a;
+  border-radius: 8rpx;
+  color: #fff;
+  margin-left: 265rpx;
+  margin-top: 60rpx;
+  font-size: 32rpx;
+  text-align:center;
+
+}
+.m-cell-cont-bottom{width: 100%;height: 20rpx}
+.c-cart{
+  /* margin-bottom:75rpx; */
+  margin-top:80rpx;
+
+}

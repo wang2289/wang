@@ -1,0 +1,36 @@
+<import src="groupover/groupover-template.wxml" />
+<import src="groupassemble/groupassemble-template.wxml" />
+<import src="grouppeople/grouppeople-template.wxml" />
+<import src="groupinfor/groupinfor-template.wxml" />
+<import src="share/share-template.wxml" />
+
+<view class='groupinfors'>
+  <!-- <template is="shareTemplate" /> -->
+  <template is="groupoverTemplate" />
+  <template is="groupassembleTemplate" />
+  <template is="grouppeopleTemplate" />
+  <view class='single'>
+    <text class='single-notes1'>拼单须知</text>
+    <text class='single-notes single-notes2'> 查看规则</text>
+    <text class='single-notes'>人不满退款 · </text>
+    <text class='single-notes'>人满发货 · </text>
+  </view>
+  <template is="groupinforTemplate" />
+  <view class='group-payment'>
+    <text class='group-payments'>实付：<text class='group-payment-price'>¥ </text>
+    <text class='group-payment-money'>39.00</text></text>
+  </view>
+  <view class='orderdetail'>
+    <view>
+      订单编号:
+      <text> 2018042300466</text>
+    </view>
+    <view>
+      支付方式:
+      <text>微信</text>
+    </view>
+    <view>
+      <text>下单时间: 2018-04-23</text>
+    </view>
+  </view>
+</view>

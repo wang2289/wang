@@ -1,0 +1,44 @@
+<template name="grouplistTemplate">
+  <view class="grouplist-container">
+    <view class='grouplist-title'>
+      <text class='grouplist-left'>2人在拼团</text>
+      <view class='grouplist-right' >查看更多
+       <image class='rightarrow' src="../../../img/right.png"></image>
+      </view>
+    </view>
+    <view class='grouplist-people'>
+      <block>
+        <view class='grouplist-people-item'>
+            <view class='grouplist-avater'>
+                <image src="../../../img/right.png" class='grouplist-img'></image>
+                <text class='grouplist-name'>美丽天使</text>
+            </view>
+            <view class='grouplist-detail'>
+                <view class='grouplist-time'>
+                    <view class='grouplist-peo'>还差<text class='peo-num'>1人</text>拼成</view>
+                    <view class='grouplist-times'>剩余15:36:56</view>
+                </view>
+                <view class='group-btn'>
+                去拼团
+                </view>
+            </view>
+        </view>
+        <view class='grouplist-people-item'>
+            <view class='grouplist-avater'>
+                <image src="../../../img/right.png" class='grouplist-img'></image>
+                <text class='grouplist-name'>美丽天使</text>
+            </view>
+            <view class='grouplist-detail'>
+                <view class='grouplist-time'>
+                    <view class='grouplist-peo'>还差<text class='peo-num'>1人</text>拼成</view>
+                    <view class='grouplist-times'>剩余15:36:56</view>
+                </view>
+                <view class='group-btn'>
+                去拼团
+                </view>
+            </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

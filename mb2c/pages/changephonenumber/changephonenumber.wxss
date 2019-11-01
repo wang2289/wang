@@ -1,0 +1,85 @@
+page{
+  background: #FFFFFF;
+}
+.input_gather {
+   height: 90rpx; 
+  margin: 0 30rpx;
+  position: relative;
+  line-height: 90rpx;
+  border-bottom:1px solid #dddddd; 
+}
+.input_gather_body{
+    padding-top:50rpx;
+}
+.input_gather_text {
+  font-size: 32rpx;
+  color: #333;
+  float: left;
+  width: 182rpx;
+  margin-left:19rpx;
+}
+/* pages/changepassword/changepassword.wxss */
+
+.btn{
+     width: 660rpx;
+    background:#eeeeee;  
+    margin:60rpx 45rpx 22rpx 45rpx;
+    font-size:32rpx;
+    color: #999999;
+    border-radius: 8rpx;
+    height:76rpx;
+    text-align:center;
+line-height:76rpx;
+}
+.btn_Input{
+  background:#EA281A;
+  margin-top: 50rpx;
+  color:#fff;
+  width: 660rpx;
+    margin:60rpx 45rpx 22rpx 45rpx;
+    font-size:32rpx;
+    border-radius: 8rpx;
+    height:76rpx;
+    text-align:center;
+line-height:76rpx;
+  /* border:2rpx solid #000;  */
+
+}
+.input_gather_btn{
+  width: 70%;
+  height:80rpx;
+  /* text-align:center; */
+   margin:0 auto; 
+}
+.Captchas{
+  position:absolute;
+right:18rpx;
+top:0rpx;
+ z-index:9; 
+ display: inline-block;
+  color:#ea281a;
+  font-size: 32rpx;
+  font-family:PingFang-SC-Regular;
+}
+.text{
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+.Captcha {
+  
+position:absolute;
+right:18rpx;
+top:23rpx;
+z-index:9;
+ 
+} 
+.Captcha  {
+  color: #8a8a8a;
+  font-size: 32rpx;
+  line-height: 43rpx;
+}
+.log-pwd{
+  font-size: 30rpx;
+  color: #333;
+  padding-top: 20rpx;
+}

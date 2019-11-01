@@ -1,0 +1,89 @@
+.bargaingoods-container {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx;
+  padding-bottom: 0rpx;
+  padding-right: 0rpx;
+  background: #fff;
+}
+
+.bargaingoods-img {
+  width: 265rpx;
+  height: 265rpx;
+  margin-bottom: 24rpx;
+}
+
+.bargaingoods-box {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  padding-right: 24rpx;
+  margin-left: 24rpx;
+}
+
+.bargaingoods-title {
+  width: 427rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 11rpx;
+}
+
+.bargaingoods-subtitle {
+  font-size: 24rpx;
+  color: #000;
+  opacity: 0.45;
+}
+
+.bargaingoods-price {
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+
+.bargaingoods-oldmoney {
+  opacity: 0.45;
+  font-size: 24rpx;
+  color: #000;
+  text-decoration: line-through;
+  vertical-align: middle;
+  margin-left: 7rpx;
+  margin-top: 14rpx;
+}
+
+.bargaingoods-money {
+  font-size: 32rpx;
+  color: #ea281a;
+  vertical-align: middle;
+  margin-top: 6rpx;
+}
+
+.bargaingoods-money text {
+  font-size: 24rpx;
+}
+
+.bargaingoods-buybtn {
+  width: 140rpx;
+  height: 58rpx;
+  line-height: 56rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background: #999;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-left: 28rpx;
+}
+.bargaingoods-buybtn.active{
+  background: #EA281A;
+}
+.bargaingoods-text {
+  display: flex;
+  flex-direction: row;
+  font-size: 20rpx;
+  color: #ea281a;
+  margin-top: 0rpx;
+}
+
+.bargaingoods-peo {
+  padding-left: 47rpx;
+}

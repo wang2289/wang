@@ -1,0 +1,5 @@
+<view class="c-mell">
+<input placeholder='输入昵称' wx:if="{{tab==1}}"></input>
+<input placeholder='输入真实名称' wx:else></input>
+</view>
+<button>保存</button>

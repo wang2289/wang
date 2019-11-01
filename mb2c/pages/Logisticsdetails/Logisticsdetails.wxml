@@ -1,0 +1,40 @@
+<scroll-view class="m-logistic" wx:if="{{orderLogisticsInfo.length > 0}}">
+  <view class='l-logistic'>
+    <image src='{{pictureUrl}}' class='m-product'></image>
+<view class='m-product-Info'>
+
+    <view class="m-product-position" wx:if="{{orderLogisticsInfo[0].logisticsStatus == 0}}">在途中 {{orderLogisticsContent}}</view>
+    <view class="m-product-position" wx:if="{{orderLogisticsInfo[0].logisticsStatus == 1}}">已发货 {{orderLogisticsContent}}</view>
+    <view class="m-product-position" wx:if="{{orderLogisticsInfo[0].logisticsStatus == 2}}">疑难件 {{orderLogisticsContent}}</view>
+    <view class="m-product-position" wx:if="{{orderLogisticsInfo[0].logisticsStatus == 3}}">已签收 {{orderLogisticsContent}}</view>
+    <view class="m-product-position" wx:if="{{orderLogisticsInfo[0].logisticsStatus == 4}}">已退货 {{orderLogisticsContent}}</view>
+    <view class='m-product-express'>{{orderLogisticsInfo[0].carrierName}}:{{orderLogisticsInfo[0].freightOrderNumber}}</view>
+  </view>
+<view class='m-produc-number'></view>
+  </view>
+  <block wx:for="{{orderLogisticsInfo}}" wx:for-item="item">
+  <view class="m-logistbox" style="padding-bottom: 50rpx; ">
+    <!-- <view class='m-log-time'>
+      <view class="m-logistitem-item">
+        【宝鸡市】 【陇县东南镇】 的主账号001（13772640220）
+      </view>
+      <view class='m-logistitem-cell'>
+        <view>12:59</view>
+        <view>昨天</view>
+      </view>
+    </view> -->
+    <view class='m-log-time' wx:for="{{item.logisticsDetailList}}" wx:for-item="items" data-index='{{index}}'>
+      <view class="{{index==0?'m-logistitem-items':''}} {{index==1?'m-logistitem-item':'m-logistitem'}}">
+       {{items.context}}
+      </view>
+      <view class='m-logistitem-cell'>
+       <!-- <view>{{items.ftime}}</view> -->
+        <view wx:if="{{index==0 || index==1}}" style='position:relative;left:20rpx'>{{items.time}}</view>
+         <view wx:if="{{index!=0 && index!=1}}">{{items.time}}</view>
+         <image src='../../img/shou.png' class='m-logistitem-cell-img' wx:if="{{index==0}}"></image>
+      </view>
+    </view>
+    <view/>
+  </view>
+  </block>
+</scroll-view>

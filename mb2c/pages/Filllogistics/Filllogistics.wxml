@@ -1,0 +1,15 @@
+<view class='dataaddress'>
+<view class='bor_top'>
+    <view class='u-1'>
+      <view class='u-via1'>物流公司</view>
+       <input placeholder='填写您退货的物流公司' class='u-name' bindinput='NicknameInfo' name="thename" value='{{nickName}}' maxlength='20'></input>
+    </view>
+    <view class='u-1'>
+      <view class='u-via1'>物流单号</view>
+      <input placeholder='填写您的物流单号' class='u-name' bindinput='Name' name="thename" value='{{UserName}}' maxlength='20'></input>
+    </view>
+  </view>
+   <view class='m-address'>
+    <view class='u-1-1' bindtap='getPersonaldata'>提交</view>
+  </view>
+</view>

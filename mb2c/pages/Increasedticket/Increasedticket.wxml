@@ -1,0 +1,31 @@
+<wxs module="utils"></wxs>
+
+<scroll-view scroll-y="true" class="m-orderlist" bindscrolltolower="scrollbottom">
+  <view class="m-ad-list" wx:for="{{Collect}}" wx:for-item="item">
+    <view class="m-ad-item">
+      <view class="m-ad-l" bindtap="SelectAddress">
+        <view class="m-ad-i-top">
+          <text>{{utils.strReplace(item.invoiceTitle)}}</text>
+        </view>
+        <view class="m-ad-i-bot">
+          纳税人识别号：
+          <text>{{item.taxpayerId}}</text>
+        </view>
+      </view>
+      <view class="m-ad-edit" catchtap='EditAddress' data-invoid='{{item.id}}'>
+        <label class="iconfont icon-edit"></label>
+        <!-- <label class="iconfont icon-delete" bindtap="DelAddress"></label> -->
+      </view>
+    </view>
+  </view>
+  <view class='show'></view>
+</scroll-view>
+<view class="u-btn-sty" bindtap="AddAddress" wx:if="{{Collect.length<=0}}">
+  <image src='../../img/addNew.png' class='addNew'></image>
+  <text>新增资质</text>
+</view>
+<!-- 无数据时展示 -->
+<view wx:if="{{Collect.length<=0}}">
+  <image src='../../img/newaptitude.png' class='shoppingcart'></image>
+  <view class='text'>暂无增票资质</view>
+</view>

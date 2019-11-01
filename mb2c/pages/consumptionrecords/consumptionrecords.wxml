@@ -1,0 +1,28 @@
+<scroll-view scroll-y="true" class="m-orderlist" bindscrolltolower="scrollbottom">
+<view class="c-records" wx:for="{{memberTranList}}" wx:for-item="item">
+  <view class='updatetime'>{{item.week}}</view>
+  <view class='orderdetail'>
+    <!-- <image src='../../img/jilu.png' class='goods'></image> -->
+    <view class='order'>
+      <view style='word-wrap:break-word;word-break:break-all;display:block;'>
+        <view class='number'>{{item.sourceType}}
+          <text>{{item.sourceNumber}}消费</text>
+        </view>
+        <view class='time'>
+        {{item.date}}\t{{item.time}}
+          <!-- <text class='time1'>{{item.date}} </text>
+          <text class='time2'>{{item.time}}</text> -->
+        </view>
+      </view>
+    </view>
+    <view class='cost'>{{item.changeAmount}}</view>
+  </view>
+</view>
+</scroll-view>
+
+ 
+
+<view wx:if="{{memberTranList.length<=0}}">
+  <image src='../../img/gouwuche.png' class='shoppingcart'></image>
+  <view class='text'>暂无消息记录</view>
+</view>

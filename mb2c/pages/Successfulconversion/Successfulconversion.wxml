@@ -1,0 +1,54 @@
+<!-- 网页版 -->
+<view class="m-payment">
+  <image src='../../img/zhifu.png'></image>
+  <!-- <view class='m-price'>￥{{price}}</view> -->
+  <view class='detail_'>
+    <view class='s-detail_'>兑换积分:
+      <text>{{showPoint}}</text>
+    </view>
+    <view class='s-detail_'>支付金额:
+      <text class='pay'>￥{{price}}</text>
+    </view>
+  </view>
+  <view class='m-btn'>
+    <view class='m-btn-1' bindtap='dingdan'>查看兑换记录</view>
+     <text class='s-btn'></text>
+    <view class='m-btn-2' bindtap='Homepage'>返回首页</view>
+  </view>
+</view>
+<!-- 截图版 -->
+<!-- <view class='s-done'>
+  <view class="done">
+    <view class='detail'>
+      <image src='../../img/zhifu.png'></image>
+      <view class='detail_'>
+        <view>兑换积分:
+          <text>3900</text>
+        </view>
+        <view class='pay'>支付金额:
+          <text>￥9.00</text>
+        </view>
+      </view>
+    </view>
+    <view class='button'>
+      <view class='button1'>返回首页</view>
+      <view class='button2'>查看兑换详情</view>
+    </view>
+  </view>
+  <view class='recommend'>
+    <view class='r-left'></view>
+    <view class='r-center'>为你推荐</view>
+    <view class='r-right'></view>
+  </view>
+  <block wx:for="{{products}}" wx:key="{{id}}">
+    <navigator url="../giftDetails/giftDetails?currentItemId={{item.id}}" class='navStyle'>
+      <view class='itemViewStyle'>
+        <text class='nameStyle'>{{item.name}}</text>
+        <view class='pointStyle'>
+          <text class='pointStyle-money'>{{item.showPrice}}<text style='color:#999999'>积分</text></text>
+        </view>
+        <image class='imageStyle' src='../../img/cookerhood.png' mode='mode'></image>
+      </view>
+    </navigator>
+  </block>
+</view> -->

@@ -1,0 +1,208 @@
+<view>
+
+  <view class='userContainer' bindtap='selectaddress' wx:if="{{!isCurriculum}}">
+    <image src='../../img/striped.png' mode="aspectFill" class='v-cell'></image>
+    <view wx:if="{{IntegrapictureList.length>0}}" class="m-banner-ad">
+          <swiper catchtap='link' indicator-dots="true" autoplay="{{bannerAutoPlay}}" interval="3000" duration="300" style='height:100%;width:100%;'>
+            <block wx:for="{{IntegrapictureList}}" wx:for-item="item" current="0" bindchange='onSlideChangeEnd'>
+              <swiper-item>
+                <image data-link-url="{{item.url}}" src="{{item.pictureUrl}}" mode='scaleToFill' class='slide-image' bindtap='previewImg' data-index='{{index}}'/>
+              </swiper-item>
+            </block>
+          </swiper>
+          <!-- <view class="imageCount">{{current+1}}/{{IntegrapictureList.length}}</view> -->
+        </view>
+    <block wx:if="{{orderLogistcsStatus}}">
+      <navigator class="m-cell m-cell-access">
+        <view class="m-cell-hd " style="color:#fd690c">
+          <image src='../../img/car.png' class='m-cell-img'></image>
+        </view>
+        <view class="order-logistcs" class="m-cell-bd m-cell-primary" wx:if="{{orderLogistcsStatus!==''}}">
+          <view class="order-logistcs" wx:if="{{orderLogistcsStatus == 0}}">在途中 {{orderLogisticsContent}}</view>
+          <view class="order-logistcs" wx:if="{{orderLogistcsStatus == 1}}">已发货 {{orderLogisticsContent}}</view>
+          <view class="order-logistcs" wx:if="{{orderLogistcsStatus == 2}}">疑难件 {{orderLogisticsContent}}</view>
+          <view class="order-logistcs" wx:if="{{orderLogistcsStatus == 3}}">已签收 {{orderLogisticsContent}}</view>
+          <view class="order-logistcs" wx:if="{{orderLogistcsStatus == 4}}">已退货 {{orderLogisticsContent}}</view>
+        </view>
+        <!-- <view class='foucs-redpoint'></view> -->
+        <image src='../../img/right.png' class='i-img'></image>
+      </navigator>
+    </block>
+    <view >
+      <view class='useDesStyle'>
+        <text class='nameStyle2'>{{contactName}}</text>
+        <text class='nameStyle'>{{contactPhone}}</text>
+      </view>
+      <view class='c-address'>
+        <image class='addressSty' src='../../img/location.png'></image>
+        <text class='detail-address'>{{address}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-product-all">
+    <view>
+      <view class="m-panel-hd">订单编号：{{orderNumber}}
+        <label>{{orderStatus}}</label>
+      </view>
+      <!-- <view class="m-panel-hd">
+        <label wx:if="{{status == 'UN_PAID'}}">待付款</label>
+        <label wx:if="{{status == 'UN_SHIPMENT'}}">待发货</label>
+        <label wx:if="{{item.status == 'UN_SIGNED'}}">待收货</label>
+        <label wx:if="{{item.status == 'SIGNED'}}">已签收</label>
+        <label wx:if="{{item.status == 'EVALUATION'}}">已评价</label>
+        <label wx:if="{{item.status == 'CANCELLED'}}">已取消</label>
+        <label wx:if="{{item.status == 'WAIT_GROUP'}}">待拼团</label>
+      </view> -->
+    </view>
+    <view class="m-product-list" wx:for="{{orderLineList}}" wx:for-item="item" wx:key="{{id}}">
+      <view class="m-product-item">
+        <view class="m-product-img" style='width:178rpx;height:178rpx'>
+          <image src="{{item.pictureUrl}}" />
+        </view>
+        <view class="m-product-info">
+          <view class="m-product-name">
+            <view>
+              <view class='m-sty-name'>{{item.commodityTitle}}</view>
+              <view class='m-sty-name-s'>　{{item.specName}}</view>
+            </view>
+            <view class='m-te'>x{{item.quantity}}</view>
+             
+            
+          </view>
+          <view class="m-product-name" style='color:#ea281a;height:70rpx'>
+            <label>￥ {{item.unitPrice}}</label> 
+            <navigator  url='refund/create?orderid={{orderId}}&lineid={{item.id}}&orderStatus={{orderStatus}}' class="u-link-btn" bindtap="looklogistics"
+             wx:if="{{!item.isRefund && !DetailsInfo.isPosted && orderStatus != '待付款' && canRefund}}">退款/退货</navigator>
+            <navigator wx:if="{{item.isRefund}}" url='/pages/Detailsrefunds/Detailsrefunds?currentItemId={{item.refundId}}' class="u-link-btn" >退单详情</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='position:relative;'>
+     <view class="m-detail">
+      <view class="m-cells-title">留言</view>
+      <view class="m-cells m-cells-form">
+        <view class="m-cell" style='padding:20rpx 24rpx;'>
+          <view class="m-cell-bd m-cells-title-detail" style='word-wrap:break-word;width:100%;'>
+            {{DetailsInfo.memberMessage}}
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+  </view>
+  <!-- <view class='v-cell'>
+    <image src='../../img/striped.png' mode="aspectFill"></image>
+  </view>
+  <view class="m-panel-bd">
+    <view class="m-media-box m-media-box-small-appmsg">
+      <view class="m-cells" wx:if="{{orderLogistcsStatus}}">
+        
+      </view>
+    </view>
+  </view>
+  <view class='userContainer'>
+    <view class='useDesStyle'>
+      <text class='nameStyle2'>{{contactName}}</text>
+      <text class='nameStyle'> {{contactPhone}}</text>
+    </view>
+    <image class='addressSty' src='http://httpfiles.mailvbao.com/mailvbao/addressSearch.png'></image>
+    <text class='detail-address'>{{address}}</text>
+  </view>
+
+
+  <view class="m-product-all">
+    <view class="m-panel-hd">订单编号：{{orderId}}
+      <label>{{orderStatus}}</label>
+    </view>
+    <block wx:for="{{orderLineList}}" wx:key="{{id}}">
+      <view class="m-product-list">
+        <navigator url="../productdetail/productdetail?pid={{item.ProductId}}" class="m-product-item">
+          <view class="m-product-img">
+            <image src="{{item.pictureUrl}}" mode="aspectFill" />
+          </view>
+          <view class="m-product-info">
+            <view class="m-product-name">
+              <view class='m-sty-name'>{{item.itemName}}</view>
+              <view class='m-sty-name' style='color:#999999;font-size:24rpx'>规格:{{item.itemSpec1AttributeName}} {{item.itemSpec1ValueName}} {{item.itemSpec2AttributeName}} {{item.itemSpec2ValueName}} {{item.itemSpec3AttributeName}} {{item.itemSpec3ValueName}}</view>
+              <text class='m-te'>x{{item.quantity}}</text>
+            </view>
+            <view class="m-product-price" style='color:#ea281a'>
+              <label>￥</label> {{item.unitPrice}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view> -->
+ <view class="detail detail-top">
+    <view class="detail-center" style='color:#666666'>
+      <text>付款信息</text>
+    </view>
+  </view>
+  <view class="detail detail-top-c">
+    <view class="detail-center">
+      <view>商品金额</view>
+      <view>￥{{goodsAmount}}</view>
+    </view>
+    <view wx:if="{{!isCurriculum}}">
+    <view class="detail-center">
+      <view>邮费</view>
+      <view>+￥{{freightFee}}</view>
+    </view>
+    <view class="detail-center">
+      <view>优惠折扣</view>
+      <view>-￥{{freeAmount}}</view>
+    </view>
+    <view class="detail-center">
+      <view>积分折扣</view>
+      <view>-￥{{pointAmount}}</view>
+    </view>
+    </view>
+    <view class="detail-center" style='font-size:28rpx;padding-top:8rpx;'>
+      <view>合计</view>
+      <view style='color:#ea281a'>￥{{totalAmount}}</view>
+    </view>
+  </view>
+
+  <view class="detail">
+    <view class="detail-center">
+      <text>下单时间: {{orderTime}}</text>
+    </view>
+    <view class="detail-centers"> 
+      <block wx:for="{{paymentLineList}}">
+        <view wx:if="{{item.type == 'CASH'}}">现金支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'BANK'}}">银行卡支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'THIRD' && item.payType == 'WECHAT'}}">微信: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'THIRD' && item.payType == 'ALIPAY'}}">微信: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'CARD'}}">会员卡支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'POINT'}}">积分支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'TICKET'}}">优惠券支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'DISCOUNT'}}">折扣支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'PRE_PAID_CARD'}}">礼品卡支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+        <view wx:elif="{{item.type == 'OTHER'}}">其他支付方式支付: {{item.account}}
+          <text>￥{{item.amount}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

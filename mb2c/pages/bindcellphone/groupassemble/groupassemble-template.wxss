@@ -1,0 +1,40 @@
+
+.group-assemble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.group-assemble-title {
+  font-size: 32rpx;
+  color: #333;
+  margin: 20rpx 0px;
+}
+
+.group-assemble-hot {
+  font-size: 32rpx;
+  color: #ea281a;
+}
+
+.group-assemble-time {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.group-assemble-btn {
+  height: 80rpx;
+  line-height: 70rpx;
+  width: 460rpx;
+  background: #ea281a;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.group-assemble-share {
+  color: #fff;
+  font-size: 28rpx;
+}

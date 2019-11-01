@@ -1,0 +1,21 @@
+<import src="../grouppeoplelist/grouppeoplelist-template.wxml" />
+<template name="joingrouptemplate">
+  <view class="joingroup-container">
+    <view class='joingroup moregroups'>
+
+      <!-- <scroll-view class="ass-menu" scroll-y="true" style="width:700rpx"> -->
+      <view class='moregroup-box'>
+        <template is="grouppeoplelistTemplate" />
+        <view class='grouppeople-join'>
+          我要参团
+        </view>
+      </view>
+
+      <view class='share-close'>
+        <image src="../../img/close.png"></image>
+      </view>
+      <!-- </scroll-view> -->
+
+    </view>
+  </view>
+</template>

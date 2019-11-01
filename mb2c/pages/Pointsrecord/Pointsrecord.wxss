@@ -1,0 +1,86 @@
+.m-product {
+  display: flex;
+  height: 230rpx;
+  background: #fff;
+}
+
+.m-product image {
+  width: 178rpx;
+  height: 178rpx;
+  padding-top: 35rpx;
+  padding-left: 30rpx;
+}
+
+.m-product-message {
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  width: 522rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.message1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 32rpx;
+  width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status {
+  font-size: 24rpx;
+  margin-right: 30rpx;
+}
+
+.message2 {
+  width: 60%;
+  margin-top:99rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.point {
+  color: #ea281a;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+}
+
+.m-btn {
+  width: 150rpx;
+  height: 52rpx;
+  text-align: center;
+  line-height: 52rpx;
+  border: 1rpx solid #eee;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  margin-right: 25rpx;
+}
+
+.shoppingcart {
+  padding-top: 323rpx;
+  padding-left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+
+.text {
+  padding-top: 25rpx;
+  padding-left: 295rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.u-link-btn {
+  margin: 0 10rpx;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 52rpx;
+  background-color: #fff;
+  position: relative;
+  left: 566rpx;
+  top: -74rpx;
+}

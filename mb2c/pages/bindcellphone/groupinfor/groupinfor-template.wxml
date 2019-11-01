@@ -1,0 +1,21 @@
+<template name="groupinforTemplate">
+   <view class='groupinfor'>
+    <view class='group-image-box'>
+      <image class='group-img' src="/images/avatar/1.png"></image>
+    </view>
+    <view class='group-text'>
+      <text class='group-title'>
+      特价限量5000件, 抢完涨价 [ 27包18包8包 ] 初采原生竹浆抽纸…
+      </text>
+      <text class='groupdetail'>
+          规格: 27包箱装</text>
+      <view class='group-price'>
+        <text class='prices'> ¥ </text>
+        <text class='num'>39.00</text>
+        <text class='font'> 单价买 </text>
+        <text class='oldprices'>¥49.00</text>
+        <text class='people'>3人团</text>
+      </view>
+    </view>
+  </view>
+</template>

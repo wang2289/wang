@@ -1,0 +1,10 @@
+ <template name="groupassembleTemplate">
+ <view class='group-assemble'>
+    <text class="group-assemble-title">还差<text class='group-assemble-hot'>2</text>人, 人满才算拼单成功</text>
+    <text class="group-assemble-title">仅剩<text class='group-assemble-hot'>1</text>个名额, 人满才算拼单成功</text>
+    <text class='group-assemble-time'>距结束: <text class='group-assemble-times'>10:02:23</text></text>
+    <view class='group-assemble-btn'>
+      <text class='group-assemble-share'>邀请好友入团</text>
+    </view>
+  </view>
+</template>

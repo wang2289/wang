@@ -1,0 +1,163 @@
+<!--index.wxml-->
+<view class='xnLoading' wx:if="{{xnLoading}}">{{xnLoading}}</view>
+<view style="position: relative;" wx:else>
+<view class="container">
+  <view class="userinfo">
+    <view class='userinfo-img'>
+      <image src="{{memberUserInfo.user.avatar ? memberUserInfo.user.avatar : '../../img/userImg.png'}}" mode='scaleToFill' mode='scaleToFill'></image>
+    </view>
+    <text class='userinfo-text'>{{memberUserInfo.member ? memberUserInfo.member.name:'未登录'}}</text>
+    <view class='userinfo-Info' wx:if="{{!memberUserInfo.member}}" bindtap='Clicklogin'>点击登录</view>
+    <view class='userinfo-user-Info' wx:else>
+      <view wx:if="{{memberUserInfo.currentLevel.name}}">{{memberUserInfo.currentLevel.name}} | {{PointsInfo}} </view>
+      <view wx:if="{{memberUserInfo.lackPoint && memberUserInfo.nextLevel.name}}">还需{{memberUserInfo.lackPoint}}分升级为{{memberUserInfo.nextLevel.name}}</view>
+    </view>
+    <view class='userinfo-user-link' bindtap='buttonTap' type='primary'>
+      <view class="m-cell-access">
+        <p class='pl-20'>点击关注"汇美舍"公众号，实时接收通知及收益信息！</p>
+        <text class="m-cell-ft ml-50"></text>
+      </view>
+    </view>
+    <modal wx:if="{{!modalHidden}}" bindtap="modalConfirm" bindcancel="modalCancel" no-cancel="{{nocancel}}" confirm-text="保存图片">
+      <view class='modal-titel'>
+        <view class='modal-title-ft'>关注公众号，您可以</view>
+      </view>
+      <view class='modal-text'>
+        <view class='mt-20' style='white-space:pre-wrap'>·     接收最新社区信息</view>
+        <view class='mt-20' style='white-space:pre-wrap'>·     实时获取佣金到账信息</view>
+        <view class='mt-20' style='white-space:pre-wrap'>·     学习更多精油信息</view>
+        <view class='mt-20' style='white-space:pre-wrap'>·     获得更多优惠信息</view>
+      </view>  
+      <view class='modal-secText'>扫码识别即可关注</view>
+      <view class='modal-secText'>
+        <image class="modal-image" src='https://cdn.xiniunet.com/img/fangliao/code.jpg' mode='aspectFill'>二维码</image>
+      </view>
+      <view class='modal-tirText'>或者微信搜索"汇美舍"公众号</view>
+    </modal>
+    <!--<view class='pop-layout' wx:if='{{!modalHidden && !isRoot}}' catchtap='modalCancel'>
+      <view class='save-btn'>
+        <button open-type="openSetting" hover-class="none" bindopensetting="authOpen" class='pop-save-btn'>去授权</button>
+      </view>
+    </view>-->
+  </view>
+  <view class="m-panel-bd">
+    <view class="m-media-box m-media-box-small-appmsg">
+      <view class="m-cells">
+        <navigator url="../orders/index" class="m-cell m-cell-access">
+          <view class="m-cell-bd m-cell-primary">
+            <p>全部订单</p>
+          </view>
+          <text class="m-cell-ft"></text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <view class="nav-item" catchtap="onToOrderTap" data-type="{{item.name}}" data-status="{{item.status}}">
+        <image src="{{item.imageurl}}" class="nav-image" />
+        <text class='text'>{{item.name}}</text>
+        <text class='item-number' wx:if="{{item.number>0}}">{{item.number}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="m-panel-bd" style='margin-bottom:20rpx'>
+  <view class="m-media-box m-media-box-small-appmsg">
+    <view class="m-cells">
+      <navigator url="../collect/collect" class="m-cell m-cell-access">
+        <view class="m-cell-hd " style="color:#fd690c">
+          <image src='../../img/shoucang.png' class='m-cell-img'></image>
+        </view>
+        <view class="m-cell-bd m-cell-primary">
+          <p>收藏</p>
+        </view>
+        <view>{{collection}}</view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <navigator url="../integral/integral" class="m-cell m-cell-access">
+        <view class="m-cell-hd " style="color:#fd690c">
+          <image src='../../img/integrals.png' class='m-cell-img1'></image>
+        </view>
+        <view class="m-cell-bd m-cell-primary">
+          <p>积分</p>
+        </view>
+        <view>{{PointsInfo}}</view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <navigator url="../coupon/coupon" class="m-cell m-cell-access">
+        <view class="m-cell-hd " style="color:#fd690c">
+          <image src='../../img/coupon.png' class='m-cell-img2'></image>
+        </view>
+        <view class="m-cell-bd m-cell-primary">
+          <p>优惠券</p>
+        </view>
+        <view>{{Couponamount}}</view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <!-- <navigator url="../cards/index" class="m-cell m-cell-access">
+        <view class="m-cell-hd " style="color:#fd690c">
+          <image src='../../img/giftcardicon.png' class='m-cell-img3'></image>
+        </view>
+        <view class="m-cell-bd m-cell-primary">
+          <p>礼品卡</p>
+        </view>
+        <view>{{GiftcardCount}}</view>
+        <text class="m-cell-ft"></text>
+      </navigator> -->
+    </view>
+  </view>
+</view>
+
+<view class="m-panel-bd" style="margin-bottom:10rpx;">
+  <view class="m-media-box m-media-box-small-appmsg">
+    <view class="m-cells">
+      <!-- <navigator url="../consumptionrecords/consumptionrecords" class="m-cell m-cell-access">
+
+        <view class="m-cell-bd m-cell-primary">
+          <p>消费记录</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </navigator> -->
+      <navigator url="../Pointsrecord/Pointsrecord" class="m-cell m-cell-access">
+        <view class="m-cell-bd m-cell-primary">
+          <p>积分兑换记录</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <navigator url="../Useraccount/Useraccount" class="m-cell m-cell-access">
+        <view class="m-cell-bd m-cell-primary">
+          <p>我的账户</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <navigator url="../Dataaddress/Dataaddress" class="m-cell m-cell-access">
+        <view class="m-cell-bd m-cell-primary">
+          <p>我的资料</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+      <view class="m-cell m-cell-access" bindtap='security'>
+        <view class="m-cell-bd m-cell-primary">
+          <p>账户安全</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </view>
+      <navigator url="../Increasedticket/Increasedticket" class="m-cell m-cell-access">
+        <view class="m-cell-bd m-cell-primary">
+          <p>增票资质</p>
+        </view>
+        <text class="m-cell-ft"></text>
+      </navigator>
+    </view>
+  </view>
+</view>
+<button bindtap='exite' class='u-btn'>退出</button>
+
+<view class='fangliao-btn' catchtap='toFangLiao'>
+  <image src="../../img/fangliao@2x.png" style="width: 100%; height: 100%;" mode='scaleToFill'></image>
+</view>
+
+</view>
+

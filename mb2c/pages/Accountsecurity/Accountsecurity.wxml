@@ -1,0 +1,25 @@
+<view class='m-security'>
+  <view class='m-account-list'>
+    <view class='m-title'>
+      <view class='m-title1'>登录密码</view>
+      <view class='m-detail'>用于修改您的账户登录密码</view>
+    </view>
+    <view class='m-btn' bindtap='changepassword'>修改密码</view>
+  </view>
+  <!-- <view class='m-account-list'>
+    <view class='m-title'>
+      <view class='m-title1'>绑定手机
+        <text style='color:#ea281a;font-size: 32rpx;'>({{mobilePhone}})</text>
+      </view>
+      <view class='m-detail'>用于修改您的绑定手机号</view>
+    </view>
+    <view class='m-btn' bindtap='changephonenumber'>修改手机</view>
+  </view> -->
+  <view class='m-account-list'>
+    <view class='m-title'>
+      <view class='m-title1'>支付密码</view>
+      <view class='m-detail'>用于修改您的支付密码</view>
+    </view>
+    <view class='m-btn' bindtap='paymentpassword'>修改密码</view>
+  </view>
+</view>

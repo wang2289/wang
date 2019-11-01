@@ -1,0 +1,49 @@
+<!--pages/giftCard/giftCard.wxml-->
+<wxs module="filter" src="../../utils/format.wxs"></wxs>
+<view>
+  <!-- <view style='font-size:32rpx;padding:20rpx 0rpx 20rpx 592rpx;font-family: PingFangSC-Regular;background: #FFFFFF;'>帮助说明</view> -->
+  <view>
+    <!-- 无数据时展示 -->
+    <view wx:if="{{GiftcardCount == 0}}">
+      <image src='../../img/nogiftcard.png' class='shoppingcart'></image>
+      <view class='text'>暂无礼品卡可用</view>
+    </view>
+    <scroll-view scroll-y="true" class="m-orderlist" bindscrolltolower="scrollbottom">
+      <view class='in-card' wx:for="{{Giftcarddetails}}" wx:for-item="item">
+        <view class='cards'>
+          <image src='../../img/giftcard.png' class='in-cards'></image>
+        </view>
+        <view class='te-card'>礼品卡</view>
+        <view class='ca-left'></view>
+        <view class='ca-kind'>{{item.name}}</view>
+        <view class='ca-right'></view>
+        <view class='ca-rest'>余额￥
+          <text style='font-size:60rpx'>{{item.surplusAmount}}</text>
+        </view>
+        <view class='ca-use'>使用期限:
+        <text wx:if='{{item.limitEndTime}}'>{{filter.formatDay(item.limitEndTime)}}</text>
+          <text wx:else>永久有效</text>  
+           
+        </view>
+        <!-- <image src='../../img/giftdetail.png' class='ca-detail'></image> -->
+      </view>
+      <!-- <view class='ca-useless' wx:if="{{Giftcarddetails != 0}}">
+        <image src='../../img/useless.png' style='height:34rpx;width:40rpx;padding:27rpx 20rpx 27rpx 30rpx'></image>
+        <text>不可用卡</text>
+        <image style='width: 20rpx;height: 24rpx;padding-left:470rpx;' src='../../img/right.png'></image>
+      </view> -->
+    </scroll-view>
+  </view>
+
+
+  <!-- <view class='ca-new'>
+    <view>
+      <image src='../../img/newcard.png' style='height:40rpx;width:40rpx;padding:29rpx 20rpx 29rpx 101rpx;' />
+      <text style='position:relative;top:-35rpx;' bindtap='purChase'>购买新卡</text>
+    </view>
+    <view>
+      <image src='../../img/bindcard.png' style='height:40rpx;width:40rpx;padding:29rpx 20rpx 29rpx 204rpx;' />
+      <text style='position:relative;top:-35rpx;' bindtap='Binding'>绑定新卡</text>
+    </view>
+  </view> -->
+</view>

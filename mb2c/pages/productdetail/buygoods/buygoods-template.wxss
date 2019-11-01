@@ -1,0 +1,97 @@
+.buygoods-container{
+  position: fixed;
+  width: 750rpx;
+  height:780rpx;
+  background: #fff;
+  z-index: 1000;
+  overflow: hidden;
+  bottom: 0rpx;
+}
+.buygoods-detail{
+  display: flex;
+  flex-direction: row;
+}
+.buygoods-shuxing{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.buygoods-shu{
+  padding: 14rpx 32rpx;
+  border: 1px solid #F8F8F8;
+  background: #F8F8F8;
+border-radius: 8rpx;
+font-size: 28rpx;
+color: #333333;
+margin-left: 21rpx;
+margin-top: 30rpx;
+margin-bottom: 20rpx;
+}
+.buygoods-shuxing{
+padding-left: 11rpx;
+}
+.buygoods-shu.on{
+  color: #EA281A;
+   border: 1px solid #EA281A;
+  background: #fff;
+}
+.buygoods-shu.kong{
+  color: #999999;
+}
+.buygoods-img{
+  width: 168rpx;
+  height: 168rpx;
+  background: #eee;
+  margin: 46rpx 25rpx 44rpx 35rpx;
+}
+.buygoods-text{
+  display: flex;
+  flex-direction: column;
+}
+.buygoods-price{
+  font-size: 24rpx;
+color: #EA281A;
+margin: 42rpx 0rpx;
+}
+.buygoods-money{
+  font-size: 32rpx;
+  color: #EA281A;
+}
+.buygoods-num{
+  font-size: 24rpx;
+color: #333333;
+}
+.nums{
+  font-size: 24rpx;
+color: #666666;
+}
+.buygoods-title{
+  font-size: 28rpx;
+color: #333333;
+margin-left: 32rpx;
+}
+.buy-close{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  text-align: center;
+  vertical-align: middle
+}
+.buy-close image{
+  width: 100%;
+  height: 100%;
+   vertical-align: middle
+}
+.buygoods-sub{
+  width: 100%;
+  position: absolute;
+  bottom: 0rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 28rpx;
+color: #FFFFFF;
+background: #EA281A;
+}

@@ -1,0 +1,287 @@
+<view class="m-category">
+  <view class="m-search-box">
+    <!-- <view class="u-input-search">
+      <label class="iconfont icon-sousuo-sousuo"></label>
+      <input type="text" placeholder="搜索商品" bindinput='startinput' />
+      <view class="u-btn" bindtap="search">搜索</view>
+    </view> -->
+    <navigator url="../search/search?type=2" class="u-search-box" wx:if="{{keyword==''}}">
+      <view class="u-search-cont">
+        <icon type="search" size="14"></icon>
+        <text>搜索商品</text>
+      </view>
+    </navigator>
+
+    <navigator url="../search/search?type=2" class="u-search-box" wx:else>
+      <view class="u-search-cont-fon">
+        <!-- <icon type="search" size="14"></icon> -->
+        <text style='margin-left:10rpx'>{{keyword}}</text>
+      </view>
+    </navigator>
+  </view>
+  <!-- wx:if="{{information.length>0}}" -->
+  <view class="m-tab">
+    <view class="m-navbar">
+      <view class="m-navbar-item {{tapindex==1?'m-navbar-item-on':''}}" bindtap="allOrders" wx:if="{{flag==false}}">
+        <label class="m-sort">综合
+          <image src="../../img/select2x.png" class='sorg' style='width:10rpx;height:10rpx' wx:if='{{tapindex==1}}' />
+        </label>
+      </view>
+      <view class="m-navbar-item {{tapindex==1?'m-navbar-item-on':''}}" bindtap="allOrdersa" wx:if="{{flag==true}}">
+        <label class="m-sort">综合
+          <image src="../../img/select2x.png" class='sorg' style='width:10rpx;height:10rpx' wx:if='{{tapindex==1}}' />
+        </label>
+      </view>
+      <view class="m-navbar-item {{tapindex==2?'m-navbar-item-on':''}}" bindtap="toBePaid">
+        销量
+      </view>
+      <view class="m-navbar-item {{tapindex==3?'m-navbar-item-on':''}}" bindtap="{{sort==0?'toBeEvaluated':'toBeEvaluatedone'}}">
+        <label class="m-sort" wx:if="{{sort==0}}">价格
+          <image src="../../img/transimg.png" class='sorg' />
+        </label>
+        <label class="m-sort" wx:if="{{sort==1}}">价格
+          <image src="../../img/pricedown.png" class='sotr' />
+        </label>
+      </view>
+      <view class="m-navbar-item {{tapindex==4?'m-navbar-item-on':''}}" bindtap="filter">
+        筛选
+      </view>
+    </view>
+  </view>
+  <image class='m-ta-pk' bindtap='comparison' src='../../img/pk.png'></image>
+
+  <scroll-view class="m-category-l" scroll-y="true">
+    <view data-prduindex="{{i}}" bindtap="ckCategoryitem" wx:for="{{productInfo}}" wx:for-index="i" data-id="{{item.id}}" wx:for-item="item" class='p-category-l'>
+      <view class='p-l'>
+        <view class='m-category-l-item_img'>
+          <image src='{{item.pictureUrl}}' mode='aspectFit'></image>
+        </view>
+        <view class="m-category-l-item {{fid==i?'m-category-l-select':''}}">{{item.categoryName}}</view>
+      </view>
+    </view>
+    <view class='m-category-l-item_img' style='height:160rpx'></view>
+  </scroll-view>
+  <view>
+    
+    <scroll-view class="m-category-r" scroll-y="true" wx:if="{{Infoflag}}" bindscrolltolower="scrollbottom">
+      <block wx:for="{{information}}" wx:for-item="item">
+
+        <view class='m-cell-content' data-id="{{item.id }}" data-clazzType="{{item.clazzType }}" catchtap='prouclick'>
+          <view class='m-cell-img'>
+            <image src='{{item.pictureUrl}}' data-id="{{item.id }}" class='img'></image>
+            <view class='p-introduce' style="height: 223rpx;" bindtap='Cloak'>
+              <view class='introduce'>
+                <view class='introduce-title'>
+                  {{item.name}}
+                </view>
+              </view>
+              <view class='m-many'>
+                <text class='many'>{{item.saleQuantity}}条成交</text>
+                <label class='numberaa'>￥
+                  <text>{{item.showPrice}}</text>
+                </label>
+              </view>
+              <view class='gengduo' catchtap='gowuclick' data-id="{{item.id}}" wx:if="{{item.clazzType!='CURRICULUM'}}">
+                <image src='../../img/gebgduo.png'></image>
+              </view>
+
+
+
+
+              <view wx:if="{{currentItemId==item.id && item.clazzType!='CURRICULUM'}}" style="height: 223rpx;">
+                <view class='gowu ' wx:if="{{currentItemId==item.id}}">
+                  <view class='m-ta-back' >
+                    <view class='m-ta-back-one' catchtap='contrastcart' data-id="{{item.id }}">
+                      <view>加入</view>
+                      <view>购物车</view>
+                    </view>
+                    <view class='m-ta-back-two' catchtap='contrast' data-id="{{item.id }}">
+                      <view>加入</view>
+                      <view>对比</view>
+                    </view>
+                    <view style='clear:both'></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!-- 加入对比
+            <view class='p-introduce' wx:if="{{currentItemId==item.id}}" style="height: 223rpx;">
+              <view class='gowu ' wx:if="{{currentItemId==item.id}}">
+                <view class='m-ta-back'>
+                  <view class='m-ta-back-one' catchtap='contrastcart' data-id="{{item.id }}">
+                    <view>加入</view>
+                    <view>购物车</view>
+                  </view>
+                  <view class='m-ta-back-two' catchtap='contrast' data-id="{{item.id }}">
+                    <view>加入</view>
+                    <view>对比</view>
+                  </view>
+                  <view style='clear:both'></view>
+                </view>
+              </view>
+            </view> -->
+            <!-- <view class='p-introduce' wx:if="{{currentItemId==item.id}}" style="height: 223rpx;">
+              <view class='gowu '>
+                <view class='gowu-one' catchtap='contrastcart' data-id="{{item.id }}">
+                  <view style='margin-top:66rpx'>
+                    <image src='../../img/gowuche.png' style='width:40rpx;height:40rpx'></image>
+                  </view>
+                  <view>加入购物车</view>
+                </view>
+                <view class='gowu-two' catchtap='contrast' data-id="{{item.id }}">
+                  <view style='margin-top:66rpx'>
+                    <image src='../../img/gowuche.png' style='width:40rpx;height:40rpx'></image>
+                  </view>
+                  <view>加入对比</view>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view> -->
+          </view>
+        </view>
+      </block>
+      <view class='p-gap'></view>
+      <view class="m-loading-box">
+        <block wx:if='{{ispage}}'>
+          <view class="u-loadmore">
+            <label class="u-loading"></label>
+            <text class="u-loadmore-tips">正在加载</text>
+          </view>
+        </block>
+      </view>
+
+    </scroll-view>
+ <!-- 无商品时 -->
+    <view wx:if="{{!Infoflag}}">
+      <image src='../../img/null.png' class='shoppingcart'></image>
+      <view class='text'>无商品</view>
+    </view>
+  </view>
+</view>
+<!-- 无数据时展示 -->
+<!-- <navigator url="../index/index" open-type="switchTab" class="m-nullpage"wx:if="{{information.length<=0}}">
+	<view class="m-nullpage-middle">
+		<label class="iconfont icon-konggouwuche"></label>
+		<view class="m-null-tip">
+			<text>暂无数据</text>-
+		</view>
+	</view>
+   </navigator>  -->
+
+<!-- 筛选 -->
+<view class='animation' animation="{{animationData}}" style="height:100%;position:fixed;visibility:{{show ? 'visible':'hidden'}}" bindtap='screenproduct'>
+
+  <view class='animation-content'>
+    <scroll-view class="m-panel-sp-listbox p-panel-sp" scroll-y="true" style='height: 100%'>
+      <view class='auth-text' wx:for="{{categoryAttributesList}}" wx:for-item="item">
+        <view class='auth-text-con'>{{item.attributeName}}</view>
+        <view class='auth-btn'>
+          <view wx:for="{{item.attributeValueList}}" wx:for-item="items" class='specification {{items.isShow?"p-btn-xell":"auth-btn-xells"}}' data-name="{{items.name}}" catchtap='{{items.isShow?"Clickonthescreenexit":"Clickonthescreen"}}' data-categoryId="{{items.id}}">{{items.name}}</view>
+          <view style='clear:both'></view>
+        </view>
+      </view>
+      <!-- 品牌 -->
+      <view class='auth-text' wx:if='{{brandsList!=""}}'>
+        <view class='auth-text-con'>品牌</view>
+        <view class='auth-btn'>
+          <view wx:for="{{brandsList}}" wx:for-item="item" class='specification {{item.isShow?"p-btn-xell":"auth-btn-xells"}}' data-index="{{index}}" catchtap='{{item.isShow?"ClickonthescreenPinexit":"ClickonthescreenPin"}}' data-categoryId="{{item.brandId}}">{{item.brandName}}</view>
+          <view style='clear:both'></view>
+        </view>
+      </view>
+      <!-- 价格 -->
+      <view class='auth-text' wx:if='{{categoryPriceList !=""}}'>
+        <view class='auth-text-con'>价格</view>
+        <view class='auth-btn'>
+          <view class='specification {{Mindex==index?"p-btn-xell":"auth-btn-xells"}}' wx:for="{{categoryPriceList}}" wx:for-item="item" data-index="{{index}}" catchtap='ClickonthescreenMany' data-categoryId="{{item.categoryId}}" data-specId='{{item.id}}'>{{item.priceFrom}} - {{item.priceTo}}</view>
+          <view style='clear:both' style='width:100%;height:100px'></view>
+        </view>
+
+      </view>
+      <view class='show'></view>
+    </scroll-view>
+    <view class='p-auth-cs'>
+      <view class='auth-btn-reset' catchtap='replacement'>重置</view>
+      <view class='auth-btn-xell' bindtap='ClickSuccess'>确定</view>
+    </view>
+  </view>
+
+</view>
+<!-- PK模态框 -->
+<view class="auth-pop-mo" wx:if="{{comparisonshow}}">
+  <view class="auth-box-top"  bindtap='Close'></view>
+  <view class="auth-box-mo">
+    <scroll-view class="m-panel-sp-listbox" scroll-y="true">
+      <view class='m-cell-content p-cell-contents' wx:for="{{Contrasttoshow}}" wx:for-item="item">
+        <view class='m-cell-img'>
+          <view class="m-cart-ck" catchtap="ckitem" data-id='{{item.id}}' data-itemid='{{item.itemId}}'>
+            <image src='../../img/remove.png' class='p-image' />
+          </view>
+          <image src='{{item.pictureUrl}}' data-id="{{item.id }}" class='img'></image>
+          <view class='p-introduce' style="height: 223rpx;" bindtap='Cloak'>
+            <view class='introduce'>
+              <view style='width:362rpx;height:85rpx;display: -webkit-box;overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;white-space: normal !important;-webkit-line-clamp: 2;-webkit-box-orient: vertical'>
+                {{item.name}}
+              </view>
+            </view>
+            <view class='m-many'>
+              <!-- <text class='many'>{{item.saleQuantity}}条成交</text> -->
+              <label class='numberaa'>￥
+                <text>{{item.showPrice}}</text>
+              </label>
+            </view>
+            <!-- <image src='{{item.pictureUrl}}' class='img p-duct'></image>
+          <view class='introduce'>
+            <text style='overflow: hidden;text-overflow: ellipsis'>{{item.name}}</text>
+          </view>
+          <view class='numberaa' style='position:relative;top:128rpx;right:362rpx;'>￥
+            <text>{{item.showPrice}}</text>
+          </view> -->
+          </view>
+          </view>
+        </view>
+    </scroll-view>
+    <view class='auth-btn-css'>
+      <view class='auth-btn-reset' bindtap='replacementcontrast'>重置</view>
+      <view class='auth-btn-xell' bindtap='ensure'>对比</view>
+    </view>
+    </view>
+
+
+  </view>
+
+
+  <!-- 综合list -->
+  <view class="auth-pop-molist" wx:if="{{flag}}">
+    <view class="auth-box-molist">
+      <view class="auth-box-molist-posen" bindtap='molistposen'>
+        <text>人气</text>
+      </view>
+      <view class='auth-box-molist-time' bindtap='molisttime'>
+        <text>上架时间</text>
+      </view>
+    </view>
+  </view>
+
+
+<!-- 对比 -->
+<!-- <view class="xn-pop-layout {{comparedActive?'':'hide'}} " 
+    bindtap="closesp" wx:if="{{!conponflag}}">
+  <view class="pop-content {{comparedActive?'bounceOutDown animated':'bozunceInUp animated'}}" catchtap>   
+    <scroll-view class="pop-listbox" scroll-y="true">
+      <view class="pop-item">
+        <view class="item-operat" bindtap='reduceCompared'></view>
+        <view class="item-img">
+          <image class="img" src="{{ProductInfo.commodity.pictureUrl}}" />
+        </view>
+        <view class="item-info">
+          <view class="title">库存0件</view>
+          <view class="number">3000</view>
+        </view>    
+      </view>
+    </scroll-view>
+    <view class='btn-layout'>
+      <view class='btn'>重置</view>
+      <view class='btn btn-s'>开始对比</view>
+    </view>
+  </view>
+</view> -->

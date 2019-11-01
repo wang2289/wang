@@ -1,0 +1,40 @@
+<!--pages/giftDetails/giftDetails.wxml-->
+<scroll-view style='padding-bottom:120rpx;'>
+  <view>
+    <view class="m-banner-ad">
+      <swiper indicator-dots="true" autoplay="true" interval="3000" duration="300" style='height:100%;width:100%;'>
+        <block wx:for="{{IntegrapictureList}}" wx:for-item="item" current="0" bindchange='onSlideChangeEnd'>
+          <swiper-item>
+            <image src="{{item.url}}" mode='scaleToFill' class='slide-image' bindtap='previewImg' data-index='{{index}}'/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- <view class="imageCount">{{current+1}}/{{IntegrapictureList.length}}</view> -->
+    </view>
+    <view style='padding:26rpx 0 0 30rpx;height:177rpx;width:100%;background:#FFFFFF;'>
+      <view style='padding-bottom:20rpx;height:74rpx;font-size:30rpx'>{{Integracommodity.name}}</view>
+      <view style='font-family: PingFangSC-Semibold;font-size: 24rpx;color: #EA281A;'>
+        <text wx:if="{{Integracommodity.showPrice!='' && Integracommodity.showPrice!=0}}">￥</text>
+        <text style='font-size:48rpx'>{{Integracommodity.showPrice!=0?Integracommodity.showPrice:''}}<text wx:if="{{Integracommodity.showPrice>0}}"> + </text>{{Integracommodity.showPoint}}</text>分</view>
+    </view>
+  </view>
+  <view style='margin-top:20rpx;'>
+    <view style='padding:17rpx 0 0 30rpx;background:#FFFFFF;height:55rpx;width:100%;font-size:28rpx'>礼品信息</view>
+    <rich-text nodes="{{commodityText}}"></rich-text>
+    <!-- <block wx:for-items="{{detailImg}}" wx:key="name">
+      <image class="image_detail" src="{{item}}" />
+    </block> -->
+  </view>
+  <view style='height:98rpx;width:100%;position:fixed;bottom:0;display:flex;font-size: 28rpx'>
+    <view style='padding:30rpx 0 0 29rpx;width:524rpx;background:#FFFFFF;color: #666666;'>我的积分:
+      <text style='color: #EB291B;padding-left:10rpx'>{{Integrapoint}}</text>分</view>
+    <view wx:if="{{(Integrapoint>Integracommodity.showPoint || Integrapoint == Integracommodity.showPoint) &&repertoryquantity>0}}" class="d-mell" bindtap="conversion">兑换</view>
+    <view wx:else class='d-mell-detai' bindtap='conversionNo'>{{repertoryquantity>0?'积分不足':'库存不足'}}</view>
+  </view>
+</scroll-view>
+
+<view class="u-tap-btn">
+  <navigator url="../index/index" open-type="switchTab" class="u-go-home">
+    <view class="iconfont icon-shouyeshouye"></view>
+  </navigator>
+</view>

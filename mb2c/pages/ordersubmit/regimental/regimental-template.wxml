@@ -1,0 +1,13 @@
+  <template name="regimentalTemplate">
+  <view class='regimental'>
+    <view class='regimental-people'>
+      <view class='group-people-detail on'>
+        <text>团长</text>
+      </view>
+      <view class='regimental-detail'>
+        <view class='regimental-name'>团长 : <text>倪凯</text></view>
+         <view class='regimental-title'>3人成团, 剩1天23小时45分结束</view>
+      </view>
+    </view>
+  </view>
+  </template>

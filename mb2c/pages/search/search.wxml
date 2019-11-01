@@ -1,0 +1,9 @@
+<!--pages/search/search.wxml-->
+<view class="m-search-box">
+    <view class="u-input-search">
+        <!--<label class="iconfont icon-sousuo-sousuo"></label>-->
+        <icon type="search" size="14"></icon>
+        <input type="text" bindinput="startinput" focus="true" bindconfirm="search" placeholder="请输入商品名称"/>
+        <view class="u-btn" bindtap="search">搜索</view>	
+    </view>
+</view>  

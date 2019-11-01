@@ -1,0 +1,15 @@
+<view class="myaccount">
+<view class='detail'>
+<view class='total'>
+<text class='total_'>消费总额</text>
+<view class='_total_'>￥{{total}}</view>
+</view>
+<view class='rest'>
+<text class='rest_'>可用余额</text>
+<view class='_rest_'>￥{{rest}}</view>
+</view>
+</view>
+<view class='tradingrecord' bindtap='tradingRecord'>
+<view class='tradingrecord_' >交易记录</view>
+<image src='../../img/zhankai.png'></image></view>
+</view>

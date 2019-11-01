@@ -1,0 +1,31 @@
+.m-payment{
+  background: #FFFFFF;
+  height:594rpx;
+}
+image{
+  height: 200rpx;
+  width: 200rpx;
+  padding-top: 74rpx;
+  padding-left: 283rpx;
+}
+.m-price{
+ text-align:center;
+  font-size: 64rpx;
+  margin-top:20rpx;
+
+}
+.m-btn{
+margin-top: 70rpx;
+display: flex;
+font-size: 28rpx;
+}
+.m-btn-1{
+padding-left: 182rpx;
+}
+.p-btn-text{
+  padding-left: 82rpx;
+  border-right:1rpx solid #dddddd;
+}
+.m-btn-2{
+padding-left:83rpx; 
+}

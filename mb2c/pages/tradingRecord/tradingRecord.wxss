@@ -1,0 +1,233 @@
+/* pages/tradingRecord/tradingRecord.wxss */
+
+/* .updatetime{
+  padding-top: 13rpx;
+  padding-left: 30rpx;
+  font-size: 35rpx;
+}
+.orderdetail{
+  display: flex;
+
+  margin-top: 13rpx;
+  height: 150rpx;
+}
+.goods{
+padding-top: 30rpx;
+padding-left: 30rpx;
+height: 90rpx;
+width: 90rpx;
+
+}
+.order{
+  padding-left: 28rpx;
+}
+.number{
+  padding-top: 30rpx;
+  font-size: 35rpx;
+}
+.time{
+  display: flex;
+  padding-top: 10rpx;
+  font-size: 33rpx;
+  color: #999999;
+}
+.time2{
+  padding-left: 20rpx;
+}
+.cost{
+position: relative;
+top: -76rpx;
+left: 440rpx;
+}
+.shoppingcart{
+  padding-top: 321rpx;
+  padding-left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+.text{
+  padding-top: 30rpx;
+  padding-left: 290rpx;
+  color: #999999;
+  font-size: 32rpx;
+} */
+
+
+.c-records{
+  background: #FFFFFF;
+}
+.updatetime{
+  padding-left: 30rpx;
+  font-size: 35rpx;
+  background:#f4f4f4;
+  height:65rpx;
+  line-height:65rpx;
+  font-family:"PingFang-SC-";
+}
+.orderdetail{
+  display: flex;
+  margin-top: 13rpx;
+  height: 150rpx;
+  border-bottom:2rpx solid  #dddddd;
+}
+/* .goods{
+padding-top: 30rpx;
+padding-left: 30rpx;
+height: 90rpx;
+width: 90rpx;
+} */
+/* .order{
+  padding-left: 28rpx;
+  position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:flex;
+-webkit-box-align:center;
+-webkit-align-items:center;
+align-items:center;
+width:60%;
+}
+.number{
+  margin-top:-7rpx;
+  font-size: 32rpx;
+  font-family:"PingFang-SC-";
+  height:70rpx;
+  line-height:35rpx;
+}
+.center{
+  font-size:32rpx;
+  font-family:"PingFang-SC-";
+}
+ .time{
+  display: flex;
+  font-size: 32rpx;
+  color: #999999;
+} */
+/*.time2{
+  padding-left: 20rpx;
+} */
+/* .cost{ */
+ /* position: relative;
+left: 30rpx;
+text-align:right;
+text-align:end;
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1; */
+/* height:150rpx;
+line-height:150rpx;
+position:absolute;
+right:50rpx;
+font-size:36rpx;
+font-weight:600;
+margin-top:-7rpx;
+font-family:"PingFang-SC-";
+}
+.shoppingcart{
+  padding-top: 321rpx;
+  padding-left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+.text{
+  padding-top: 25rpx;
+  padding-left: 298rpx;
+  color: #999999;
+  font-size: 28rpx;
+}
+.c-records .orderdetail:last-child{
+  border-bottom:none;
+}
+ */
+
+.c-records{
+  background: #FFFFFF;
+}
+.updatetime{
+  padding-left: 30rpx;
+  font-size: 35rpx;
+  background:#f4f4f4;
+  height:65rpx;
+  line-height:65rpx;
+  font-family:"PingFang-SC-";
+}
+.orderdetail{
+  display: flex;
+  margin-top: 13rpx;
+  height: 150rpx;
+  border-bottom:2rpx solid  #dddddd;
+}
+/* .goods{
+padding-top: 30rpx;
+padding-left: 30rpx;
+height: 90rpx;
+width: 90rpx;
+} */
+.order{
+  padding-left: 28rpx;
+  position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:flex;
+-webkit-box-align:center;
+-webkit-align-items:center;
+align-items:center;
+width:60%;
+}
+.number{
+  margin-top:-7rpx;
+  font-size: 32rpx;
+  font-family:"PingFang-SC-";
+  height:70rpx;
+  line-height:35rpx;
+}
+.center{
+  font-size:32rpx;
+  font-family:"PingFang-SC-";
+}
+ .time{
+  display: flex;
+  font-size: 32rpx;
+  color: #999999;
+}
+/*.time2{
+  padding-left: 20rpx;
+} */
+.cost{
+ /* position: relative;
+left: 30rpx;
+text-align:right;
+text-align:end;
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1; */
+height:150rpx;
+line-height:150rpx;
+position:absolute;
+right:50rpx;
+font-size:36rpx;
+font-weight:600;
+margin-top:-7rpx;
+font-family:"PingFang-SC-";
+}
+.shoppingcart{
+  padding-top: 321rpx;
+  padding-left: 290rpx;
+  height: 171rpx;
+  width: 171rpx;
+}
+.text{
+  padding-top: 25rpx;
+  padding-left: 298rpx;
+  color: #999999;
+  font-size: 28rpx;
+}
+.c-records .orderdetail:last-child{
+  border-bottom:none;
+}
+.m-orderlist {
+position:absolute;
+box-sizing:border-box;
+width:100%;
+height:100%;
+}

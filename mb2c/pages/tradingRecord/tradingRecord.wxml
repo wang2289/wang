@@ -1,0 +1,71 @@
+<!--pages/tradingRecord/tradingRecord.wxml-->
+<!-- <view class="consumptionrecords">
+<view class='updatetime'>本月</view> -->
+<!-- <view class='orderdetail'>
+<image src='../../img/jilu.png' class='goods'></image>
+<view class='order'>
+<view class='number'>订单-45624546566665</view>
+<view class='time'>
+<text class='time1'>今天 </text>
+<text class='time2'>12:56</text>
+</view>
+<text class='cost'>-80.00</text>
+</view>
+</view>
+</view> -->
+
+
+<!-- <view class="c-records">
+  <view class='updatetime'>2018年8月12日</view>
+  <view class='orderdetail'> -->
+<!-- <image src='../../img/jilu.png' class='goods'></image> -->
+<!-- <view class='order'>
+      <view style='word-wrap:break-word;word-break:break-all;display:block;'>
+        <view class='number'>订单
+          <text>1254825855255消费</text>
+        </view>
+        <view class='time'>
+       2018年8月10日\t08:00 -->
+<!-- <text class='time1'>{{item.date}} </text>
+          <text class='time2'>{{item.time}}</text> -->
+<!-- </view>
+      </view>
+    </view>
+    <view class='cost'>23.00</view>
+  </view>
+</view>
+
+<view wx:if="{{memberTranList.length<=0}}">
+  <image src='../../img/gouwuche.png' class='shoppingcart'></image>
+  <view class='text'>暂无消息记录</view>
+</view> -->
+<scroll-view scroll-y="true" class="m-orderlist"  bindscrolltolower="scrollbottom">
+<view class="c-records" wx:for="{{memberTranList}}" wx:for-item="item">
+  <!-- <view class='updatetime'>{{item.periodId}}</view> -->
+  <view class='orderdetail'>
+    <!-- <image src='../../img/jilu.png' class='goods'></image> -->
+    <view class='order'>
+      <view style='word-wrap:break-word;word-break:break-all;display:block;'>
+        <view class='number'>
+          <text wx:if="{{item.type == 'SPEND'}}" >消费</text>
+          <text wx:if="{{item.type == 'SPEND_RE'}}">退单</text>
+        </view>
+        <view class='time'>
+        {{item.transactionTime}}
+          <!-- <text class='time1'>{{item.date}} </text>
+          <text class='time2'>{{item.time}}</text> -->
+        </view>
+      </view>
+    </view>
+    <view class='cost' wx:if="{{item.type == 'SPEND'}}"> - {{item.debit - item.credit}}</view>
+    <view class='cost' wx:if="{{item.type == 'SPEND_RE'}}"> + {{item.credit - item.debit}}</view>
+  </view>
+</view>
+</scroll-view>
+
+ 
+
+<view wx:if="{{memberTranList.length<=0}}">
+  <image src='../../img/gouwuche.png' class='shoppingcart'></image>
+  <view class='text'>暂无消息记录</view>
+</view>

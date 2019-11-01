@@ -1,0 +1,65 @@
+<view class='e-cell'>
+  <view class='e-btn'>
+    <view class='e-btn-a'>全部 {{allCommentCount}}</view>
+    <view class='e-btn-b'>有图 ({{hasPictureCount}})</view>
+  </view>
+  <!-- 评价信息 -->
+  <scroll-view scroll-y="true" class="m-panel-bd scroll-box" bindscrolltolower="scrollPage">
+    <view class="m-media-box m-media-box-appmsg">
+      <!-- <view class="m-media-box-hd">
+        <image class="m-media-box-thumb" src="https://wx.qlogo.cn/mmopen/vi_32/rLoDJaFrdj0kwDBMicFCFGbulicmJnh0QQ4uia0EM686hUuqqcfU7VDOj4vRI9E94jBsxNUfLuCcicvI5R0lMwa1fw/132" />
+      </view> -->
+      <view class="m-media-box-bd">
+        <label class="m-media-box-title">忙着赚钱。</label>
+        <view class="m-media-box-desc">
+          <view class="m-media-box-info" style='width:144rpx'>
+            <view class="m-media-box-info-meta m-start" wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-item="itemIndex">
+              <label class="iconfont icon-start  sel" data-type="1" bindtap="ServiceStart"></label>
+            </view>
+            <!-- <view style="margin-bottom:10rpx;">
+           <label style="margin-right:10rpx;font-size:20rpx;">
+            此用户没有填写评价
+          </label> 
+        </view> -->
+
+          </view>
+          <view style='padding-top:25rpx;color:#000000;'>产品很不错哦，我喜欢！</view>
+          <view class="m-time">2018/5/25 0:20:40</view>
+          <view wx:if="{{pictures}}" class="m-media-list">
+            <image bindtap="onShowBigImageTap" data-list="{{pictures}}" data-src="{{item}}" wx:for="{{pictures}}" src="{{item}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="m-footer-btn">
+    <view class="m-footer-btn-list">
+      <view class="m-footer-btn-item" data-id="{{ProductInfo.Id}}">
+        <view class="m-footer-btn-icon" style='top:6rpx;'>
+          <contact-button size="27" type="default-dark" session-from="weapp">
+          </contact-button>
+          <image style='width:34rpx;height:30rpx;' src='../../img/shouxin.png'></image>
+        </view>
+        <text>收藏</text>
+      </view>
+      <!-- <view class="m-footer-btn-item" bindtap="PDCollection" >
+        <view class="m-footer-btn-icon">
+          <label class="iconfont {{isCollection?'icon-favoritesfilling':'icon-star_off'}} " style="{{isCollection?'color:#fa8531':''}}"></label>
+        </view>
+        <text>{{isCollection?'已收藏':'收藏'}}</text>
+      </view>
+      <view data-url="../../pages/cart/cart" class="m-footer-btn-item" bindtap="goTabBar">
+        <view class="m-footer-btn-icon">
+          <label class="iconfont icon-cart "></label>
+        </view>
+        <text>购物车</text>
+      </view> -->
+    </view>
+    <view class="m-footer-btn-mains" bindtap="ckselectsp">
+      立即购买
+    </view>
+    <view class="m-footer-btn-main m-now" bindtap="ckselectsp1">
+      加入购物车
+    </view>
+  </view>
+</view>

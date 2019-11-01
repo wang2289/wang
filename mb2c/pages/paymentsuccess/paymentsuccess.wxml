@@ -1,0 +1,11 @@
+<view class="m-payment">
+<image src="../../img/paysuccess.png" wx:if="{{tab==1}}"></image>
+<image src="../../img/payfailed.png" wx:if='{{tab==2}}'></image>
+<view class='m-price' wx:if="{{tab==1}}"><text style="padding-left:0;padding-right:10rpx;">¥</text>{{goodsAmount}}</view>
+<view class='m-price' wx:if='{{tab==2}}'><text style="padding-left:0;padding-right:10rpx;"></text>{{firstErrorMessage}}</view>
+<view class='m-btn'>
+<view class='m-btn-1' bindtap='dingdan'>查看订单</view>
+<text class='p-btn-text'></text>
+<view class='m-btn-2' bindtap='Homepage'>返回首页</view>
+</view>
+</view>

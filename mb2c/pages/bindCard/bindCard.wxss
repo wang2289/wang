@@ -1,0 +1,33 @@
+/* pages/bindCard/bindCard.wxss */
+.b-input{
+  background: #FAFAFA;
+border: 1px solid #999999; 
+width: 660rpx;
+height: 80rpx;
+margin: 20rpx 30rpx 20rpx;
+padding-left:30rpx; 
+}
+.checkrest{
+  border: 1rpx solid #999999;
+  background: #FFFFFF;
+  width: 300rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 88rpx;
+  border-radius: 10rpx;
+  font-family: PingFangSC-Regular;
+font-size: 30rpx;
+}
+.bindgift{
+  border: 1rpx solid #EA281A;
+  background: #FFFFFF;
+  width: 300rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 88rpx;
+  margin-left: 70rpx;
+  color: #EA281A;
+  border-radius: 10rpx;
+  font-family: PingFangSC-Regular;
+font-size: 30rpx;
+}

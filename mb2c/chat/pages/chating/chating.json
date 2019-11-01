@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "component-emoji": "/chat/components/emoji/emoji",
+    "input-modal": "/chat/components/inputmodal/inputmodal"
+  }
+}

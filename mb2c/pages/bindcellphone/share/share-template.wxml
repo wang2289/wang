@@ -1,0 +1,29 @@
+<template name="shareTemplate">
+  <view class="share-container">
+    <view class='share'>
+      <view class='share-text'>
+        <text class="share-text-title">还差<text class='share-text-people'>2</text>人, 赶快邀请好友加入拼团吧</text>
+      </view>
+      <view class='share-group'>
+        <view class='share-box'>
+          <image src='../../img/8.png'></image>
+          <text>朋友圈</text>
+          <button class='share-img-button' open-type="share"  hover-class="none"></button>
+        </view>
+        <view class='share-box share-mid'>
+          <image src='../../img/6.png'></image>
+          <text>微信</text>
+            <button class='share-img-button' open-type="share"  hover-class="none"></button>
+        </view>
+        <view class='share-box'>
+          <image src='../../img/7.png'></image>
+          <text>QQ</text>
+            <button class='share-img-button' open-type="share"  hover-class="none"></button>
+        </view>
+      </view>
+      <view class='share-close'>
+       <image src="../../img/close.png"></image>
+      </view>
+    </view>
+  </view>
+</template>

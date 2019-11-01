@@ -1,0 +1,96 @@
+<!-- 比较列表 -->
+
+<scroll-view scroll-x>
+  <!-- 商品 -->
+  <view class='com-table' style='{{widthInght}}'>
+    <view class='com-th'>商品</view>
+    <view class='com-tr'>
+      <image src='{{Comparetheinformation[0].pictureUrl}}' class='Commodityimage'></image>
+    </view>
+    <view class='com-tr'>
+      <image src='{{Comparetheinformation[1].pictureUrl}}' class='Commodityimage'></image>
+    </view>
+    <view class='com-tr' wx:if='{{Comparetheinformation[2]}}'>
+      <image src='{{Comparetheinformation[2].pictureUrl}}' class='Commodityimage'></image>
+    </view>
+     <view class='com-tr' wx:if="{{Comparetheinformation[3]}}">
+      <image src='{{Comparetheinformation[3].pictureUrl}}' class='Commodityimage'></image>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class='com-table' style='{{widthInght}}'>
+    <view class='com-th c-th' style='line-height:120rpx;'>评论</view>
+    <view class='com-tr c-tr' style='height:180rpx;line-height:60rpx;'>
+      <view>
+        <!-- <view>一:显示后台给的评分</view> -->
+        <block wx:for="{{commentnumone}}">
+          <image src='../../img/starcolor.png' class="star-color"></image>
+        </block>
+        <block wx:for="{{commentnumtwo}}">
+          <image src='../../img/stargray.png' class="star-color"></image>
+        </block>
+      </view>
+      <view style='color: #999999;'>
+        <text style='color: #EA281A;'>{{Comparetheinformation[0].commodityStatistics.evaluationQuantityCountB2C || 0}}</text>条评论
+      </view>
+    </view>
+    <view class='com-tr c-tr' style='height:180rpx;line-height:60rpx;' >
+      <view>
+        <!-- <view>二:显示后台给的评分</view> -->
+        <block wx:for="{{countstarone}}">
+          <image src='../../img/starcolor.png' class="star-color"></image>
+        </block>
+        <block wx:for="{{countstartwo}}">
+          <image src='../../img/stargray.png' class="star-color"></image>
+        </block>
+      </view>
+      <view style='color: #999999;'>
+        <text style='color: #EA281A;'>{{Comparetheinformation[1].commodityStatistics.evaluationQuantityCountB2C || 0}}</text>条评论
+      </view>
+    </view>
+    <view class='com-tr c-tr' style='height:180rpx;line-height:60rpx;' wx:if="{{flagthree}}" >
+      <view>
+        <!-- <view>二:显示后台给的评分</view> -->
+        <block wx:for="{{countstarListone}}">
+          <image src='../../img/starcolor.png' class="star-color"></image>
+        </block>
+        <block wx:for="{{countstarListtwo}}">
+          <image src='../../img/stargray.png' class="star-color"></image>
+        </block>
+      </view>
+      <view style='color: #999999;'>
+        <text style='color: #EA281A;'>{{Comparetheinformation[2].commodityStatistics.evaluationQuantityCountB2C || 0}}</text>条评论
+      </view>
+    </view>
+     <view class='com-tr c-tr' style='height:180rpx;line-height:60rpx;' wx:if="{{flagfive}}">
+      <view>
+        <!-- <view>二:显示后台给的评分</view> -->
+        <block wx:for="{{commentnumListone}}">
+          <image src='../../img/starcolor.png' class="star-color"></image>
+        </block>
+        <block wx:for="{{commentnumListtwo}}">
+          <image src='../../img/stargray.png' class="star-color"></image>
+        </block>
+      </view>
+      <view style='color: #999999;'>
+        <text style='color: #EA281A;'>{{Comparetheinformation[3].commodityStatistics.evaluationQuantityCountB2C || 0}}</text>条评论
+      </view>
+    </view>
+  </view>
+  <!-- 价格 -->
+  <view class='com-table' style='{{widthInght}}'>
+    <view class='com-th c-th'>价格</view>
+    <view class='com-tr c-tr'>￥{{Comparetheinformation[0].unitPrice}}</view>
+    <view class='com-tr c-tr'>￥{{Comparetheinformation[1].unitPrice}}</view>
+    <view class='com-tr c-tr' wx:if="{{Comparetheinformation[2]}}">￥{{Comparetheinformation[2].unitPrice}}</view>
+    <view class='com-tr c-tr' wx:if="{{Comparetheinformation[3]}}">￥{{Comparetheinformation[3].unitPrice}}</view>
+  </view>
+  <!-- 其他属性 -->
+  <view class='com-table' wx:for="{{attributeValueList}}" wx:for-item="item" wx:for-index="i" style='{{widthInght}}'>
+    <view class='com-th c-th'>{{item.attributeName}}</view>
+    <view class='com-tr c-tr'>{{Comparetheinformation[0].attributeValueList[i].valueName ||compare}}</view>
+    <view class='com-tr c-tr'>{{Comparetheinformation[1].attributeValueList[i].valueName ||compare}}</view>
+    <view class='com-tr c-tr' wx:if='{{Comparetheinformation[2]}}'>{{Comparetheinformation[2].attributeValueList[i].valueName ||compare}}</view>
+    <view class='com-tr c-tr' wx:if="{{Comparetheinformation[3]}}">{{Comparetheinformation[3].attributeValueList[i].valueName ||compare}}</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,35 @@
+<template name="bargaingoodstemplate">
+  <view class="bargaingoods-container">
+      <image src="../../../img/6.png" class='bargaingoods-img'></image>
+      <view class='bargaingoods-box'>
+          <view class='bargaingoods-title'>
+          香薰精油家用室内卫生间空气清新剂卧室持久留香香水
+          </view>
+           <view class='bargaingoods-subtitle'>
+              商品副标题
+           </view>
+           <view class='bargaingoods-price'>
+              <view class='bargaingoods-money'>
+              <text>￥</text>200.00
+              </view>
+              <view class='bargaingoods-oldmoney'>
+              ￥500.00
+              </view>
+              <!-- <view class='bargaingoods-buybtn'>
+              即将开始
+              </view> -->
+               <view class='bargaingoods-buybtn active'>
+              即将开始
+              </view>
+           </view>
+           <view class='bargaingoods-text'>
+              <text class=''>
+                剩1天09小时20分40秒开始
+              </text>
+              <text class='bargaingoods-peo'>
+                500人关注
+              </text>
+           </view>
+      </view>
+  </view>
+</template>

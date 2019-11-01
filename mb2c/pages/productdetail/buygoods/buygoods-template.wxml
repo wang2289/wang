@@ -1,0 +1,45 @@
+<template name="buygoodsTemplate">
+  <view class='buygoods-container'>
+    <view class='buygoods-detail'>
+      <image scr="" class='buygoods-img'></image>
+      <view class='buygoods-text'>
+        <view class='buygoods-price'>¥
+          <text class='buygoods-money'>39.00</text>
+        </view>
+        <view class='buygoods-num'>库存1288件</view>
+        <view class='nums'>请选择</view>
+      </view>
+    </view>
+    <view class='buygoods-title'>套餐</view>
+    <view class='buygoods-shuxing'>
+      <view class='buygoods-shu on'>
+        27包箱装
+      </view>
+       <view class='buygoods-shu'>
+        27包箱装
+      </view>
+       <view class='buygoods-shu'>
+        27包箱装
+      </view>
+       <view class='buygoods-shu kong'>
+        27包箱装
+      </view>
+    </view>
+    <view class="m-panel-sp-listbox-item">
+      <view class="m-cells-title">数量
+        <!-- <text>(每人限购8件)</text> -->
+      </view>
+      <view class="m-panel-sp-labellist">
+        <view class="u-cart-num">
+          <view class="u-num-btn {{minusStatus}}" catchtap="sub">-</view>
+          <input type="number" value="{{numval}}" bindblur="writenum" />
+          <view class="u-num-btn" catchtap="add">+</view>
+        </view>
+      </view>
+    </view>
+    <view class='buygoods-sub'>确定</view>
+    <view class='buy-close'>
+      <image src="../../img/close.png"></image>
+    </view>
+  </view>
+</template>

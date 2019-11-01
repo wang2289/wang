@@ -1,0 +1,22 @@
+<template name="maxtipstemplate">
+  <view class="maxtips-container">
+    <view class='maxtips'>
+
+      <!-- <scroll-view class="ass-menu" scroll-y="true" style="width:700rpx"> -->
+      <view class='maxtips-box'>
+        <view>
+          <image src="../../img/outofrange.png"></image>
+        </view>
+        <view class="maxtips-title">
+          抱歉, 您拼团购买该商品的数量已达上限, 无法购买!
+        </view>
+        <view class='maxtips-btn'>
+          <view class='resurt'>取消</view>
+          <view class='y-buy'>原价购买</view>
+        </view>
+      </view>
+      <!-- </scroll-view> -->
+
+    </view>
+  </view>
+</template>

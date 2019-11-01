@@ -1,0 +1,60 @@
+<view class='m-cell-content' wx:for="{{goods}}" wx:for-item="good" wx:key="{{id}}"  wx:for-index='linex'>
+  <view class='m-cell-img'>
+    <image src='{{good.pictureUrl}}' class='img'></image>
+    <view class='introduce'>
+      <view class='c-introduce'>{{good.commodityTitle}}</view>
+      <view class='many'>{{good.itemSpec1AttributeName}}: {{good.itemSpec1ValueName}}</view>
+    </view>
+  </view>
+  <view class="m-start">
+
+    <view class='container'>
+      <view class='evaluate_contant'>
+        <!--外层循环控制有几个评价条目  -->
+        <block wx:for='{{evaluate_contant}}' wx:key='' wx:for-index='idx'>
+          <view class='evaluate_item'>
+            <view class='evaluate_title'>{{item}}</view>
+
+            <!--星星评价  -->
+            <view class='evaluate_box'>
+              <!--内层循环展示每个评价条目的星星  -->
+              <block wx:for="{{good.stars}}" wx:key='i'>  
+                <image class="star-image" style="left: {{item*60}}rpx" src="{{good.scores[idx] > item ?selectedSrc: normalSrc}}">
+                  <view class="item" style="left:0rpx" data-score="{{item + 0.5}}" data-idx='{{idx}}' data-id="{{good.id}}" bindtap="selectLeft"></view>
+                  <view class="item" style="left:20rpx" data-score="{{item + 1}}" data-idx='{{idx}}' data-id="{{good.id}}" bindtap="selectLeft"></view>
+                </image>
+              </block>
+            </view>
+
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='c-share'>
+    <textarea bindinput="bindContentInput" data-id='{{good.id}}' placeholder='分享您的购物过程~' placeholder-style='font-size:28rpx;color: #999999;' value='{{item.content}}' class='c-writing'></textarea>
+  </view>
+  <view class="m-upImg">
+    <view class="m-upImg-item" >
+      <image mode="aspectFit" src="../../../img/addpicture.png" 
+      data-id="{{good.id}}" data-line='{{linex}}'   bindtap="onAddImgTap"></image>
+    </view>
+
+    <view class="m-upImg-item" catchtap="upImgs" style='background:#eee' wx:for="{{good.imgList}}" wx:for-item="img" wx:for-index="i" wx:key="i">
+      <image mode="aspectFit" src="{{img.filePath}}" data-src="{{img.filePath}}" bindtap='imgtap'></image>
+      <image class='c-icon' src="../../../img/delete.png"
+       data-index="{{i}}" data-id='{{img.id}}' data-line='{{linex}}'
+       catchtap="deleteImg"></image>
+    </view>
+  </view>
+
+  <view class='c-select' data-id="{{good.id}}" bindtap='onAnonymousTap'>
+    <image wx:if="{{good.isAnonymous}}" src="../../../img/selected.png"></image>
+    <image wx:else src="../../../img/select.png"></image>
+    <view class='anonymity'>匿名评价</view>
+  </view>
+</view>
+
+<view>
+  <view class='c-btn' bindtap="onSubmitTap">提交</view>
+</view>

@@ -1,0 +1,36 @@
+
+.groupinfor {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.group-image-box {
+  margin-top: 25rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  margin-bottom: 25rpx;
+  width: 178rpx;
+  height: 178rpx;
+}
+
+.group-img {
+  width: 138rpx;
+  height: 138rpx;
+  margin: 20rpx;
+}
+
+.group-text {
+  display: flex;
+  flex-direction: column;
+  width: 500rpx;
+}
+
+.group-title {
+  font-size: 28rpx;
+  color: #333;
+  height: 80rpx;
+  margin-top: -10rpx;
+}

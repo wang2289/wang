@@ -1,0 +1,165 @@
+/* pages/Logisticsdetails/Logisticsdetails.wxss */
+
+.m-logistic {
+  /* background-color: #fff; */
+}
+
+.l-logistic {
+  display: flex;
+  padding: 37rpx 0 36rpx 37rpx;
+  background: #fff;
+  height:218rpx;
+ 
+}
+
+.m-product-Info {
+ margin-top:42rpx;
+
+}
+
+.m-product-position {
+  font-size: 42rpx;
+  color: #fff;
+  margin-bottom: 43rpx;
+}
+
+.m-product-express {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.m-product {
+ width:120rpx;
+height:120rpx;
+margin-right:30rpx;
+margin-top:47rpx;
+
+}
+
+.m-logistbox {
+  background-color: #fff;
+}
+
+.m-log-time {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 28rpx;
+  justify-content: center;
+}
+
+.m-logistitem {
+  font-size: 28rpx;
+  padding: 40rpx 20rpx 0rpx 60rpx;
+  line-height: 40rpx;
+  color: #666;
+  position: relative;
+  width: 460rpx;
+  min-height: 117rpx;
+}
+
+.m-logistitem::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1rpx;
+  height: 100%;
+  border-left: 1rpx solid #c8c8cd;
+  margin-left: 20rpx;
+}
+
+.m-logistitem::before {
+  content: "";
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  left: 0;
+  top: 0;
+  background-color: #d5d5d5;
+  border-radius: 100%;
+  margin-left: 11rpx;
+  margin-top: 50rpx;
+  z-index: 2;
+}
+
+.m-logistitem::before {
+  content: "";
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  left: 0;
+  top: 0;
+  background-color: #d5d5d5;
+  border-radius: 100%;
+  margin-left: 11rpx;
+  margin-top: 50rpx;
+  z-index: 2;
+}
+
+
+.m-logistitem-item::before {
+  content: "";
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  left:-5rpx;
+  top: 0;
+  margin-left: 35rpx;
+  margin-top: 40rpx;
+  z-index: 2;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAABHdJREFUWAnVmUuMDEEYx7/qnrUJVna9DfGOi3DwCGKHi4REEIblJC4uhF1kXBE3z117lUgkEo8dEiIknIxnIpE4cbBxYHaJIBGSzW5P+f792p6Z6umene5Z+jBdXfVVfb/+5uvqqn8LquGQUoo9z46tMqSxWRLN56GSkmRSSD4L/iXZJ0jkuT4viHp1od+/vvb8K2G2jcwxj1P9kc4d2UBk7CJJW5lqejUjsMN+EnSXSL+VTV18XE1f2FYFvPvp0dVDcuiMlJSq1pHKXgjKJUTi+I3WCy9V7aq6UMAcUf67C2c5BXaoBqm1jlPkNpGW4Yj3Bo0VCGz//Tc5qi1Bg9XSztH+wWnSFpQmWiUnO590HCJpPIwbFgymD/Zl+qwA5RvhdK6jU8pCe4W+sTUJoXVlU50dKgdKYNxlgQqXVB3qVaeRdrhnXWd3qb8yYDNnkQacUKXG9bxmMIOEvqk0p4uArdnAeF2PnA1z8/aDuMI7e5Q8dJi64p0NwoA6NhZL4axzjbMLjJdCXPOs16GqvLR5EbXN3kRTGyeWNYMJbE5DwikMSqPoTpz6uM8bZ6yl/Qt2Eb88aP3UlXTw9ekylzab+XY1I2w9aLK1zDLmCi8sXLWMmcB/ufunD3uXstV6gbkpUWgbbq1PqRQWXq/03iGeTn0AeLHFh4YlIr9mtvhYxVKtgr38oYce9T/394eVIbMKJPRgYeiFv2W0LX6wD/K5QEcNWmKNhsV3oGVEBrXAAgGsmr1TiAjJf5haYTEyWPFIJv3dRNMSBaxNkuQIy1iBI4TlCMtkwtww+gSydcoy2jtvG338/Zm631+jX0O/fSzV1VHCwgNYNWt3q3a4b/52mtTYTMsnLqaTSw5SU2Kc2lBRGzUsXICVc1j2KfyZVZ/+9LtNc8fPDA0dB6wFIvs0WzdwwbyFzndX6dOfL25VGOj4YLHFF3nMEhA6lMfPwV904m13aOg4YW3APEeYKm6tw0LXARYiSq8G+UgZXk9lEHQ9YIEDVoEFxc5cez6M5NTc0ESnlh6iWWOnubfzbeAHTRrTbK5nnUosZMKsDRz7MGeObn9PqiupmcKcqXUFd1NFenJjS+ywJhkzgtVeLeu3gnEtCxW00zeOyDpjQzxE2d01p3OHn/CmL7TIh/Q4seQAzR6X5FVUga58uE0P+oKXiMMA4UsQDbOpS+vQw93TQUUclOHXxYh05s05Wtg0h74P/KSvA9/DE1RpCTanixthVKRz7VnsUp3Gf+EMZTOb6ko7LHYOu5cZS7xwrkf3bLFoGS9FEbClsOhtHHbDazQaZYvBlF+LXmxFwACDliVIOzIakF6fYCjV1dBeBoxKqIaQPFEejQO+VcolWJTAaIA+C8mznukBX/Dppw2Di20qH5biYvwfnwxwK1Ye6SswvVS+tZG3WmPrkFUDP4MFRtiLYYouEA1Z6/LWj7gsxNMGoWci/+xVCmSlCetxLHGFWeV5+3OE+MOiuMePz80wEfX2RbmqCJd2xtLU79MtbFm140+20X66/Qvse/cGg19qRgAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.m-logistitem-item {
+  font-size: 28rpx;
+  padding: 40rpx 20rpx 40rpx 100rpx;
+  line-height: 40rpx;
+  color: #888;
+  position: relative;
+  width: 64%;
+  min-height: 130rpx;
+}
+
+.m-logistitem-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1rpx;
+  height: 100%;
+  border-left: 1rpx solid #c8c8cd;
+  margin-left: 47rpx;
+}
+
+
+.m-logistitem-cell{
+  font-size: 20rpx;
+  color: #999;
+  width: 126rpx;
+  margin-left: 40rpx;
+  margin-top: 49rpx;
+}
+
+.m-produc-number {
+  width: 178rpx;
+  height: 50rpx;
+  position: absolute;
+  opacity: 0.7;
+  top: 162rpx;
+  left: 37rpx;
+}
+.userinfo {
+ 
+  background: -webkit-linear-gradient(to right, rgb(230, 70, 74), rgb(248, 117, 75)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(to right, rgb(230, 70, 74), rgb(248, 117, 75)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(to right, rgb(230, 70, 74), rgb(248, 117, 75));
+  background: linear-gradient(to right, rgb(230, 70, 74), rgb(248, 117, 75));
+}
+.bot_sho{
+ margin:0 0 30rpx 0;
+width:100%;
+height:115rpx;
+
+}

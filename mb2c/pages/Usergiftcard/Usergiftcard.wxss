@@ -1,0 +1,106 @@
+/* pages/Usergiftcard/Usergiftcard.wxss */
+
+page {
+  position: fixed;
+  background: #fff;
+}
+
+.use-btn {
+  font-size: 32rpx;
+  padding: 20rpx 0rpx 20rpx 656rpx;
+  background: #fff;
+}
+
+.u-select {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  height: 40rpx;
+}
+
+.u-select image {
+  height: 46rpx;
+  width: 46rpx;
+}
+
+.u-cost {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #ea281a;
+  line-height: 42rpx;
+  padding-right: 65rpx;
+}
+
+.te-card {
+  position: relative;
+  top: -350rpx;
+  left: 60rpx;
+  font-size: 24rpx;
+}
+
+.ca-left {
+  position: relative;
+  top: -328rpx;
+  width: 120rpx;
+  height: 3rpx;
+  border-bottom: 1rpx solid #fefecd;
+  border-top: 1rpx solid #fefecd;
+}
+
+.ca-kind{
+  position: relative;
+  width: 289rpx;
+  top: -355rpx;
+  font-size:42rpx; 
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.ca-right {
+  position: relative;
+  top: -328rpx;
+  width: 120rpx;
+  height: 3rpx;
+  border-bottom: 1rpx solid #fefecd;
+  border-top: 1rpx solid #fefecd;
+}
+
+.ca-rest {
+  position: relative;
+  top: -324rpx;
+  left: 123rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.ca-use {
+  position: relative;
+  top: -320rpx;
+  left: 122rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.ca-detail {
+  position: relative;
+  top: -359rpx;
+  left: 62rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.shoppingcart {
+  padding-top: 323rpx;
+  padding-left: 225rpx;
+  height: 280rpx;
+  width: 300rpx;
+}
+
+.text {
+  padding-top: 24rpx;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+}

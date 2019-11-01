@@ -1,0 +1,14 @@
+<template name="TipsforgroupTemplate">
+  <view class="Tipsfor-container">
+    <view class='tips-title'>
+      <text class='tips-left'>拼团须知</text>
+      <view class='tips-right' >查看详细规则
+       <image class='rightarrow' src="../../../img/right.png"></image>
+      </view>
+    </view>
+    <view class='tips-container'>
+      <text class='tips-left'>1. 人满发货</text>
+      <text class='tips-right'>2. 人不满退款</text>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,48 @@
+var filter = {
+  formatDay: function(number) {
+    if (number) {
+      var date = getDate(parseInt(number));
+      var year = date.getFullYear()
+      var month = date.getMonth() + 1
+      var day = date.getDate()
+      return [year, month, day].map(formatNumber).join('-');
+    }
+  },
+
+  js_date_time: function(unixtime) {
+    var dateTime = getDate(parseInt(unixtime));
+    var year = dateTime.getFullYear();
+    var month = (dateTime.getMonth() + 1) >= 10 ? (dateTime.getMonth() + 1) : '0' + (dateTime.getMonth() + 1);
+    var day = dateTime.getDate() >= 10 ? dateTime.getDate() : '0' + dateTime.getDate();
+    var hour = dateTime.getHours() >= 10 ? dateTime.getHours() : '0' + dateTime.getHours();
+    var minute = dateTime.getMinutes() >= 10 ? dateTime.getMinutes():'0'+dateTime.getMinutes();
+    var second = dateTime.getSeconds() >= 10 ? dateTime.getSeconds() : '0' + dateTime.getSeconds();
+    var timeSpanStr = year + '-' + month + '-' + day + ' ' + hour + ':'+minute+ ':' + second;
+    return timeSpanStr;
+  },
+
+  formatTime: function (unixtime) {
+    var dateTime = getDate(parseInt(unixtime));
+    var year = dateTime.getFullYear();
+    var month = (dateTime.getMonth() + 1) >= 10 ? (dateTime.getMonth() + 1) : '0' + (dateTime.getMonth() + 1);
+    var day = dateTime.getDate() >= 10 ? dateTime.getDate() : '0' + dateTime.getDate();
+    var hour = dateTime.getHours() >= 10 ? dateTime.getHours() : '0' + dateTime.getHours();
+    var minute = dateTime.getMinutes() >= 10 ? dateTime.getMinutes() : '0' + dateTime.getMinutes();
+    var timeSpanStr = year + '-'+month + '-' + day + ' ' + hour + ':' + minute ;
+    return timeSpanStr;
+  }
+
+}
+
+function formatNumber(n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+
+
+module.exports = {
+  formatDay: filter.formatDay,
+  formrepla: filter.js_date_time,
+  formatTime: filter.formatTime
+}

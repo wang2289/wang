@@ -1,0 +1,18 @@
+.singlerule-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99;
+}
+
+.singlerule {
+  padding: 21rpx 30rpx;
+  border-top: 1px solid #DDDDDD;
+}
+
+.singlerule .rule {
+  font-size: 28rpx;
+  color: #000;
+  margin-bottom: 50rpx;
+}

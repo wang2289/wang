@@ -1,0 +1,78 @@
+ page{
+   background: #FFFFFF;
+ }
+ .input_gather {
+   height: 90rpx; 
+  margin: 0 30rpx;
+  position: relative;
+  line-height: 90rpx;
+  border-bottom:1px solid #dddddd; 
+}
+.input_gather_body{
+   padding-top:100rpx;
+
+}
+.btn_al {
+    font-size: 26rpx;
+    color: #666666;
+}
+.btn_ar {
+    font-size: 26rpx;
+    color: #666666; 
+}
+.btn_ac {
+    font-size: 26rpx;
+    color: #666666;
+    margin-left:40%;
+}
+
+.input_gather_text {
+  font-size: 32rpx;
+  color: #333;
+  float: left;
+  width: 182rpx;
+  margin-left:19rpx;
+}
+.btn{
+    width: 660rpx;
+    background:#eeeeee;  
+    margin:60rpx 45rpx;
+
+    font-size:32rpx;
+    color: #999999;
+    border-radius: 8rpx;
+    height:76rpx;
+text-align:center;
+line-height:76rpx;
+
+}
+.btn_Input{
+  background:#EA281A;
+  margin-top: 50rpx;
+  font-size:32rpx;
+  color:#fff;
+  border-radius: 8rpx;
+  /* border:2rpx solid #000;  */
+  width: 660rpx;
+    margin:60rpx 45rpx;
+    height:76rpx;
+text-align:center;
+line-height:76rpx;
+
+}
+.input_gather_btn{
+  /* text-align:center; */
+   margin: 45rpx 52rpx; 
+   display: flex;
+   justify-content:space-between;
+   height:50rpx;
+
+}
+.log-pwd{
+  font-size: 30rpx;
+  color: #333;
+  padding-top: 20rpx;
+}
+.u-tap-btn{position: fixed;right: 20rpx;bottom: 150rpx;z-index:4;}
+.u-go-home{border-radius: 100%;width: 80rpx;height: 80rpx;border: 1px solid #eee;font-size: 20rpx;text-align: center;background-color: #fff;box-shadow: 0px 4rpx 8rpx rgba(0,0,0,0.35);z-index: 2;opacity: 0.8;line-height:80rpx; margin-bottom: 20rpx;}
+.u-go-home .iconfont{font-size: 40rpx;}

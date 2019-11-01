@@ -1,0 +1,38 @@
+<!--pages/Usergiftcard/Usergiftcard.wxml-->
+<wxs module="filter" src="../../utils/format.wxs"></wxs>
+<view class='use-btn' bindtap='btn'>确定</view>
+<scroll-view scroll-y="true" style='height:100%;'>
+  <view wx:for="{{Giftcarddetails}}" wx:for-item="item">
+    <view class='u-select'>
+      <image src='../../img/multiselecting.png' wx:if="{{!item.isClick}}" bindtap='Clickselected' data-cardId="{{item.bindSecurity}}" data-index="{{index}}"></image>
+      <image src="../../img/multiselected.png"  wx:if='{{item.isClick}}' bindtap='Clickcancel' data-cardId="{{item.bindSecurity}}"></image>
+      <view class='u-cost' wx:if="{{item.isClick && item.amount>=item.surplusAmount}}">本次消费￥{{item.surplusAmount}}</view>
+      <view class='u-cost' wx:if="{{item.isClick && item.amount<item.surplusAmount}}">本次消费￥{{item.amount}}</view>
+    </view>
+    <view style='color: #FEFECD;height:380rpx;'>
+      <view style='text-align:center'>
+        <image src='../../img/giftcard.png' style='height:350rpx;width:700rpx;' mode='aspectFill'></image>
+      </view>
+      <text class='te-card'>礼品卡</text>
+      <view style='display:flex;padding:0rpx 80rpx;text-align:center'>
+        <view class='ca-left'></view>
+        <view class='ca-kind'>{{item.name}}</view>
+        <view class='ca-right'></view>
+      </view>
+      <view class='ca-rest'>余额￥
+        <text style='font-size:60rpx'>{{item.surplusAmount}}</text>
+      </view>
+      <view class='ca-use'>使用期限:
+        <text wx:if='{{item.limitEndTime}}'>{{filter.formatDay(item.limitEndTime)}}</text>
+          <text wx:else>永久有效</text>  
+        </view>
+      <image src='../../img/giftdetail.png' class='ca-detail'></image>
+    </view>
+  </view>
+  <!-- <button bindtap='btn' wx:if="{{Giftcarddetails.length!=0}}"> 点我</button> -->
+  <!-- 无数据时展示 -->
+  <view wx:if="{{Giftcarddetails.length<=0}}">
+    <image src='../../img/nogiftcard.png' class='shoppingcart'></image>
+    <view class='text'>暂无礼品卡可用</view>
+  </view>
+</scroll-view>

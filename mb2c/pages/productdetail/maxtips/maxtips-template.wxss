@@ -1,0 +1,79 @@
+
+.maxtips-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  overflow: hidden;
+}
+
+.maxtips {
+  width: 630rpx;
+  height: 306rpx;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  margin-top: -186.5rpx;
+  left: 50%;
+  margin-left: -315rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.share-close{
+  width: 56rpx;
+  height: 56rpx;
+  background: #ddd;
+  position: absolute;
+  border-radius: 50%;
+  top: -20rpx;
+  right: -24rpx;
+  text-align: center;
+  vertical-align: middle
+}
+.share-close image{
+  width: 50%;
+  height: 50%;
+   vertical-align: middle
+}
+
+.maxtips-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+  text-align: center
+}
+.maxtips-box image{
+  width: 65rpx;
+  height: 62rpx;
+   margin: 30rpx 0rpx 26rpx 0rpx;
+}
+.maxtips-title{
+  padding: 0 55rpx;
+  font-size: 28rpx;
+color: #333333;
+}
+.maxtips-btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1px solid #EEEEEE;
+  position: absolute;
+  bottom: 0rpx;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 28rpx;
+color: #333333;
+}
+.maxtips-btn view{
+  width: 50%;
+}
+.resurt{
+  border-right: 1px solid #EEEEEE;
+}
+.y-buy{
+  color: #EA281A
+}

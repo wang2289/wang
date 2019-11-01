@@ -1,0 +1,24 @@
+<import src="bargaingoods/bargaingoods-template.wxml" />
+<import src="bargaindetail/bargaindetail-template.wxml" />
+<import src="mybargain/mybargain-template.wxml" />
+<view class='bargainprice'>
+  <view class='bargainprice-banner'>
+    <image src="../../img/6.png"></image>
+  </view>
+  <view class='bargainprice-tab'>
+    <view class='tabbtn on'>即将开始</view>
+    <view class='tabbtn'>活动中</view>
+  </view>
+  <template is="bargaindetailtemplate" />
+  <template is="bargaindetailtemplate" />
+  <template is="mybargaintemplate" />
+  <template is="mybargaintemplate" />
+  <template is="bargaingoodstemplate" />
+  <template is="bargaingoodstemplate" />
+  <template is="bargaingoodstemplate" />
+  
+  <view class='bargainprice-bottomtab'>
+    <view class='tab-goods active'><image src="../../img/bargain2@3x.png" classs="bargain2"></image><image src="../../img/bargain@3x.png" classs="bargain"></image><text>砍价商品</text></view>
+    <view class='tab-my'><image src="../../img/MY2@3x.png"  classs="MY2"></image><image src="../../img/MY@3x.png" classs="MY"></image>我的砍价</view>
+  </view>
+</view>

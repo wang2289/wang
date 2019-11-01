@@ -1,0 +1,38 @@
+<view class="m-ad-list">
+  <view class='adds-list'>
+    <view class="m-ad-item" wx:for="{{addressInfo}}" wx:for-item="item" catchtap="ckitem" data-mebid='{{item.id}}'>
+      <view class="m-ad-l" bindtap="SelectAddress">
+        <!-- <view class="m-cart-cka" catchtap="ckitem" data-mebid='{{item.id}}'>
+          <icon type="{{item.isDefault?'success':'circle'}} " color="{{item.isDefault?'#DB384C':'#d5d5d5'}}" />
+        </view> -->
+        <view class="m-ad-i-top">
+          <text>{{item.contactName}}</text>
+          <label>{{item.contactPhone}}</label>
+          <text class="m-ad-icons" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <view class="m-ad-i-bot">
+          <text>{{item.provinceName}}{{item.cityName}}{{item.districtName}}</text>
+        </view>
+      </view>
+      <view class="m-ad-edit">
+        <label catchtap="EditAddress" class="iconfont icon-edit" data-provid="{{item.provinceId}}" data-provName="{{item.provinceName}}" data-cityId="{{item.cityId}}" data-cityName="{{item.cityName}}" data-districtId="{{item.districtId}}" data-districtName="{{item.districtName}}"
+          data-ctName="{{item.contactName}}" data-ctPhone="{{item.contactPhone}}" data-postCode="{{item.postCode}}" data-rowVersion="{{item.rowVersion}}" data-isDefault="{{item.isDefault}}" data-address="{{item.address}}" data-id='{{item.id}}'></label>
+        <label class="iconfont icon-delete" catchtap="DelAddress" data-id="{{item.id}}"></label>
+      </view>
+    </view>
+<view class='show'></view>
+    <!-- <view class="m-ad-itemS" style='width:100%;height:200rpx'></view> -->
+
+    <!-- 无数据时展示 -->
+    <view wx:if="{{addressInfo.length<=0}}">
+      <image src='../../img/address.png' class='shoppingcart'></image>
+      <view class='text'>暂无收货地址</view>
+    </view>
+  </view>
+  <view class="u-btn-sty" bindtap="AddAddress" data-id='{{}}'>
+    <image src='../../img/addNew.png' class='addNew'></image>
+    <text>新增地址</text>
+  </view>
+
+
+</view>

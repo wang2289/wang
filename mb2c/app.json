@@ -1,0 +1,114 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/Confrimexchange/Confrimexchange",
+    "pages/giftDetails/giftDetails",
+    "pages/cart/cart",
+    "pages/bindCard/bindCard",
+    "pages/Lookat/Lookat",
+    "pages/UserCenter/UserCenter",
+    "pages/Sixpass/sixpass",
+    "pages/register/register",
+    "pages/loginpassword/loginpassword",
+    "pages/productdetail/productdetail",
+    "pages/Dataaddress/Dataaddress",
+    "pages/productcenter/productcenter",
+    "pages/collect/collect",
+    "pages/integral/integral",
+    "pages/changenickname/changenickname",
+    "pages/addresslist/addresslist",
+    "pages/bindcellphone/bindcellphone",
+    "pages/newcertificate/newcertificate",
+    "pages/depositBank/depositBank",
+    "pages/invoiceinformation/invoiceinformation",
+    "pages/Increasedticket/Increasedticket",
+    "pages/paymentpassword/paymentpassword",
+    "pages/evaluation/evaluation",
+    "pages/orders/index",
+    "pages/orders/show",
+    "pages/orders/comments/create",
+    "pages/orders/refund/create",
+    "pages/integralMall/index",
+    "pages/cards/index",
+    "pages/ordersubmit/ordersubmit",
+    "pages/Comparison/Comparison",
+    "pages/coupon/coupon",
+    "pages/Successfulconversion/Successfulconversion",
+    "pages/consumptionrecords/consumptionrecords",
+    "pages/Useraccount/Useraccount",
+    "pages/Logisticsdetails/Logisticsdetails",
+    "pages/paymentsuccess/paymentsuccess",
+    "pages/applyrefund/applyrefund",
+    "pages/Accountsecurity/Accountsecurity",
+    "pages/Pointsrecord/Pointsrecord",
+    "pages/changepassword/changepassword",
+    "pages/changephonenumber/changephonenumber",
+    "pages/tradingRecord/tradingRecord",
+    "pages/addressmanage/addressmanage",
+    "pages/purChase/purChase",
+    "pages/Usergiftcard/Usergiftcard",
+    "pages/registration/registration",
+    "pages/h5jifen/h5jifen",
+    "pages/Matchpurchase/Matchpurchase",
+    "pages/search/search",
+    "pages/Filllogistics/Filllogistics",
+    "pages/Detailsrefunds/Detailsrefunds",
+    "pages/curriculumDetail/curriculumDetail",
+    "pages/supplier/supplier",
+    "pages/loginByVerificationCode/loginByVerificationCode",
+    "chat/pages/recentchat/recentchat",
+    "chat/pages/chating/chating",
+    "pages/active/active",
+    "pages/orders/link/link",
+    "pages/Singlerule/Singlerule"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于确认你的默认地址"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#EA281A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/red_home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/productcenter/productcenter",
+        "iconPath": "img/productcenter.png",
+        "selectedIconPath": "img/red_productcenter.png",
+        "text": "产品中心"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "img/shoping.png",
+        "selectedIconPath": "img/red_shoping.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/h5jifen/h5jifen",
+        "iconPath": "img/many.png",
+        "selectedIconPath": "img/red_many.png",
+        "text": "积分商城"
+      },
+      {
+        "pagePath": "pages/UserCenter/UserCenter",
+        "iconPath": "img/user.png",
+        "selectedIconPath": "img/red_user.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxc50f9b13445a389a"
+  ]
+}

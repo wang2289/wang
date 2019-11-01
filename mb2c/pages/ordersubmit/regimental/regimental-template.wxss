@@ -1,0 +1,66 @@
+.regimental{
+  background: #fff;
+}
+.regimental-people {
+  display: flex;
+  flex-direction: row;
+  height: 157rpx;
+
+  vertical-align: middle;
+  background: #fff;
+  padding-left: 40rpx;
+}
+
+.group-people-detail {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #eee;
+  margin: 0px 15rpx;
+  margin-top: 45rpx;
+  border: 1px dashed #bdbdbd;
+}
+.group-people-text{
+text-align: center;
+width: 100%;
+font-size: 28rpx;
+color: #999999;
+padding-bottom: 20rpx;
+}
+.group-people-detail.on {
+  border: 1px solid #eb2c1e;
+  position: relative;
+  background: #ffebc8;
+}
+
+.group-people-detail.on text {
+  background: #ea281a;
+  width: 50rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  font-size: 18rpx;
+  color: #fff;
+  /* padding: 2px; */
+  position: absolute;
+  text-align: center;
+  border-radius: 5rpx;
+  top: -20rpx;
+  left: 50%;
+  margin-left: -25rpx;
+}
+
+.regimental-detail{
+  display: flex;
+  flex-direction: column;
+  margin-left:20rpx;
+}
+.regimental-name{
+  font-size: 28rpx;
+color: #333333;
+margin-top: 30rpx;
+margin-bottom: 10rpx;
+}
+.regimental-title{
+  font-size: 28rpx;
+color: #333333;
+}

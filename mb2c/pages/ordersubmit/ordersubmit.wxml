@@ -1,0 +1,271 @@
+<import src="groupinfor/groupinfor-template.wxml" />
+<import src="regimental/regimental-template.wxml" />
+<wxs module="filter" src="../../utils/format.wxs"></wxs>
+<view>
+<view wx:if="{{isCurriculum}}">
+  
+</view>
+<view wx:else>
+  <view class='userContainer' bindtap='selectaddress' wx:if="{{addressInfo!=''}}">
+    <image src='../../img/striped.png' mode="aspectFill" class='v-cell'></image>
+    <view class='useDesStyle'>
+      <text class='nameStyle2'>{{contactName}}</text>
+      <text class='nameStyle'>{{contactPhone}}</text>
+    </view>
+    <view class='c-address'>
+      <image class='addressSty' src='../../img/Page1.png'></image>
+      <text class='detail-address'>{{provinceName}}{{cityName}}{{districtName}}{{detailedaddress}}</text>
+    </view>
+    <image src='../../img/right.png' class='i-img'></image>
+  </view>
+  <view class='userContainer user-addre' bindtap='selectaddress' wx:else>
+    <image src='../../img/striped.png' mode="aspectFill" class='v-cell'></image>
+    <view class="m-cell-address">
+      <image class='addressSty' src='../../img/Page1.png' style='padding-right:20rpx;'></image>
+      <text>您还没有设置默认地址，点击添加地址吧</text>
+    </view>
+  </view>
+</view>
+  
+  <view class="m-product-all">
+    <view class="m-product-list" wx:for="{{ProductInfo}}" wx:for-item="item">
+      <navigator class="m-product-item">
+        <view class="m-product-img" style='width:178rpx;height:178rpx'>
+          <image src="{{item.pictureUrl}}"/>
+        </view>
+        <view class="m-product-info">
+          <view class="m-product-name" style='padding-top:8rpx'>
+            <view class='m-sty-name' style='color:black'>{{item.commodityTitle}}</view>
+            <view class='m-sty-name' wx:if="{{!isCurriculum}}">规格:{{item.itemSpec1AttributeName}} {{item.itemSpec1ValueName}} {{item.itemSpec2AttributeName}} {{item.itemSpec2ValueName}} {{item.itemSpec3AttributeName}} {{item.itemSpec3ValueName}}</view>
+          </view>
+          <view class="m-product-price" style='color:#ea281a;padding-bottom:30rpx'>
+            <view>
+              <label>￥</label>{{item.unitPrice}}</view>
+            <view class='m-te'>x{{item.quantity}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <template is="groupinforTemplate" />
+  <view style='margin-top:20rpx;'></view>
+  <template is="regimentalTemplate" />
+  <!-- 备注 -->
+  <view class="m-cell p-cell" style='font-size:28rpx;margin-top:20rpx;'>
+    <view class="m-cell-bd">
+      <input class="u-textarea" maxlength="45" value="{{inputRemarkInfo}}" bindinput="inputRemark" placeholder='选填：给商家留言(45字以内)'></input>
+    </view>
+  </view>
+  <view class="total-info" catchtap="suitZhifu">
+    <view class="m-cell" style='margin-bottom:20rpx'>
+      <view class="m-cell-bd">
+        <text>支付方式</text> </view>
+      <view class="m-cell-ft m-order-typetxt" wx:if="{{Pay==0}}">请选择</view>
+      <view class="m-cell-ft m-order-typetxt" wx:if="{{Pay==1}}">余额支付</view>
+      <view class="m-cell-ft m-order-typetxt" wx:if="{{Pay==2}}">微信支付</view>
+      <view class="arrow m-cell-access">
+        <view class="m-cell-ft "></view>
+      </view>
+    </view>
+  <view wx:if="{{!isCurriculum}}">
+    <view class="m-cell" catchtap="{{orderNewconfirmInfo.couponDetailList.length>0?'suitcouponlist':'12'}}" style='border-bottom:1rpx solid #EEEEEE;'>
+      <view class="m-cell-bd">
+        <text>优惠券</text> </view>
+      <block wx:if="{{benefitAmount> 0}}">
+        <view style='color:#EA281A'>-￥{{benefitAmount}}</view>
+      </block>
+      <block wx:else>
+        <view class="m-cell-ft m-order-typetxt" style='color:#EA281A' wx:if='{{orderNewconfirmInfo.couponDetailList.length > 0}}'>{{orderNewconfirmInfo.couponDetailList.length}}张可用</view>
+        <view class="m-cell-ft m-order-typetxt" wx:else>暂无可用</view>
+        <view class="arrow m-cell-access">
+          <view class="m-cell-ft "></view>
+        </view>
+      </block>
+    </view>
+    <view class="m-cell" catchtap="{{orderNewconfirmInfo.maxPoint>0?'interesting':'12'}}" style='border-bottom:1rpx solid #EEEEEE;'>
+      <view class="m-cell-bd">
+        <text>积分</text> </view>
+      <view class="m-cell-ft m-order-typetxt" wx:if="{{pointflag==false}}">可用{{orderNewconfirmInfo.maxPoint}}积分抵扣,共{{orderNewconfirmInfo.myPoint}} 分</view>
+      <view class="m-cell-ft m-order-typetxt" wx:else>已使用{{numval}}积分,抵扣￥{{pointRulepick}}</view>
+      <view class="arrow m-cell-access">
+        <view class="m-cell-ft "></view>
+      </view>
+    </view>
+    <!-- <navigator catchtap='sergiftcard'>
+      <view class="m-cell" style='margin-bottom:20rpx'>
+        <view class="m-cell-bd">
+          <text>礼品卡</text> </view>
+        <view class="m-cell-ft m-order-typetxt" style='color:#EA281A' wx:if="{{Giftcardamount>0}}">-{{Giftcardamount}}</view> -->
+        <!-- <view class="m-cell-ft m-order-typetxt" wx:else>暂无可用</view> -->
+        <!-- <view class="arrow m-cell-access">
+          <view class="m-cell-ft "></view>
+        </view>
+      </view>
+    </navigator> -->
+
+    <view class="m-cell" style='margin-bottom:20rpx' catchtap='HuoDong'>
+      <view class="m-cell-bd">
+        <text>参与活动</text> </view>
+      <view class="m-cell-ft m-order-typetxt">省
+        <text style='color:#ea281a'>￥{{benefitAmounts}}</text>元</view>
+      <view class="arrow m-cell-access">
+       <view style='width:32rpx;'></view>  
+      </view>
+    </view>
+  </view>
+
+    <view class="m-cell" catchtap='invoiceinfo' style='margin-bottom:20rpx'>
+      <view class="m-cell-bd">
+        <text>发票</text> </view>
+      <view class="m-cell-ft m-order-typetxt" style='color:#000000' wx:if="{{tapindex==1}}">不开发票</view>
+      <view class="m-cell-ft m-order-typetxt" style='color:#000000' wx:if="{{tapindex==2}}">普通发票</view>
+      <view class="m-cell-ft m-order-typetxt" style='color:#000000' wx:if="{{tapindex==3}}">增值税发票</view>
+      <view class="arrow m-cell-access">
+        <view class="m-cell-ft "></view>
+      </view>
+    </view>
+
+    <view class="m-cell" catchtap='SHopp'>
+      <view class="m-cell-bd">
+        <text>商品金额</text> </view>
+      <view class="m-cell-ft m-order-typetxt">￥{{goods_amount}}</view>
+    </view>
+
+    <view class="m-cell" style='margin-bottom:100rpx;' catchtap='toaoMEN' wx:if="{{!isCurriculum}}">
+      <view class="m-cell-bd">
+        <text>运费</text> </view>
+      <view class="m-cell-ft m-order-typetxt">￥{{totalFeightFee}}</view>
+    </view>
+  </view>
+
+  <view class="m-footer-btn">
+    <view class="m-footer-btn-listS">实付款：￥{{amount}}</view>
+    <!-- <view class="m-footer-btn-main m-now" bindtap="orderNewcommit" wx:if='{{!btnflag}}'>
+      提交订单
+    </view> -->
+
+    <form bindsubmit="orderNewcommit" report-submit="true" wx:if='{{!btnflag}}'>
+        <button class="m-footer-btn-main m-now" form-type='submit'>提交订单</button>
+    </form>
+
+    <view class="m-footer-btn-main m-now" wx:else>
+      提交订单
+    </view>
+  </view>
+</view>
+<!-- 优惠券模板 -->
+<view class="m-panel-sp " wx:if="{{conponflag}}">
+  <view class="m-panel-sp-content {{selectct==0?'bounceOutDown animated':'bozunceInUp animated'}}">
+    <icon type="cancel" class="m-panel-sp-icon" color="#888" catchtap="closesps" />
+    <view class="m-panel-sp-listbox-item">
+      <view class="m-cells-title">选择优惠券</view>
+    </view>
+    <view wx:if="{{discountcoupon.length<=0}}">
+      <image src='../../img/nocoupon.png' class='shoppingcart'></image>
+      <view class='text'>无可用优惠券</view>
+    </view>
+    <scroll-view class="m-panel-sp-listbox" scroll-y="true">
+      <view class='y-cell' wx:for="{{discountcoupon}}" wx:for-item="item">
+        <view class="quan" catchtap="ckitvendor" style="float: left;margin-top:58rpx;padding:0 16rpx;">
+          <icon type="{{item.IsCheck&&fid==index?'success':'circle'}}" color="{{item.IsCheck&&fid==index?'#EA281A':'#d5d5d5'}}" catchtap='{{item.IsCheck&&fid==index?"_bindStore":"ShiYong"}}' data-ID='{{item.couponEntity.id}}' data-index='{{index}}' data-ripc="{{item.benefitAmount}}"
+          />
+        </view>
+        <view class='y-img' catchtap='ShiYong' data-ID='{{item.couponEntity.id}}' data-ripc="{{item.benefitAmount}}" data-index='{{index}}'>
+          <view class='y-cells-bach'>
+            <image src='../../img/copyxs.png' style='width:100%;height:100%'></image>
+            <view class='y-juan'>
+              <!-- <view>￥{{item.benefitAmount}}</view> -->
+              <view>{{item.couponEntity.couponName}}</view>
+              <view>有效期{{filter.formatDay(item.couponEntity.usefulStart)}}至{{filter.formatDay(item.couponEntity.usefulEnd)}}</view>
+              <!-- <text class='y-con'>使用</text> -->
+            </view>
+            <view class='y-con'>￥{{item.benefitAmount}}</view>
+          </view>
+        </view>
+      </view>
+      <view style="height:96rpx;width:100%;"></view>
+    </scroll-view>
+    <view class="m-m-panel-sp-btn">
+      <view class="m-m-panel-sp-rbtn" catchtap="Shutdown">确定</view>
+    </view>
+  </view>
+</view>
+<!--积分模板-->
+<view class="m-panel-sp " wx:if="{{inteflag}}">
+  <view class="m-panel-sp-content {{selectct==0?'bounceOutDown animated':'bozunceInUp animated'}}">
+    <icon type="cancel" class="m-panel-sp-icon" color="#888" catchtap="closespinter" />
+    <scroll-view class="m-panel-sp-listbox" scroll-y="true">
+      <view class="m-panel-sp-listbox-item">
+
+        <view class="m-cells-title">使用积分</view>
+        <view class='m-inter'>
+          <view>总积分:\t{{PointsInfo}}</view>
+          <view>本次最多可使用积分:\t{{orderNewconfirmInfo.maxPoint}}</view>
+        </view>
+      </view>
+      <!--加减-->
+      <view class="u-cart-num">
+        <view class="u-num-btn" catchtap="sub">-</view>
+        <input type="number" value="{{numval}}" bindblur="writenum" disabled='true' /> 
+        <view class="u-num-btn" catchtap="add">+</view>
+      </view>
+      <view class='m-inter-cell' catchtap='largestuse'>最大使用</view>
+    </scroll-view>
+    <view class="m-m-panel-sp-btn">
+      <view class="m-m-panel-sp-rbtn" catchtap="buynow">确定</view>
+    </view>
+  </view>
+</view>
+<!-- 支付模态框 -->
+<view class="auth-pop" wx:if="{{flagm}}">
+  <view class="auth-box">
+    <view class='auth-box-title'>输入支付密码</view>
+
+    <view class='auth-box-meny'>￥{{amount}}</view>
+    <view class="m-panel-bd" style='border-bottom:1rpx solid #DDDDDD;'>
+      <view class="m-media-box m-media-box-small-appmsg">
+        <navigator class="m-cell m-cell-access" style='font-size:28rpx;background:#F4F4FB;'>
+          <view class="m-cell-bd m-cell-primary" style='position:relative;right:154rpx;'>
+            <p>支付方式</p>
+          </view>
+          <view>余额支付</view>
+          <text class="m-cell-ft"></text>
+        </navigator>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class='content'>
+        <block wx:for="{{Length}}" wx:key="item">
+          <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input>
+        </block>
+      </view>
+      <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}"
+      value='{{Value}}' bindinput="Focus"></input>
+
+    </form>
+    <image src="../../img/close.png" class='auth-box-img' catchtap='bindimg'></image>
+  </view>
+</view>
+<!-- 选择支付方式 -->
+<view class="auth-pop" wx:if="{{payment}}">
+  <view class="auth-box" style='background:#FFFFFF;position:relative;top:-40rpx'>
+    <view class='auth-box-zhi'>选择支付方式</view>
+    <view class='a-cell-content' bindtap='balancepaid'>
+      <image src='../../img/yue.png' class='a-cell-con-img'></image>
+      <view class='a-cell-tetx'>
+        <view class='a-cell-title'>余额支付</view>
+        <view class='a-cells-te'>使用你的账号余额支付</view>
+      </view>
+    </view>
+    <view class='a-cell-content' bindtap='WeChatPay'>
+      <image src='../../img/weixin.png' class='a-cell-con-img'></image>
+      <view class='a-cell-tetx' style='margin-top:23rpx;'>
+        <view class='a-cell-title'>微信支付</view>
+        <!-- <view class='a-cells-te'>支持支付余额,快捷支付等多种支付方式</view> -->
+      </view>
+    </view>
+    <image src="../../img/close.png" class='auth-box-imgs' catchtap='bindimgs'></image>
+  </view>
+</view>
+<!-- <auth-info isMust="true"></auth-info> -->

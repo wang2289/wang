@@ -1,0 +1,54 @@
+<view class="m-cells m-cells-form">
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">收件人</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type='text' value="{{consignee == 'undefined'?'':consignee}}" placeholder="您的姓名" bindinput="inputconsignee"  placeholder-style='font-size: 28rpx;color: #999999;' onkeydown="if(event.keyCode==32) return false"/>
+    </view>
+  </view>
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">手机号码</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="number" value="{{conPhone == 'undefined'?'':conPhone}}" placeholder="您的号码" bindinput="inputconPhone"  maxlength='11' placeholder-style='font-size: 28rpx;color: #999999;'/>
+    </view>
+
+  </view>
+  <view class="m-cell m-cell-select-before" bindtap="showbox">
+
+    <view class="m-cell-hd">
+      <label class="u-label">所在地区</label>
+    </view>
+    <view>
+      <label style="color:{{addressInfo=='请选择'?'#999999':'#000000'}}"  class="label-a">{{addressInfo}}</label>
+
+      <!-- <label  class="label-a {{addressInfo=='请选择'?'red':'green'}}">{{addressInfo}}</label> -->
+    </view>
+    <image src='../../img/right.png' class='a-img'></image>
+  </view>
+  <view class="m-cell">
+    <view class="m-cell-hd">
+      <label class="u-label">邮编</label>
+    </view>
+    <view class="m-cell-bd">
+      <input class="u-input" type="number" value='{{conNumber == "undefined"?"":conNumber}}' placeholder="6位数邮编" bindinput="inputconNumber"  placeholder-style='font-size: 28rpx;color: #999999;' maxlength='6'/>
+    </view>
+  </view>
+  
+  </view>
+  <view class='t-text-are'>
+    <textarea placeholder='请填写详细地址,不少于5个字' type="text" bindinput='inputconaddress' value='{{conaddress == "undefined"?"":conaddress}}' fixed='true' minlength="5"></textarea>
+  </view>
+  <view class='r-cell-con'>
+    <text>默认</text>
+    <view style='position:relative;right:-540rpx;top:-66rpx'>
+    <image src="../../img/select.png" style='height:35rpx;width:35rpx;position:relative;top:6rpx;' bindtap='Clickimg' wx:if="{{isClick==false}}"></image>
+    <image src="../../img/selected.png" style='height:35rpx;width:35rpx;position:relative;top:6rpx;' bindtap='ClickimgOne' wx:else></image>
+    <text>设为默认</text>
+    </view>
+  </view>
+  <view class='b-btn-sty'>
+    <button class='btn' bindtap='submitbtn'>保存</button>
+  </view>

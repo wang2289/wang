@@ -1,0 +1,51 @@
+.grouppeople{
+  background: #fff;
+
+}
+.group-people {
+  display: flex;
+  flex-direction: row;
+  height: 140rpx;
+  line-height: 140rpx;
+  justify-content: center;
+  vertical-align: middle;
+  background: #fff;
+}
+
+.group-people-detail {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #eee;
+  margin: 0px 15rpx;
+  margin-top: 30rpx;
+  border: 1px dashed #bdbdbd;
+}
+.group-people-text{
+text-align: center;
+width: 100%;
+font-size: 28rpx;
+color: #999999;
+padding-bottom: 20rpx;
+}
+.group-people-detail.on {
+  border: 1px solid #eb2c1e;
+  position: relative;
+  background: #ffebc8;
+}
+
+.group-people-detail.on text {
+  background: #ea281a;
+  width: 50rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  font-size: 18rpx;
+  color: #fff;
+  /* padding: 2px; */
+  position: absolute;
+  text-align: center;
+  border-radius: 5rpx;
+  top: -20rpx;
+  left: 50%;
+  margin-left: -25rpx;
+}

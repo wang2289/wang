@@ -1,0 +1,12 @@
+  <template name="grouppeopleTemplate">
+  <view class='grouppeople'>
+    <view class='group-people'>
+      <view class='group-people-detail on'>
+        <text>团长</text>
+      </view>
+      <view class='group-people-detail'></view>
+      <view class='group-people-detail'></view>
+    </view>
+    <view class='group-people-text'>已隐藏显示其他成员, 全部成员共10人</view>
+  </view>
+  </template>

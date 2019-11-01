@@ -1,0 +1,28 @@
+ <view class='input_gather_body'>
+<view class='input_gather'>
+    <view class='input_gather_text'>手机号</view>
+    <input placeholder="您的手机号" type="number" bindinput='PhoneInfo'  class='log-pwd' placeholder-style='color: #BDBDBD;' maxlength='11' />
+    	<div class="m-cell-ft">
+			<!-- <icon class="m-icon-warn" type="warn"></icon> -->
+		</div>
+  </view>
+   <view class='input_gather'>
+    <view class='input_gather_text'>验证码</view>
+    <input placeholder="您收到的验证码" type="number" bindinput='passwordInfo'  class='log-pwd' placeholder-style='color: #BDBDBD;'/>
+    <view class="Captchas" bindtap="verify" disabled='{{disabled}}' style="color:{{color}};">
+      {{time}}
+    </view>
+  </view>
+  <view class='input_gather'>
+    <view class='input_gather_text'>图形验证码</view>
+    <input  type="text" bindinput='passimage'  class='log-pwd' placeholder-style='color: #BDBDBD;'/>
+    <image src='{{passimage}}' class="Captchimg" mode='mode' bindtap='clickpassimage'></image>
+  </view>
+   
+   <view class="{{isInput?'btn_Input':'btn'}}" disabled='{{!isInput?"disabled":""}}' bindtap='nextstep'>下一步</view>
+   <view class="input_gather_footext" wx:if="{{Typenumber==1}}">
+   <text>用户注册即代表同意</text>
+   <label catchtap='registration'>《{{regisTitle}}》</label>
+   </view>
+</view>
+

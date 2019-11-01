@@ -1,0 +1,44 @@
+<!--pages/supplier/supplier.wxml-->
+<view class='page'>
+  <view class='supplier-layout'>
+    <view class='info'>
+      <view class='avatar'>
+        <image class='avatar-img' wx:if="{{supplier.pictureUrl}}" src='{{supplier.pictureUrl}}'></image>
+        <!-- <image class='avatar-img'  src='../../img/userImg.png'></image> -->
+      </view>
+      <view class='supplier-name'>{{supplier.name}}</view>
+    </view>
+    <view class='supplier-ad clearfix'>
+      <image class='ad-img' src='{{supplier.introducePictureUrl}}'></image>
+    </view>
+    <view class='supploer-introduction'>
+      <view class='introduction {{!introductionActive?"introduction-show":""}}'>
+        {{supplier.description}}
+      </view>
+      <view class='introduction-more' bindtap='tabIntroduction'>
+        <image class='introduction-icon {{introductionActive?"introduction-icon-active":""}}' src='../../img/right.png' mode='aspectFit'></image>
+      </view>
+    </view>
+  </view>
+  <view class='supplier-product'>
+    <scroll-view class='category-layout' scroll-x='true'>
+      <view class='category-list clearfix'>
+        <view class='category-item'  wx:for="{{categoryInfo}}" wx:for-item="category" data-id="{{category.id}}" catchtap='seletCategory'>
+          <text class='category-text  {{category.selected?"category-text-active":""}}'>{{category.categoryName}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='product-list clearfix' >
+    <view class='item' data-id="{{commodity.id}}" data-clazzType="{{commodity.clazzType }}" wx:for="{{commodityList}}" wx:for-item="commodity" catchtap='seletCommodity'>
+      <view class='item-img'>
+        <image class='item-img-i' src='{{commodity.pictureUrl}}'></image>
+      </view>
+      <view class='item-title'>{{commodity.title}}</view>
+      <view class='item-info'>
+        <text class='price'>¥ <text class='price-integer'>{{commodity.showPrice}}</text></text>
+        <text class='sales'>月销 : {{commodity.saleQuantity}}</text>
+      </view>
+    </view>
+  </view> 
+</view>

@@ -1,0 +1,35 @@
+<template name="mybargaintemplate">
+  <view class="mybargain-container">
+    <image src="../../../img/6.png" class='mybargain-img'></image>
+    <view class='mybargain-box'>
+      <view class='mybargain-title'>
+        香薰精油家用室内卫生间空气清新剂卧室持久留香香水
+      </view>
+      <view class='mybargain-price'>
+        <view class='mybargain-money'>
+          <text>￥</text>200.00
+        </view>
+        <view class='mybargain-tips'>
+          砍价成功，快去付款吧！
+        </view>
+         <view class='mybargain-subtitle'>
+          已砍<text class='mybargain-hot'>45.87</text>元，还剩<text class='mybargain-hot'>345.98</text>元！
+        </view>
+        <!-- <view class='bargaingoods-buybtn'>
+              即将开始
+              </view> -->
+
+      </view>
+      <view class='mybargain-text'>
+        <view class='mybargain-time'>
+          <text class='mybargain-times'>23</text>：
+        <text class='mybargain-times'>23</text>：
+        <text class='mybargain-times'>23</text>后结束
+        </view>
+        <view class='mybargain-buybtn active over'>
+          去付款
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

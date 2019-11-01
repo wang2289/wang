@@ -1,0 +1,415 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxafdceba36ae9e347",
+	"projectname": "mb2c-pro",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 60,
+			"list": [
+				{
+					"id": 0,
+					"name": "全部订单",
+					"pathName": "pages/orders/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/UserCenter/UserCenter",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "订单评价",
+					"pathName": "pages/orders/comments/create",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "确认兑换",
+					"pathName": "pages/Confrimexchange/Confrimexchange",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "积分兑换记录",
+					"pathName": "pages/Pointsrecord/Pointsrecord",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "账户安全",
+					"pathName": "pages/Accountsecurity/Accountsecurity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的账户",
+					"pathName": "pages/Useraccount/Useraccount",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新增地址",
+					"pathName": "pages/addressmanage/addressmanage",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "商品详情",
+					"pathName": "pages/productdetail/productdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情评价",
+					"pathName": "pages/evaluation/evaluation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/productdetail/productdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/evaluation/evaluation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改支付密码",
+					"pathName": "pages/paymentpassword/paymentpassword",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/UserCenter/UserCenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人资料",
+					"pathName": "pages/Dataaddress/Dataaddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/ordersubmit/ordersubmit",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "使用礼品卡",
+					"pathName": "pages/Usergiftcard/Usergiftcard",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "顶部导航栏",
+					"pathName": "pages/Navbar/Navbar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "产品中心",
+					"pathName": "pages/productcenter/productcenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "设置登录密码",
+					"pathName": "pages/loginpassword/loginpassword",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "弹框",
+					"pathName": "pages/showtoast/showtoast",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搭配购买",
+					"pathName": "pages/Matchpurchase/Matchpurchase",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "表格",
+					"pathName": "pages/table/table",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新增资质",
+					"pathName": "pages/newcertificate/newcertificate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/collect/collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/paymentsuccess/paymentsuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "兑换成功",
+					"pathName": "pages/Successfulconversion/Successfulconversion",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "物流详情",
+					"pathName": "pages/Logisticsdetails/Logisticsdetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发票",
+					"pathName": "pages/invoiceinformation/invoiceinformation",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "提交订单",
+					"pathName": "pages/ordersubmit/ordersubmit",
+					"query": "id=1019172876626300928&itemid=1019172614343888896&numval=1"
+				},
+				{
+					"id": 5,
+					"name": "商品详情",
+					"pathName": "pages/productdetail/productdetail",
+					"query": "currentItemId=1023760758649262080"
+				},
+				{
+					"id": -1,
+					"name": "產品中心",
+					"pathName": "pages/productcenter/productcenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "礼品卡",
+					"pathName": "pages/cards/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新增资质",
+					"pathName": "pages/newcertificate/newcertificate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的优惠券",
+					"pathName": "pages/coupon/coupon",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "【我的】",
+					"pathName": "pages/UserCenter/UserCenter",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orders/show",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "设置密码",
+					"pathName": "pages/loginpassword/loginpassword",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/addresslist/addresslist",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "增票资质",
+					"pathName": "pages/Increasedticket/Increasedticket",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": 42,
+					"name": "支付密码",
+					"pathName": "pages/Sixpass/sixpass",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定手机",
+					"pathName": "pages/bindcellphone/bindcellphone",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品比较",
+					"pathName": "pages/Comparison/Comparison",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": -1,
+					"name": "我的积分",
+					"pathName": "pages/integral/integral",
+					"query": "order_id=982897090718208000"
+				},
+				{
+					"id": 46,
+					"name": "1",
+					"pathName": "pages/paymentsuccess/paymentsuccess",
+					"query": ""
+				},
+				{
+					"id": 47,
+					"name": "退货物流",
+					"pathName": "pages/Filllogistics/Filllogistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款详情",
+					"pathName": "pages/Detailsrefunds/Detailsrefunds",
+					"query": ""
+				},
+				{
+					"id": 49,
+					"name": "1",
+					"pathName": "pages/Logisticsdetails/Logisticsdetails",
+					"query": "prouId=1044524082173186048"
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/Filllogistics/Filllogistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "电子卡",
+					"pathName": "pages/bindCard/bindCard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "12323",
+					"pathName": "pages/orders/refund/create",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "全部订单",
+					"pathName": "pages/orders/index",
+					"query": ""
+				},
+				{
+					"id": 54,
+					"name": "评价",
+					"pathName": "pages/orders/comments/create",
+					"query": "order_id=1069777111734423552"
+				},
+				{
+					"id": 55,
+					"name": "商品列表",
+					"pathName": "pages/productcenter/productcenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": 57,
+					"name": "商家首页",
+					"pathName": "pages/supplier/supplier",
+					"query": "supplierId=999960251795378176",
+					"scene": "1001"
+				},
+				{
+					"id": 58,
+					"name": "商品中心",
+					"pathName": "pages/productcenter/productcenter",
+					"query": "clazzType=CURRICULUM",
+					"scene": "1037",
+					"referrerInfo": {
+						"appId": "wx878f29f4478f429d",
+						"extraData": "{  \"objectType\": \"CURRICULUM\"   }"
+					}
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/productdetail/productdetail",
+					"query": "currentItemId=1080380433931571200&clazzType=STANDARD"
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/active/active",
+					"query": "scene=code=asdas",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,18 @@
+<view class="m-tab">
+  <view class="m-navbar">
+    <view class="m-navbar-items {{tapindex==1?'m-navbar-item-on':''}}" bindtap="allOrders">
+      省
+    </view>
+    <view class="m-navbar-items {{tapindex==2?'m-navbar-item-on':''}}" bindtap="toBePaid">
+      市
+    </view>
+    <view class="m-navbar-items {{tapindex==3?'m-navbar-item-on':''}}" bindtap="receiptOfGoods">
+      区
+    </view>
+  </view>
+</view>
+<view class="ad-info">
+  <view wx:for="{{provinceInfo}}" wx:for-item="item" wx:key="i" class='m-address {{fid==i?"m-sel":""}}' wx:if="{{tapindex==1}}" bindtap='ClickProvinc' wx:for-index="i" data-prduindex="{{i}}" data-provid="{{item.id}}" data-provName="{{item.name}}"> {{item.name}}</view>
+  <view wx:for="{{CityInfo}}" wx:for-item="item" wx:key="i" class='m-address {{fic==i?"m-sel":""}}' wx:if="{{tapindex==2}}" wx:for-index="i" bindtap='ClickCity' data-cityId="{{item.id}}" data-cityName="{{item.name}}" data-prduindex="{{i}}"> {{item.name}}</view>
+  <view wx:for="{{TowInfo}}" wx:for-item="item" wx:key="i" class='m-address {{fie==i?"m-sel":""}}' wx:if="{{tapindex==3}}" wx:for-index="i" bindtap='ClickDistrict' data-districtId="{{item.id}}" data-districtName="{{item.name}}" data-prduindex="{{i}}"> {{item.name}}</view>
+</view>

@@ -1,0 +1,21 @@
+<!-- pages/integralMall/index.wxml -->
+<scroll-view class='m-scrollBox' scroll-y="true" bindscrolltolower="scrollbottom">
+  <block wx:for="{{products}}" wx:key="{{id}}">
+    <navigator url="../giftDetails/giftDetails?currentItemId={{item.id}}" class='navStyle'>
+      <view class='itemViewStyle'>
+        <text class='nameStyle'>{{item.name}}</text>
+        <view class='pointStyle'>
+          <text class='pointStyle-money' wx:if="{{item.showPrice>0}}">￥ {{item.showPrice}}<text style='color:#999999'> + </text></text>
+          <text class='pointStyle-money' decode="{{true}}">{{item.showPoint}}&nbsp;<text style='color:#999999'>积分</text></text>
+        </view>
+        <image class='imageStyle' src='{{item.pictureUrl}}' mode='mode' mode='aspectFill'></image>
+      </view>
+    </navigator>
+  </block>
+</scroll-view>
+
+<view class="u-tap-btn">
+  <navigator url="../index/index" open-type="switchTab" class="u-go-home">
+    <view class="iconfont icon-shouyeshouye"></view>
+  </navigator>
+</view>

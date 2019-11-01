@@ -1,0 +1,63 @@
+/* pages/Comparison/Comparison.wxss */
+.com-table{
+  display: flex;
+  box-sizing: border-box;
+}
+.com-th{
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  line-height: 178rpx;
+  font-size:24rpx; 
+  margin: 33rpx 0;
+}
+.c-th{
+  height: 80rpx;
+  line-height: 30rpx;
+  margin: 20rpx 0;
+}
+.com-tr{
+  flex: 2;
+  text-align: center;
+  background: #fff;
+ border: 1rpx solid #EEEEEE;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+  box-sizing:border-box;
+    height: 244rpx;
+    color: #000;
+}
+.c-tr{
+ height: 120rpx;
+  /* line-height: 80rpx; */
+  padding: 20rpx 0;
+  font-size:24rpx; 
+  color: #000;
+}
+.Commodityimage{
+  height: 178rpx;
+  width: 178rpx;
+  margin-top:28rpx;
+}
+.star-color{
+   height: 26rpx;
+  width: 26rpx;
+  display: inline-block;
+  margin-left:10rpx;
+}
+.sel {
+  color: #db384c;
+  font-size: 24rpx;
+}
+
+.m-start label {
+  font-size: 24rpx;
+}
+.hor {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+ 

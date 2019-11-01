@@ -1,0 +1,87 @@
+<view class='f-cell'>
+  <view class="auth-box">
+    <view class='auth-text'>
+      <view class='auth-text-con'>发票类型</view>
+      <view class='auth-btn'>
+        <view class='{{tapindex==1?"auth-btn-xell":"select-xell"}}' bindtap='allOrders'>不开发票</view>
+        <view class='{{tapindex==2?"auth-btn-xell":"select-xell"}}' bindtap='toBePaid'>普通发票</view>
+        <view class='{{tapindex==3?"auth-btn-xell":"select-xell"}}' bindtap='receiptOfGoods'>增值税发票</view>
+      </view>
+    </view>
+  </view>
+  <!-- 普通发票 -->
+  <view class="m-ad-list" wx:if="{{tapindex==2}}">
+    <view class='f-cel-co'>发票抬头</view>
+    <view class="m-ad-item">
+      <view class="m-ad-l" bindtap="SelectAddress">
+        <view class="m-ad-i-top">
+          <input bindinput='invoicelookedup' placeholder='请输入' value='{{invoice}}'></input>
+        </view>
+        <!-- <view class="m-ad-i-bot">
+                <text>上海市上海城区崇明区绿华镇ceshi</text>
+            </view> -->
+      </view>
+    </view>
+    <view class='b-btn-sty'>
+      <button class='btn' bindtap='successbtn'>确定</button>
+    </view>
+  </view>
+  <!-- 增值税发票 -->
+  <view class='f-cell-c' wx:if="{{tapindex==3}}">
+    <view class='f-cel-co'>收票人信息</view>
+    <view class="m-cells m-cells-form">
+
+      <view class="m-cell m-cell-select-before" style="height:60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>社会信用代码</label>
+        </view>
+        <view class="m-cell-bds">
+          <input bindinput='creditcode' placeholder='请输入社会信用代码' value='{{creditcode}}'></input>
+        </view>
+      </view>
+      <view class="m-cell m-cell-select-before" style="height: 60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>公司名称</label>
+        </view>
+        <view class="m-cell-bds">
+          <input bindinput='companyname' placeholder='请输入公司名称'  value='{{companyname}}'> </input>
+        </view>
+      </view>
+      <view class="m-cell m-cell-select-before" bindtap="showbox" style="height: 60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>公司地址</label>
+        </view>
+        <view class="m-cell-bds">
+          <input placeholder='请输入公司地址' value='{{provname}}{{cityname}}{{districtname}}'> </input>
+        </view>
+      </view>
+      <view class="m-cell m-cell-select-before" style="height: 60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>公司电话</label>
+        </view>
+        <view class="m-cell-bds">
+          <input bindinput='companyphone' placeholder='请输入公司电话'  value='{{companyphone}}'> </input>
+        </view>
+      </view>
+      <view class="m-cell m-cell-select-before" style="height: 60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>开户行名称</label>
+        </view>
+        <view class="m-cell-bds">
+          <input bindinput='openingbank' placeholder='请输入开户行名称'  value='{{openingbank}}'> </input>
+        </view>
+      </view>
+      <view class="m-cell m-cell-select-before" style="height: 60rpx;">
+        <view class="m-cell-hd">
+          <label class="u-label" style='color:#666666'>开户行银行账号</label>
+        </view>
+        <view class="m-cell-bds">
+          <input bindinput='openingbankname' placeholder='请输入开户行银行账号' value='{{openingbankname}}'> </input>
+        </view>
+      </view>
+      <view class='b-btn-sty'>
+        <button class='btn' bindtap='successbtn'>确定</button>
+      </view>
+    </view>
+  </view>
+</view>

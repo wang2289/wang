@@ -1,0 +1,44 @@
+/* pages/Sixpass/sixpass.wxss */
+.info{
+  width:660rpx;
+  margin: 40rpx auto 0  auto;
+  font-size:36rpx;
+  display:block;
+  padding-left:10rpx;
+}
+.content{  
+  display: flex;  
+  justify-content: space-around;  
+  align-items: center;  
+  /* margin-top: 200rpx;   */
+  width:660rpx;
+  margin: 40rpx auto 0 auto;
+  border:2rpx solid #ddd;
+  border-radius:10rpx;
+  background:#fff;
+  height:100rpx;
+}  
+
+.iptbox{  
+  width: 102rpx;  
+  height: 80rpx;  
+  border-right:1rpx solid #ddd;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  text-align: center;  
+  /* margin-top:8rpx; */
+}  
+.iptbox:last-child{
+  border-right:none;
+}
+.ipt{  
+  width: 0;  
+  height: 0;  
+}  
+.btn-area{  
+  width: 660rpx;  
+  background-color: #ea281a;  
+  color:white;  
+  margin-top:-20rpx;
+}  

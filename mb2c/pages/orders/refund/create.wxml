@@ -1,0 +1,78 @@
+<view class="m-refund">
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      请选择服务类型
+      <text>*</text>
+    </view>
+    <view class='m-input'>
+      <picker bindchange="bindTypePickerChange" value="{{index}}" range="{{typeValue}}">
+        <view class="picker">
+          <input placeholder='请选择您的服务类型' class='u-input' disabled='true' value='{{typeValue[index]}}'></input>
+        </view>
+      </picker>
+      <!-- <input class='u-input' placeholder='请选择您的服务类型'></input> -->
+      <image src='../../../img/zhankai.png' class='image'></image>
+    </view>
+  </view>
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      退款退货原因
+      <text>*</text>
+    </view>
+    <view class='m-input'>
+      <picker bindchange="bindRefundReasonPickerChange" value="{{key}}" range="{{refundReasonValue}}">
+        <view class="picker">
+          <input class='u-input' placeholder='请选择您的退款退货原因' value='{{refundReasonValue[key]}}' disabled='true'></input>
+        </view>
+      </picker>
+      <!-- <input class='u-input' placeholder='请选择您的退款退货原因'></input> -->
+      <image src='../../../img/zhankai.png' class='image'></image>
+    </view>
+    <!-- <view class='m-input' wx:if='{{key==9}}'>
+      <input placeholder='请说明其它原因' value="{{OtherReason}}" class='u-input' bindinput='OtherReason '></input>
+    </view> -->
+  </view>
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      退款金额
+      <text>*</text>
+    </view>
+    <view class='m-input'>
+      <input placeholder='最多￥{{maxRefundAmount}}，含邮费￥{{freightFee}}' value="{{requestedAmount}}" class='u-input' bindinput='inputRequestedAmount'></input>
+    </view>
+  </view>
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      手机号码
+      <text>*</text>
+    </view>
+    <view class='m-input'>
+      <input placeholder='{{contactPhone}}' class='u-input' bindinput='inputContactPhone'></input>
+    </view>
+  </view>
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      退款说明
+    </view>
+    <view class='m-input'>
+      <input placeholder='退货说明，非必填' class='u-input' bindinput='inputRefundRemark'></input>
+    </view>
+  </view>
+  <view class='m-refund-require'>
+    <view class='m-refund-text'>
+      上传凭证
+    </view>
+    <view class="m-upImg">
+      <view class="m-upImg-item" catchtap="upImgs" style='background:#eee' wx:for="{{imgList}}" wx:for-item="img" wx:for-index="i">
+        <image mode="aspectFit" src="{{img.filePath}}" data-src="{{img.filePath}}" bindtap='imgtap'></image>
+        <image class='c-icon' src="../../../img/delete.png" data-index="{{i}}" data-id='{{img.id}}' catchtap="deleteImg"></image>
+      </view>
+      <view class="m-upImg-item">
+        <image mode="aspectFit" src="../../../img/addpicture.png" data-id="{{good.id}}" bindtap="onAddImgTap"></image>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='m-btn' bindtap='onSubmitTap'>提交</view> -->
+
+</view>
+<button class='b-btn' bindtap='onSubmitTap'>提交</button>

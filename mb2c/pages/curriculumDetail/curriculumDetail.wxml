@@ -1,0 +1,351 @@
+<wxs module="filter" src="../../utils/format.wxs"></wxs>
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+<scroll-view scroll-y="true" class="s-container" bindscrolltolower="scrollbottom" style='height:137%' bindscroll="scroll" scroll-top="{{scposition}}"  wx:if="{{currentTab==0}}">
+  <!-- 商品 -->
+  <view>
+    <view class='m-picture-number'>
+      <text>{{index}} / {{ProductInfo.pictureList.length}}</text>
+    </view>
+    <view class="m-banner-ad">
+      <swiper autoplay="false" interval="3000" duration="300" current="0" bindchange='onSlideChangeEnd'>
+        <swiper-item wx:for="{{ProductInfo.pictureList}}" wx:for-item="item">
+          <image class="slide-image" src="{{item.url}}"
+          bindtap="onBigImageTap" data-list="{{ProductInfo.pictureList}}" data-src="{{item.url}}"
+           />
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="m-cells">
+      <view class="m-info-box">
+        <view>
+          <view class='p-info'>{{ProductInfo.commodity.name}}</view>
+          <!-- <view class='p-info-price'>
+            <view class='p-price-text'>
+              <view class="m-info-price">￥
+                <text >{{Salespromotion &&Salespromotion < showPrice?Salespromotion:showPrice}}</text>
+              </view>
+              <view class='p-info-text' wx:if="{{Salespromotion &&Salespromotion < showPrice }}">促销价</view>
+            </view>
+            <view class="m-info-delprice" wx:if="{{Salespromotion &&Salespromotion < showPrice}}"  >价格<text>￥{{showPrice}}</text>
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <view class="m-panel-ft" >
+      <navigator class="m-cell m-cell-access m-cell-links">
+        <view class="m-cell-bd">
+          <view class='p-cell-content'>时间</view>
+          <text class='m-cell-content'>{{filter.formatTime(commodityCurriculum.beginTime)}}~{{filter.formatTime(commodityCurriculum.endTime)}}</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="m-panel-ft">
+      <view class="m-cell m-cell-access m-cell-links">
+        <view class="m-cell-bd">
+          <view class='p-cell-content'>地点</view>
+          <text class='m-cell-content'> {{commodityCurriculum.address}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="m-panel-ft" style='margin-bottom:20rpx'>
+      <view  class="m-cell m-cell-access m-cell-links">
+        <view class="m-cell-bd">
+          <view class='p-cell-content'>价格</view>
+            <view class='m-cell-content'>￥
+              <text >{{showPrice}}</text>
+            </view>
+            <!-- <view class='m-cell-content'>￥
+              <text >{{Salespromotion &&Salespromotion < showPrice?Salespromotion:showPrice}}</text>
+            </view>
+            <view class='p-info-text' wx:if="{{Salespromotion &&Salespromotion < showPrice }}">促销价</view>
+            <view class="m-info-delprice" wx:if="{{Salespromotion &&Salespromotion < showPrice}}"  >价格<text>￥{{showPrice}}</text>
+          </view> -->
+        </view>
+      </view>
+      <view class="m-panel-ft">
+      <view class="m-cell m-cell-access m-cell-links">
+        <view class="m-cell-bd" bindtap="navigatorToSupplier">
+          <view class='p-cell-content'>供应商</view>
+          <text class='m-cell-content'> {{ProductInfo.commodity.supplierName}}</text>
+        </view>
+      </view>
+    </view>
+    </view>
+    
+    <view class="m-panel-ft">
+      <view class="m-cell-access">
+        <view class="m-cell-bd" wx:if="{{commodityEvaluationNumberpice.evaluationNumber!=0}}">
+          <view class='p-cell-evaluate'>评价({{commodityEvaluationNumberpice.evaluationNumber}})</view>
+          <text class='p-evaluate-bd' bindtap='Lookatall'>查看全部</text>
+          <!-- <text class="m-cell-ft p-cell-ft"></text> -->
+          <text class="m-cell-ft"></text>
+
+        </view>
+        <view class="m-cell m-cell-access m-cell-links" wx:if="{{commodityEvaluationNumberpice.evaluationNumber==0}}">
+
+          <view class="m-cell-content">暂无评价</view>
+        </view>
+      </view>
+    </view>
+    <view class='p-panel' bindtap='ClickelseInfo'>查看全部图文详情</view>
+  </view>
+</scroll-view>
+<scroll-view scroll-y="true" class="s-container" style='height:84%'  wx:if="{{currentTab==1}}">
+  <!-- 商品 -->
+  <view>
+    <!-- <view class="m-panel m-panel-access m-detail"> -->
+    <view class="p-tab">
+      <view class='p-show'></view>
+      <!-- <view class="m-navbar">
+        <view class="m-navbar-item {{tapindex==1?'m-navbar-item-on':''}}" bindtap="picDetail">
+          商品介绍
+        </view>
+        <view class='p-navbar'></view>
+        <view class="m-navbar-item {{tapindex==2?'m-navbar-item-on':''}}" bindtap="spcParam">
+          规格参数
+        </view>
+      </view> -->
+      <view class="{{tapindex==1?'':'hide'}}">
+        <rich-text nodes="{{Therichtext}}"></rich-text>
+      </view>
+      <view class="g-flex-fott {{tapindex == 2 ? '' : 'hide'}}">
+        <view class="table">
+          <block wx:for="{{ProductInfo.commonAttrLis}}" wx:key="{{item}}">
+            <view class="tr bg-g">
+              <view class="td">{{item.attributeName}}</view>
+              <view class="r-td">{{item.valueName}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='show'></view>
+      <!-- </view> -->
+    </view>
+  </view>
+</scroll-view>
+<!-- 优惠券 -->
+<view class="m-panel-sp" wx:if="{{conponflag}}" style='z-index:999;'>
+  <view class="m-panel-sp-content">
+    <!-- <icon type="cancel" class="m-panel-sp-icon" color="#888" catchtap="closesp" /> -->
+    <view class="m-panel-sp-listbox-item">
+      <view class="m-cells-title">领取优惠券</view>
+    </view>
+    <view wx:if="{{textIndex<=0}}">
+      <image src='../../img/nocoupon.png' class='shoppingcart'></image>
+      <view class='text'>无可用优惠券</view>
+    </view>
+    <scroll-view class="m-panel-sp-listbox" scroll-y="true">
+      <block wx:for="{{couponDefinition}}" wx:for-item="items">
+        <block>
+          <view class='y-cell'>
+            <view class='y-img'>
+              <image src='../../img/couponquan.png'></image>
+              <view class='y-con' data-coupon_id="{{items.id}}" bindtap="onReceiveCouponTap">领取</view>
+              <view class='y-juan'>
+                <view>{{items.name}}</view>
+                <view>有效期至：{{filter.formatDay(items.usefulEnd)}}</view>
+              </view>
+            </view>
+            <!-- <view class='p-line'></view> -->
+          </view>
+        </block>
+      </block>
+      <view style="height:96rpx;width:100%;"></view>
+    </scroll-view>
+    <view class="m-m-panel-sp-btn">
+      <view class="m-m-panel-sp-rbtn" catchtap="closesp">关闭</view>
+    </view>
+  </view>
+</view>
+<!-- 评价 -->
+<view wx:if="{{currentTab==2}}">
+  <view class='e-cell'>
+    <view class='e-btn'>
+      <view class='{{allindex==1?"e-btn-a":"e-btn-b"}}' bindtap='all' style='margin-right:20rpx'>全部 {{evaluationNumber}}</view>
+      <view class='{{allindex==2?"e-btn-a":"e-btn-b"}}' bindtap='withpicture'>有图 {{pictureEvaluationNumber}}</view>
+    </view>
+    <!-- 评价信息 -->
+    <scroll-view scroll-y="true" class="m-panel-bd m-orderlist" bindscrolltolower="scrollPage">
+      <block wx:for="{{comments}}" wx:for-item="comment">
+        <view class="m-media-box m-media-box-appmsg" wx:if="{{!comment.isHide}}">
+          <view class="m-media-box-bd" wx:if="{{!comment.isHide}}">
+            <view class='p-media'>
+              <label class="m-media-box-title" wx:if="{{comment.isAnonymous == false}}">{{comment.memberName}}</label>
+              <label class="m-media-box-title" wx:else>***</label>
+              <view class="m-time">{{filter.formatDay(comment.evaluationTime)}}</view>
+            </view>
+            <view class="m-media-box-desc">
+              <view class="m-media-box-info" style='width:144rpx'>
+                <view class="m-media-box-info-meta m-start" wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-item="itemIndex">
+                  <label class="iconfont icon-start {{(itemIndex<=comment.score)?'sel':''}}"></label>
+                </view>
+              </view>
+              <view style='padding-top:25rpx;color:#000000;font-size:28rpx;'>{{comment.content}}</view>
+              <view wx:if="{{comment.attachmentList}}" class="m-media-list">
+                <image bindtap="onShowBigImageTap" data-list="{{comment.attachmentList}}" data-src="{{item.filePath}}" wx:for="{{comment.attachmentList}}" src="{{item.filePath}}"></image>
+              </view>
+              <view style='color:#000000;font-size:28rpx;margin-top:300rpx' wx:for='{{comment.replyList}}' wx:for-item="item">
+                <text>{{item.replyUserName}}:</text>
+                <text style='color:#666666'>{{item.replyContent}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class='show'></view>
+    </scroll-view>
+
+  </view>
+
+</view>
+
+<view class="m-footer-btn" wx:if="{{!btnflag}}">
+  <view class="m-footer-btn-list">
+    <view class="m-footer-btn-item" bindtap='{{isCollected?"ClickCollectdel":"collectionNew"}}'>
+      <view class="m-footer-btn-icon">
+        <image style='width:34rpx;height:30rpx;' src='{{isCollected ? "../../img/Collected.png" : "../../img/shouxin.png"}}'></image>
+      </view>
+      <text>{{isCollected ? "已收藏" : "收藏"}}</text>
+    </view>
+  </view>
+  <view class="m-footer-btn-main" bindtap="ckselectsp4">
+    立即报名
+  </view>
+  <!-- <view class="m-footer-btn-main m-now" bindtap="ckselectsp1">
+    加入购物车
+  </view> -->
+</view>
+<view class="m-footer-btn" wx:else>
+  <view class="m-m-panel-sp-btn">
+    <!-- <view class="m-m-panel-sp-rbtn" catchtap="buynow" wx:if="{{tab==0}}">确定</view> -->
+    <view class="m-m-panel-sp-rbtn-helf font-helf"  wx:if="{{tab==2}}">合计:￥{{showPrice}}</view>
+    <view class="m-m-panel-sp-rbtn-helf" catchtap="buynow" wx:if="{{tab==2}}">立即报名</view>
+    <view class="m-m-panel-sp-rbtn" catchtap="ckselectspbuynow" wx:else>确定</view>
+    <!-- <view class="m-m-panel-sp-rbtn" catchtap="closesp">确定</view> -->
+  </view>
+</view>
+
+<!--以下为toast显示的内容-->
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <image src='../../img/outofrange.png' class='toast_content_img'></image>
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+
+
+<!-- 筛选规格 -->
+<view class="m-panel-sp {{selectsp==0?'hide':''}} " bindtap="closesp" wx:if="{{!conponflag}}">
+  <view class="m-panel-sp-content {{selectct==0?'bounceOutDown animated':'bozunceInUp animated'}}" catchtap>
+    <view class="m-panel-sp-pinfo">
+      <view class="m-panel-sp-pimg">
+        <image src="{{ProductInfo.commodity.pictureUrl}}" />
+      </view>
+      <view class="m-panel-sp-pname">
+        <view class='m-pprice'>
+        ¥{{Salespromotion &&Salespromotion < showPrice?Salespromotion:showPrice}}
+        </view>
+
+        <view class="m-pstock" wx:if="{{repertoryquantity>0}}">库存{{repertoryquantity}}件</view>
+        <view class="m-pstock" wx:else>库存0件</view>
+        <view class="p-pstock">请选择</view>
+      </view>
+      <icon type="cancel" class="m-panel-sp-icon" color="#888" catchtap="closesp" />
+    </view>
+    <scroll-view class="m-panel-sp-listbox" scroll-y="true">
+      <view class="m-panel-sp-listbox-item">
+        <view class="m-cells-title">{{ProductInfo.spec1AttrList[0].attributeName}} </view>
+        <view class="m-panel-sp-labellist">
+          <block wx:for="{{ProductInfo.spec1AttrList}}" wx:for-item="item" wx:for-index="i">
+            <label class="{{prduindex==i?'m-panel-sp-sellabel':'p-panel-sp'}}" catchtap="selectsp" data-prduindex="{{i}}" data-name='{{item.valueName}}' data-valueId='{{item.valueId}}'>{{item.valueName}}</label>
+            <!-- <label catchtap="selectsp">{{item.valueName}}</label> -->
+          </block>
+        </view>
+      </view>
+      <view class="m-panel-sp-listbox-item">
+        <view class="m-cells-title">{{ProductInfo.spec2AttrList[0].attributeName}} </view>
+        <view class="m-panel-sp-labellist">
+          <block wx:for="{{ProductInfo.spec2AttrList}}" wx:for-item="item" wx:for-index="i">
+            <label class="{{spec2AttrList==i?'m-panel-sp-sellabel':''}}" catchtap="spec2AttrList" data-prduindex="{{i}}" data-valueId='{{item.valueId}}'>{{item.valueName}}</label>
+            <!-- <label catchtap="selectsp">{{item.valueName}}</label> -->
+          </block>
+        </view>
+      </view>
+      <view class="m-panel-sp-listbox-item">
+        <view class="m-cells-title">{{ProductInfo.spec3AttrList[0].attributeName}} </view>
+        <view class="m-panel-sp-labellist">
+          <block wx:for="{{ProductInfo.spec3AttrList}}" wx:for-item="item" wx:for-index="i">
+            <label class="{{spec3AttrList==i?'m-panel-sp-sellabel':''}}" catchtap="spec3AttrList" data-prduindex="{{i}}" data-valueId='{{item.valueId}}'>{{item.valueName}}</label>
+            <!-- <label catchtap="selectsp">{{item.valueName}}</label> -->
+          </block>
+        </view>
+      </view>
+      <view class="m-panel-sp-listbox-item">
+        <view class="m-cells-title">数量
+          <!-- <text>(每人限购8件)</text> -->
+        </view>
+        <view class="m-panel-sp-labellist">
+          <view class="u-cart-num">
+            <view class="u-num-btn {{minusStatus}}" catchtap="sub">-</view>
+            <input type="number" value="{{numval}}" bindblur="writenum" />
+            <view class="u-num-btn" catchtap="add">+</view>
+          </view>
+        </view>
+      </view>
+      <view style="height:163rpx;width:100%;"></view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 课程商品报名弹框 -->
+<view class="m-panel-sp {{selectsp4==0?'hide':''}} " bindtap="closesp" wx:if="{{!conponflag}}">
+  <view class="m-panel-sp-content " catchtap>
+    
+      <view class='top-title clearfix'>
+        <icon type="cancel" class="m-panel-sp-icon" color="#888" catchtap="closesp" />
+        <view class='title'>请填写报名信息</view>      
+      </view>
+    <scroll-view class="m-category-l" scroll-y="true">
+      <view class="panel">
+        <view class="label-text"><label class='required'>*</label>姓名:</view>
+        <view class="input-border">
+          <input placeholder="" bindinput="inputName" name='name' class="sign-text" value="{{signInfo.name}}" />
+        </view>
+      </view>
+      <view class="panel">
+        <view class="label-text"><label class='required'>*</label>手机:</view>
+        <view class="input-border">
+          <input placeholder="" bindinput="inputPhone" name='phone' class="sign-text" value="{{signInfo.phone}}" />
+        </view>
+      </view>
+      <view class="panel">
+        <view class="label-text">公司:</view>
+        <view class="input-border">
+          <input placeholder="" bindinput="inputCompany" name='company' class="sign-text" value="{{signInfo.company}}" />
+        </view>
+      </view>
+      <view class="panel">
+        <view class="label-text">职位:</view>
+        <view class="input-border">
+          <input placeholder="" bindinput="inputJob" name='job' class="sign-text" value="{{signInfo.job}}" />
+        </view>
+      </view>
+      <view class="panel">
+        <view class="label-text">邮箱:</view>
+        <view class="input-border">
+          <input placeholder="" bindinput="inputEmail" name='email' class="sign-text" value="{{signInfo.email}}" />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view class="u-tap-btn">
+  <navigator url="../index/index" open-type="switchTab" class="u-go-home">
+    <view class="iconfont icon-shouyeshouye"></view>
+  </navigator>
+</view>

@@ -1,0 +1,9 @@
+<template name="bargaindetailtemplate">
+  <view class="bargaindetail-container">
+     <image src="../../../img/6.png" class='bargaindetail-img'></image>
+      <view class='bargaindetail-box'>
+        <view class='bargaindetail-time'>2018-06-04  12:34:34</view>
+        <view class='bargaindetail-title'>张三</view>
+      </view>
+  </view>
+</template>

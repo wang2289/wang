@@ -1,0 +1,32 @@
+.bargaindetail-container {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  height: 138rpx;
+}
+
+.bargaindetail-img {
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 25rpx;
+  margin-left: 38rpx;
+}
+.bargaindetail-time{
+  font-size: 28rpx;
+color: #333333;
+
+margin-top: 32rpx;
+opacity: 0.65;
+}
+.bargaindetail-title{
+  font-size: 32rpx;
+color: #333333;
+
+}
+.bargaindetail-box {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  margin-left: 16rpx;
+  width: 620rpx;
+}

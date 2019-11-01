@@ -1,0 +1,176 @@
+@import "groupover/groupover-template.wxss";
+@import "groupassemble/groupassemble-template.wxss";
+@import "grouppeople/grouppeople-template.wxss";
+@import "groupinfor/groupinfor-template.wxss";
+@import "share/share-template.wxss";
+
+.groupinfors {
+  background: #f4f4f4;
+}
+
+.group-assemble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.group-assemble-title {
+  font-size: 32rpx;
+  color: #333;
+  margin: 20rpx 0px;
+}
+
+.group-assemble-hot {
+  font-size: 32rpx;
+  color: #ea281a;
+}
+
+.group-assemble-time {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.group-assemble-btn {
+  height: 80rpx;
+  line-height: 70rpx;
+  width: 460rpx;
+  background: #ea281a;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.group-assemble-share {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+
+.single {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.single-notes1 {
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 30rpx;
+}
+
+.single-notes {
+  float: right;
+  color: #999;
+}
+
+.single-notes2 {
+  margin-right: 30rpx;
+}
+
+.groupinfors {
+  /* background: #eee; */
+}
+
+
+.orderdetail {
+  font-size: 24rpx;
+  color: #999;
+  height: 167rpx;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.group-price {
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+  margin-top: 20rpx;
+}
+
+.prices {
+  font-size: 24rpx;
+  color: #ea281a;
+  vertical-align: middle;
+}
+
+.num {
+  font-size: 32rpx;
+  color: #ea281a;
+  vertical-align: middle;
+}
+
+.oldprices {
+  color: #999;
+  text-decoration: line-through;
+  vertical-align: middle;
+}
+
+.font {
+  color: #999;
+  margin: 0px 19.6rpx;
+  vertical-align: middle;
+}
+
+.people {
+  font-size: 28rpx;
+  color: #333;
+  float: right;
+  vertical-align: middle;
+}
+
+.groupdetail {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.orderdetail {
+  background: #fff;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+
+.orderdetail text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.orderdetail view {
+  font-size: 24rpx;
+  color: #999;
+  margin: 20rpx 0rpx;
+}
+
+.group-payment {
+  overflow: hidden;
+  padding: 20rpx 0rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.group-payments {
+  float: right;
+  font-size: 24rpx;
+  color: #333;
+  vertical-align: middle
+}
+
+.group-payment-price {
+  font-size: 24rpx;
+  color: #ea281a;
+  vertical-align: middle
+}
+
+.group-payment-money {
+  color: #ea281a;
+  font-size: 36rpx;
+  vertical-align: middle;
+  margin-right: 30rpx;
+}
